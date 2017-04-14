@@ -56,4 +56,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Leoyzen/space-vim/master/i
 echo 'Symlinking config files...'
   source 'bin/symlink-dotfiles.sh'
 
+echo "Installing Fisherman Plugin"
+fish -c "fisher fzf omf/brew omf/extract fzf pyenv homebrew-tap omf/theme-bobthefish grc"
+
 
