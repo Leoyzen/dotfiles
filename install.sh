@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 dir="$HOME/.dotfiles"
-"Cloning Dotfiles"
+echo "Cloning Dotfiles"
 git clone --recursive https://github.com/Leoyzen/dotfiles $dir
 
 cd $dir
