@@ -44,19 +44,19 @@ if [[ ! -d $pyenv_dir ]];then
     curl -L "https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer" | bash
 fi
 
-if [[ ! -d $HOME/.local/share/omf ]];then
-    echo "Installing Oh My Fish and Fisherman"
-    curl -L https://get.oh-my.fish | fish
-    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-fi
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
-echo "Installing Space-Vim ..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Leoyzen/space-vim/master/install.sh)"
 
 echo 'Symlinking config files...'
   source 'bin/symlink-dotfiles.sh'
 
+echo "Installing Space-Vim ..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Leoyzen/space-vim/master/install.sh)"
+
 echo "Installing Fisherman Plugin"
 fish -c "fisher fzf omf/brew omf/extract fzf pyenv homebrew-tap omf/theme-bobthefish grc"
 
-
+if [[ ! -d $HOME/.local/share/omf ]];then
+    echo "Installing Oh My Fish and Fisherman"
+    curl -L https://get.oh-my.fish | fish
+fi
