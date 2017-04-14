@@ -50,6 +50,9 @@ if [[ ! -d $HOME/.local/share/omf ]];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
 
+echo "Installing Space-Vim ..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Leoyzen/space-vim/master/install.sh)"
+
 echo 'Symlinking config files...'
   source 'bin/symlink-dotfiles.sh'
 
