@@ -17,7 +17,7 @@ echo 'Checking for SSH key, generating one if it does not exist...'
 
 # If we on OS X, install homebrew and tweak system a bit.
 if [[ `uname` == 'Darwin' ]]; then
-  which -s brew
+  which brew
   if [[ $? != 0 ]]; then
     echo 'Installing Homebrew...'
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -29,7 +29,7 @@ if [[ `uname` == 'Darwin' ]]; then
     # source 'etc/osx.sh'
 
 elif [[ `uname` == 'Linux' ]];then
-    which -s brew
+    which brew
     if [[ $? != 0 ]];then
         echo 'Installing Linux Brew...'
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
