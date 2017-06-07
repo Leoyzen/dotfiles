@@ -23,9 +23,9 @@ if [[ `uname` == 'Darwin' ]]; then
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       brew update
       brew install htop ruby grc fish tmux macvim cmake git
-      echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >>~/.bashrc
-      echo 'export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"' >>~/.bashrc
-      echo 'export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"' >>~/.bashrc
+      echo 'export PATH="/usr/local/bin:$PATH"' >>~/.bashrc
+      echo 'export MANPATH="/usr/local/share/man:$MANPATH"' >>~/.bashrc
+      echo 'export INFOPATH="/usr/local/share/info:$INFOPATH"' >>~/.bashrc
   fi
 
   # echo 'Tweaking OS X...'
@@ -36,11 +36,12 @@ elif [[ `uname` == 'Linux' ]];then
     if [[ $? != 0 ]];then
         echo 'Installing Linux Brew...'
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+        echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.linuxbrew/bin:$PATH"' >>~/.bashrc
+        echo 'export MANPATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.linuxbrew/share/man:$MANPATH"' >>~/.bashrc
+        echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.linuxbrew/share/info:$INFOPATH"' >>~/.bashrc
+        source ~/.bashrc
         brew update
         brew install htop ruby grc fish tmux vim cmake git
-      echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >>~/.bashrc
-      echo 'export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"' >>~/.bashrc
-      echo 'export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"' >>~/.bashrc
     fi
 fi
 
@@ -57,7 +58,7 @@ echo 'Symlinking config files...'
   source 'bin/symlink-dotfiles.sh'
 
 echo "Installing Space-Vim ..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Leoyzen/space-vim/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
 
 echo "Installing Fisherman Plugin"
 fish -c "fisher fzf omf/brew omf/extract fzf pyenv homebrew-tap omf/theme-bobthefish grc"
