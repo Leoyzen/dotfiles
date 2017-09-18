@@ -9,3 +9,7 @@ bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 unbind -t vi-copy Enter
 bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 tmux list-keys -t vi-copy
+
+set-option -g default-shell /home/linuxbrew/.linuxbrew/bin/fish
+set -g default-terminal "screen-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"

@@ -54,8 +54,13 @@ function! UserInit()
                   \ colorcolumn=179
 
     " Install private plugins
-    Plug 'morhetz/gruvbox'
-    Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
+    " Plug 'extr0py/oni'
+    " Plug 'dracula/vim'
+    " Plug 'morhetz/gruvbox'
+    Plug 'ayu-theme/ayu-vim'
+    " Plug 'whatyouhide/vim-gotham'
+    " Plug 'scrooloose/nerdcommenter'
+    " Plug 'jacoborus/tender.vim'
 
 endfunction
 
@@ -75,6 +80,11 @@ function! UserConfig()
     " 始终使用4个空格
     set pastetoggle=
 
+    " 始终使用4个空格
+    set tabstop=4
+    set shiftwidth=4
+    set expandtab
+
     " 24位真彩色
 		if (has("nvim"))
 		" For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -90,19 +100,20 @@ function! UserConfig()
 		endif
 
     " color tener
-    color gruvbox
+<<<<<<< HEAD
+    " color gruvbox
     " Copy
     " color ayu
-    " colorscheme ayu
+    colorscheme ayu
     " set background=dark
-    set background=dark
-    " color hybrid_reverse
+    let ayucolor='mirage'
+    " let g:airline_theme='one'
+    set clipboard=unnamed
     set wrap
     " If you use vim inside tmux, see https://github.com/vim/vim/issues/993
     " " set Vim-specific sequences for RGB colors
     " set macligatures
     if has("gui_running")
-      set guifont=Fira\ Code\ Medium:h14
       if has("gui_gtk2")   "GTK2
           set guifont=Fira\ Code\ Medium:h14
       endif
@@ -143,5 +154,6 @@ function! UserConfig()
 			\ 'marker':  ['fg', 'Keyword'],
 			\ 'spinner': ['fg', 'Label'],
 			\ 'header':  ['fg', 'Comment'] }
-
+    " Python-Mode
+    let g:pymode_trim_whitespaces = 1
 endfunction
