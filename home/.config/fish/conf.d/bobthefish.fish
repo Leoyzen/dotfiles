@@ -4,11 +4,11 @@ set -gx theme_display_git_ahead_verbose yes
 set -gx theme_git_worktree_support yes
 set -gx theme_display_vagrant yes
 set -gx theme_display_docker_machine no
-set -gx theme_display_hg yes
+set -gx theme_display_hg no
 set -gx theme_display_virtualenv yes
 set -gx theme_display_ruby no
 set -gx theme_display_user yes
-set -gx theme_display_vi yes
+set -gx theme_display_vi no
 set -gx theme_display_date no
 set -gx theme_display_cmd_duration yes
 set -gx theme_title_display_process yes
