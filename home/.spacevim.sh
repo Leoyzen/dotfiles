@@ -10,12 +10,13 @@ function! Layers()
     Layer 'file-manager'
     Layer 'emoji'
     Layer 'better-defaults'
-    Layer 'c-c++'
+    " Layer 'c-c++'
     Layer 'python'
-    Layer 'javascript'
+    " Layer 'javascript'
     Layer 'docker'
-    Layer 'html'
+    " Layer 'html'
     Layer 'auto-completion'
+    " Layer 'ycmd'
     Layer 'git'
     Layer 'programming'
     Layer 'editing'
@@ -31,13 +32,40 @@ function! UserInit()
     " Space has been set as the default leader key,
     " if you want to change it, uncomment and set it here.
     let g:spacevim_leader=","
-    let g:gruvbox_contrast_dark='soft'
-    let g:gruvbox_sign_column='bg4'
-    let g:gruvbox_color_column='bg4'
-    let g:gruvbox_vert_split='bg4'
-    " let g:gruvbox_number_column='bg4'
-    let g:gruvbox_improved_strings='1'
-    let g:gruvbox_improved_warnings='1'
+
+    " Install private plugins
+    Plug 'morhetz/gruvbox'
+    Plug 'cocopon/iceberg.vim'
+    Plug 'nanotech/jellybeans.vim'
+    Plug 'ayu-theme/ayu-vim'
+    " Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
+
+endfunction
+
+" Put your costom configurations here, e.g., change the colorscheme.
+function! UserConfig()
+    let g:gruvbox_contrast_dark="soft"
+    let g:gruvbox_sign_column="bg4"
+    let g:gruvbox_color_column="bg4"
+    let g:gruvbox_vert_split="bg4"
+    " let g:gruvbox_number_column="bg4"
+    let g:gruvbox_improved_strings="1"
+    let g:gruvbox_improved_warnings="1"
+    " pymode
+    let g:pymode_rope=0
+    let g:pymode_rope_lookup_project=0
+    let g:pymode_trim_whitespaces=1
+    let g:pymode_python="python3"
+    let g:pymode_options_max_line_length=120
+    " let g:pymode_rope_goto_definition_bind="<C-g>"
+    " let g:pymode_rope_goto_definition_cmd="vnew"
+
+    " If you enable airline layer and have installed the powerline fonts, set it here.
+    " 字体设置
+    let g:airline_powerline_fonts=1
+    " let g:airline_theme="gruvbox"
+    let g:airline_theme="iceberg"
+    " let g:airline_theme='jellybean'
 
     " autocmd FileType python setlocal colorcolumn=120
     set textwidth=179
@@ -52,38 +80,8 @@ function! UserInit()
                   \ autoindent
                   \ fileformat=unix
                   \ colorcolumn=179
-
-    " Install private plugins
-    " Plug 'extr0py/oni'
-    " Plug 'dracula/vim'
-    " Plug 'morhetz/gruvbox'
-    Plug 'ayu-theme/ayu-vim'
-    " Plug 'whatyouhide/vim-gotham'
-    " Plug 'scrooloose/nerdcommenter'
-    " Plug 'jacoborus/tender.vim'
-
-endfunction
-
-" Put your costom configurations here, e.g., change the colorscheme.
-function! UserConfig()
-    " pymode
-    let g:pymode_trim_whitespaces=1
-    let g:pymode_python='python3'
-    let g:pymode_options_max_line_length=120
-    let g:pymode_rope_goto_definition_bind='<C-g>'
-
-    " If you enable airline layer and have installed the powerline fonts, set it here.
-    " 字体设置
-    let g:airline_powerline_fonts=1
-    let g:airline_theme='gruvbox'
-
     " 始终使用4个空格
-    set pastetoggle=
-
-    " 始终使用4个空格
-    set tabstop=4
-    set shiftwidth=4
-    set expandtab
+    " set pastetoggle=
 
     " 24位真彩色
 		if (has("nvim"))
@@ -100,15 +98,17 @@ function! UserConfig()
 		endif
 
     " color tener
-<<<<<<< HEAD
     " color gruvbox
-    " Copy
-    " color ayu
+    " color iceberg
+    " color jellybeans
+    " let ayucolor="light"  " for light version of theme
+    " let ayucolor="mirage" " for mirage version of theme
+    let ayucolor="dark"   " for dark version of theme
     colorscheme ayu
+    " Copy
     " set background=dark
-    let ayucolor='mirage'
-    " let g:airline_theme='one'
-    set clipboard=unnamed
+    set background=dark
+    " color hybrid_reverse
     set wrap
     " If you use vim inside tmux, see https://github.com/vim/vim/issues/993
     " " set Vim-specific sequences for RGB colors
@@ -127,15 +127,14 @@ function! UserConfig()
       set noimd
     endif
 
-    "Keybinding
     " 使用方向键切换buffer
     nnoremap ; :
     noremap <left> :bp<CR>
     noremap <right> :bn<CR>
     nnoremap <Leader>n :NERDTreeToggle<CR>
     inoremap <Leader>n <ESC>:NERDTreeToggle<CR>
-    let g:python_host_prog = '/Users/leoyzen/.pyenv/versions/madmed2/bin/python'
-    let g:python3_host_prog = '/Users/leoyzen/.pyenv/versions/madmed/bin/python3.6'
+    " let g:python_host_prog = '/home/.pyenv/versions/madmed2/bin/python'
+    let g:python3_host_prog = '$HOME/.pyenv/versions/madmed/bin/python3.6'
 
     " Python-Mode
     set mouse=a

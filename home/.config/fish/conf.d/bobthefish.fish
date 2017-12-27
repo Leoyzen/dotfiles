@@ -20,7 +20,6 @@ set -gx theme_avoid_ambiguous_glyphs yes
 set -gx theme_powerline_fonts yes
 set -gx theme_nerd_fonts no
 set -gx theme_show_exit_status yes
-set -xg default_user leoyzen
-set -gx theme_color_scheme zenburn
+set -gx theme_color_scheme gruvbox
 set -gx fish_prompt_pwd_dir_length 1
 set -gx theme_project_dir_length 1

@@ -13,3 +13,4 @@ tmux list-keys -t vi-copy
 set-option -g default-shell /home/linuxbrew/.linuxbrew/bin/fish
 set -g default-terminal "screen-256color"
 set-option -ga terminal-overrides ",xterm-256color:Tc"
+set-option -sg escape-time 10

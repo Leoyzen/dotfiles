@@ -20,13 +20,13 @@ if [[ `uname` == 'Darwin' ]]; then
   which brew
   if [[ $? != 0 ]]; then
     echo 'Installing Homebrew...'
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-      echo 'export PATH="/usr/local/bin:$PATH"' >>~/.bashrc
-      echo 'export MANPATH="/usr/local/share/man:$MANPATH"' >>~/.bashrc
-      echo 'export INFOPATH="/usr/local/share/info:$INFOPATH"' >>~/.bashrc
-      source $HOME/.bashrc
-      brew update
-      brew install htop ruby grc fish tmux macvim cmake git neovim
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo 'export PATH="/usr/local/bin:$PATH"' >>~/.bashrc
+    echo 'export MANPATH="/usr/local/share/man:$MANPATH"' >>~/.bashrc
+    echo 'export INFOPATH="/usr/local/share/info:$INFOPATH"' >>~/.bashrc
+    source $HOME/.bashrc
+    brew update
+    brew install htop ruby grc fish tmux macvim cmake git neovim
   fi
 
   # echo 'Tweaking OS X...'
@@ -65,16 +65,12 @@ fi
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
 
-echo 'Symlinking config files...'
-  source 'bin/symlink-dotfiles.sh'
-
 echo "Installing Space-Vim ..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
 
 echo "Installing Fisherman Plugin"
 fish -c "fisher fzf omf/brew omf/extract fzf pyenv homebrew-tap omf/theme-bobthefish grc"
 
-if [[ ! -d $HOME/.local/share/omf ]];then
-    echo "Installing Oh My Fish and Fisherman"
-    curl -L https://get.oh-my.fish | fish
-fi
+echo 'Symlinking config files...'
+  source 'bin/symlink-dotfiles.sh'
+
