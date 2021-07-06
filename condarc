@@ -1,0 +1,18 @@
+channels:
+  - defaults
+show_channel_urls: true
+channel_alias: http://mirrors.aliyun.com/anaconda
+default_channels:
+  - http://mirrors.aliyun.com/anaconda/pkgs/main
+  - http://mirrors.aliyun.com/anaconda/pkgs/free
+  - http://mirrors.aliyun.com/anaconda/pkgs/r
+custom_channels:
+  conda-forge: http://mirrors.aliyun.com/anaconda/cloud
+  msys2: http://mirrors.aliyun.com/anaconda/cloud
+  bioconda: http://mirrors.aliyun.com/anaconda/cloud
+  menpo: http://mirrors.aliyun.com/anaconda/cloud
+  pytorch: http://mirrors.aliyun.com/anaconda/cloud
+  simpleitk: http://mirrors.aliyun.com/anaconda/cloud
+always_yes: True
+envs_dirs:
+  - ~/.local/share/conda/envs/

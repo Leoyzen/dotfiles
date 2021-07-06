@@ -1,0 +1,57 @@
+---
+packages:
+  - name: fd
+    installer:
+      url: "https://github.com/sharkdp/fd/releases/download/v8.2.1/fd-v8.2.1-x86_64-unknown-linux-musl.tar.gz"
+      path: /home/leoyzen/.local/bin/fd
+      compression: ~
+      archive: ~
+      backup: /home/leoyzen/.local/share/blindspot/fd
+    release:
+      Dated: "2021-07-06T08:11:49.949017286Z"
+    last_update: "2021-07-06T08:11:55.052668613Z"
+    github: ~
+  - name: ripgrep
+    installer:
+      url: "https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz"
+      path: /home/leoyzen/.local/bin/ripgrep
+      compression: ~
+      archive: ~
+      backup: /home/leoyzen/.local/share/blindspot/ripgrep
+    release:
+      Dated: "2021-07-06T08:11:49.949740907Z"
+    last_update: "2021-07-06T08:11:58.150812341Z"
+    github: ~
+  - name: pazi
+    installer:
+      url: "https://github.com/euank/pazi/releases/download/v0.4.1/pazi-x86_64-unknown-linux-musl"
+      path: /home/leoyzen/.local/bin/pazi
+      compression: ~
+      archive: ~
+      backup: ~
+    release:
+      Dated: "2021-07-06T08:12:42.440461758Z"
+    last_update: ~
+    github: ~
+  - name: delta
+    installer:
+      url: "https://github.com/dandavison/delta/releases/download/0.8.2/delta-0.8.2-x86_64-unknown-linux-musl.tar.gz"
+      path: /home/leoyzen/.local/bin/delta
+      compression: ~
+      archive: ~
+      backup: ~
+    release:
+      Dated: "2021-07-06T08:13:30.289246559Z"
+    last_update: ~
+    github: ~
+  - name: clash
+    installer:
+      url: "https://github.com/Dreamacro/clash/releases/download/v1.6.5/clash-linux-amd64-v1.6.5.gz"
+      path: /home/leoyzen/.local/bin/clash
+      compression: ~
+      archive: ~
+      backup: ~
+    release:
+      Dated: "2021-07-06T08:15:13.741958462Z"
+    last_update: ~
+    github: ~

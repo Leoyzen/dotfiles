@@ -1,0 +1,44 @@
+[helpers]
+
+[default]
+depends = []
+
+
+[default.files]
+"fish/bobthefish.fish" = "~/.config/fish/conf.d/bobthefish.fish"
+"fish/env.fish" = "~/.config/fish/conf.d/env.fish"
+"fish/go.fish" = "~/.config/fish/conf.d/go.fish"
+"fish/rvim.fish" = "~/.config/fish/conf.d/rvim.fish"
+"fish/bobthefish_colors.fish" = "~/.config/fish/functions/bobthefish_colors.fish"
+"fish/fish_plugins" = "~/.config/fish/fish_plugins"
+"spacevim" = "~/.spacevim"
+"tmux.conf" = "~/.tmux.conf"
+"yapf" = "~/.config/yapf/style"
+"flake8" = "~/.config/flake8"
+"git" = "~/.gitconfig"
+"pip" = "~/.pip/pip.conf"
+"bspm" = "~/.config/blindspot/bspm.yaml"
+
+[rust.files]
+"cargo" = "~/.cargo/config"
+"rustfmt.toml" = "~/.config/rustfmt/rustfmt.toml"
+"fish/rust.fish" = "~/.config/fish/conf.d/rust.fish"
+
+[alacritty.files]
+"alacritty" = "~/.alacritty/alacritty.yaml"
+
+[linuxbrew.files]
+"fish/linuxbrew.fish" = "~/.config/fish/conf.d/linuxbrew.fish"
+
+[conda.files]
+"condarc" = "~/.condarc"
+
+[cargo.files]
+
+[tmux.files]
+
+[yapf.files]
+
+[flake8.files]
+
+[git.files]
