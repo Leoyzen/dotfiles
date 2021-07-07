@@ -80,7 +80,6 @@ function! UserConfig()
     " If you enable airline layer and have installed the powerline fonts, set it here.
     " 字体设置
     let g:airline_powerline_fonts=1
-    let g:airline_theme="gruvbox_material"
     " let g:airline_theme="gruvbox"
     " let g:airline_theme='quantum'
     " let g:airline_theme="iceberg"
@@ -125,7 +124,13 @@ function! UserConfig()
     endif
 
     colorscheme gruvbox-material
+    let g:airline_theme="gruvbox_material"
     let g:gruvbox_material_background = 'hard'
+    let g:gruvbox_material_palette = 'mix'
+    let g:gruvbox_material_statusline_style = 'mix'
+    let g:gruvbox_material_enable_italic = 1
+    let g:gruvbox_material_enable_bold = 1
+    let g:gruvbox_material_visual = 'reverse'
     " color tener
     " color gruvbox
     " colorscheme quantum
@@ -145,7 +150,7 @@ function! UserConfig()
     " set macligatures
     if has("gui_running")
       if has("gui_gtk2")   "GTK2
-          set guifont=Fira\ Code\ Medium:h14
+          set guifont=Sarasa\ Mono\ SC\ Nerd\ Regular:h16
       endif
       set guioptions-=T
       set guioptions+=e

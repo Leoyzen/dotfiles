@@ -1,1 +1,1 @@
-set -x TERM xterm-256color
+set -g fish_term24bit 1
