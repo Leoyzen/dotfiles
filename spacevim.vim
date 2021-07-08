@@ -14,7 +14,7 @@ let g:spacevim_plug_home = '~/.vim/plugged'
 let g:spacevim_layers = [
       \ 'fzf', 'unite', 'better-defaults', 'syntax-checking', 'rust',
       \ 'which-key', 'file-manager', 'emoji', 'git', 'tmux', 'formatting',
-      \ 'python', 'git', 'programming', 'editing', 'ycmd',
+      \ 'python', 'git', 'programming', 'editing',
       \ 'text-align', 'better-motion', 'airline', 'lsp']
 
 " If you want to have more control over the layer, try using Layer command.
@@ -150,7 +150,7 @@ function! UserConfig()
     " set macligatures
     if has("gui_running")
       if has("gui_gtk2")   "GTK2
-          set guifont=Sarasa\ Mono\ SC\ Nerd\ Regular:h16
+          set guifont=Sarasa\ Mono\ SC\ Nerd:h16
       endif
       set guioptions-=T
       set guioptions+=e

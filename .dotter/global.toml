@@ -6,12 +6,13 @@ depends = []
 
 [default.files]
 "fish/bobthefish.fish" = "~/.config/fish/conf.d/bobthefish.fish"
+"fish/keybindings.fish" = "~/.config/fish/conf.d/keybindings.fish"
 "fish/env.fish" = "~/.config/fish/conf.d/env.fish"
 "fish/go.fish" = "~/.config/fish/conf.d/go.fish"
 "fish/rvim.fish" = "~/.config/fish/conf.d/rvim.fish"
 "fish/bobthefish_colors.fish" = "~/.config/fish/functions/bobthefish_colors.fish"
 "fish/fish_plugins" = "~/.config/fish/fish_plugins"
-"spacevim" = "~/.spacevim"
+"spacevim.vim" = "~/.spacevim"
 "tmux.conf" = "~/.tmux.conf"
 "yapf" = "~/.config/yapf/style"
 "flake8" = "~/.config/flake8"
