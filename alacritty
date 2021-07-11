@@ -14,14 +14,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-# env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  # TERM: alacritty
+  TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -148,7 +148,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 15.0
+  size: 15
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -780,7 +780,9 @@ key_bindings:
   #- { key: Q,              mods: Command,                    action: Quit                  }
   #- { key: W,              mods: Command,                    action: Quit                  }
   #- { key: N,              mods: Command,                    action: SpawnNewInstance      }
-  - { key: Return, mods: Alt, action: ToggleFullscreen }
+  - { key: Return, mods: Command, action: ToggleFullscreen }
+  - { key: F, mods: Alt, chars: "\x1bf" }
+  - { key: B, mods: Alt, chars: "\x1bb" }
   # Tmux Key Bindings
   - { key: LBracket, mods: Command, chars: "\x01\x5b" }
   - { key: RBracket, mods: Command, chars: "\x01\x5d" }
@@ -793,10 +795,11 @@ key_bindings:
   - { key: K, mods: Command|Shift, chars: "\x01\x4b" }
   - { key: H, mods: Command|Shift, chars: "\x01\x48" }
   - { key: L, mods: Command|Shift, chars: "\x01\x4c" }
-  - { key: W, mods: Command, chars: "\x01\x77" }
+  # - { key: W, mods: Command, chars: "\x01\x77" }
   - { key: T, mods: Command, chars: "\x01\x63" }
   - { key: D, mods: Command, chars: "\x01\x64" }
-  - { key: X, mods: Command, chars: "\x01\x78" }
+  - { key: W, mods: Command, chars: "\x01\x78" }
+  - { key: Slash, mods: Command, chars: "\x01\x46" }
   - { key: Semicolon, mods: Command|Shift, chars: "\x01\x3a" }
   - { key: Key1, mods: Command, chars: "\x01\x31" }
   - { key: Key2, mods: Command, chars: "\x01\x32" }
