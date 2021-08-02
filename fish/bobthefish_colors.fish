@@ -29,18 +29,18 @@ function bobthefish_colors -S -d 'Gruvbox Material Mix'
   set -x color_repo                     $green[1] $bg[1]
   set -x color_repo_work_tree           $bg[1] $fg[2] --bold
   set -x color_repo_dirty               $orange[1] $bg[2]
-  set -x color_repo_staged              $yellow[1] $bg[1]
+  set -x color_repo_staged              $aqua[1] $bg[1]
 
   set -x color_vi_mode_default          $fg[4] $bg[2] --bold
-  set -x color_vi_mode_insert           $blue[1] $bg[2] --bold
-  set -x color_vi_mode_visual           $orange[1] $bg[2] --bold
+  set -x color_vi_mode_insert           $green[1] $bg[2] --bold
+  set -x color_vi_mode_visual           $red[2] $bg[2] --bold
 
   set -x color_vagrant                  $blue[2] $fg[2] --bold
   set -x color_k8s                      $green[2] $fg[2] --bold
   set -x color_aws_vault                $blue[2] $yellow[1] --bold
   set -x color_aws_vault_expired        $blue[2] $red[2] --bold
-  set -x color_username                 $fg[1] $bg[1] --bold
-  set -x color_hostname                 $fg[1] $bg[1]
+  set -x color_username                 $fg[2] $bg[2] --bold
+  set -x color_hostname                 $fg[2] $bg[2]
   set -x color_rvm                      $red[2] $fg[2] --bold
   set -x color_node                     $green[1] $fg[2] --bold
   set -x color_virtualfish              $bg[2] $fg[2] --bold
