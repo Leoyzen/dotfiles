@@ -19,6 +19,7 @@ depends = []
 "git" = "~/.gitconfig"
 "pip" = "~/.pip/pip.conf"
 "bspm" = "~/.config/blindspot/bspm.yaml"
+"pier.toml" = "~/.config/pier/pier.toml"
 
 [rust.files]
 "cargo" = "~/.cargo/config"
@@ -26,7 +27,7 @@ depends = []
 "fish/rust.fish" = "~/.config/fish/conf.d/rust.fish"
 
 [alacritty.files]
-"alacritty" = "~/.alacritty/alacritty.yaml"
+"alacritty" = "~/.config/alacritty/alacritty.yml"
 
 [linuxbrew.files]
 "fish/linuxbrew.fish" = "~/.config/fish/conf.d/linuxbrew.fish"

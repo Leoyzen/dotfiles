@@ -149,7 +149,7 @@ function! UserConfig()
     " " set Vim-specific sequences for RGB colors
     " set macligatures
     if has("gui_running")
-      if has("gui_gtk2")   "GTK2
+      if has("gui_macvim")   "GTK2
           set guifont=Sarasa\ Mono\ SC\ Nerd:h16
       endif
       set guioptions-=T
