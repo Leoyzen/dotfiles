@@ -7,10 +7,10 @@
 [alias]
     showtool = "!f() { git difftool $1^ $1; }; f"
     added = difftool --cached
-[diff]
-    tool = icdiff
-[difftool]
-    prompt = false
+; [diff]
+    ; tool = delta
+; [difftool]
+    ; prompt = false
 [difftool "icdiff"]
     cmd = icdiff --line-numbers $LOCAL $REMOTE
 [pager]
@@ -45,3 +45,12 @@
     hunk-header-decoration-style = yellow box
 [interactive]
     diffFilter = delta --color-only
+[https]
+	proxy = 
+[http]
+	proxy = 
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
