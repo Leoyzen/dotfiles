@@ -12,6 +12,7 @@ depends = []
 "fish/rvim.fish" = "~/.config/fish/conf.d/rvim.fish"
 "fish/bobthefish_colors.fish" = "~/.config/fish/functions/bobthefish_colors.fish"
 "fish/fish_plugins" = "~/.config/fish/fish_plugins"
+"fish/fzf.fish" = "~/.config/fish/conf.d/fzf.fish"
 "spacevim.vim" = "~/.spacevim"
 "tmux.conf" = "~/.tmux.conf"
 "yapf" = "~/.config/yapf/style"

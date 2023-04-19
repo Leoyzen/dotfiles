@@ -46,9 +46,9 @@
 [interactive]
     diffFilter = delta --color-only
 [https]
-	proxy = 
+	proxy = http://127.0.0.1:6152
 [http]
-	proxy = 
+	proxy = http://127.0.0.1:6152 
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
