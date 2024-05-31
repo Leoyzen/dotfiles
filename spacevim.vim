@@ -72,7 +72,7 @@ function! UserConfig()
     let g:ale_linters = {
           \   'javascript': ['eslint'],
           \		'bash': ['shellcheck'],
-          \   'python': ['flake8']
+          \   'python': ['ruff']
           \}
     nmap <silent> <C-p> <Plug>(ale_previous_wrap)
     nmap <silent> <C-n> <Plug>(ale_next_wrap)
@@ -172,7 +172,7 @@ function! UserConfig()
     let g:python3_host_prog = '/opt/conda/bin/python'
 
     set mouse=a
-    
+
     " git-fugitive
     set diffopt+=vertical
     " let g:ycm_semantic_triggers =  {

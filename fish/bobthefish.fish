@@ -7,7 +7,7 @@ set -g theme_display_docker_machine no
 set -g theme_display_hg no
 set -g theme_display_virtualenv yes
 set -g theme_display_ruby no
-set -g theme_display_user yes
+set -g theme_display_user no
 set -g theme_display_vi no
 set -g theme_display_date no
 set -g theme_display_cmd_duration no
