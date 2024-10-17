@@ -33,31 +33,35 @@ background = "0x000000"
 foreground = "0xd4be98"
 
 [env]
-TERM = "alacritty"
+TERM = "alacritty-direct"
 
 [font]
-size = 15
+size = 14
 
 [font.bold]
-family = "CaskaydiaCove Nerd Font"
+# family = "CaskaydiaCove Nerd Font"
+family = "Hack Nerd Font"
 # family = "Sarasa Term SC Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "CaskaydiaCove Nerd Font"
+# family = "CaskaydiaCove Nerd Font"
+family = "Hack Nerd Font"
 # family = "Sarasa Term SC Nerd Font"
 style = "Bold Italic"
 
-[font.glyph_offset]
-y = 1
+# [font.glyph_offset]
+# y = 0
 
 [font.italic]
-family = "CaskaydiaCove Nerd Font"
+# family = "CaskaydiaCove Nerd Font"
+family = "Hack Nerd Font"
 # family = "Sarasa Term SC Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font"
+# family = "CaskaydiaCove Nerd Font"
+family = "Hack Nerd Font"
 # family = "Sarasa Term SC Nerd Font"
 style = "Regular"
 
