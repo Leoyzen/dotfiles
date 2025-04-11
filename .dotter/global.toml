@@ -13,6 +13,7 @@ depends = []
 "fish/bobthefish_colors.fish" = "~/.config/fish/functions/bobthefish_colors.fish"
 "fish/fish_plugins" = "~/.config/fish/fish_plugins"
 "fish/fzf.fish" = "~/.config/fish/conf.d/fzf.fish"
+"fish/uv.fish" = "~/.config/fish/conf.d/uv.fish"
 "spacevim.vim" = "~/.spacevim"
 "tmux.conf" = "~/.tmux.conf"
 "yapf" = "~/.config/yapf/style"
@@ -28,7 +29,7 @@ depends = []
 "fish/rust.fish" = "~/.config/fish/conf.d/rust.fish"
 
 [alacritty.files]
-"alacritty" = "~/.config/alacritty/alacritty.yml"
+"alacritty.toml" = "~/.config/alacritty/alacritty.toml"
 
 [linuxbrew.files]
 "fish/linuxbrew.fish" = "~/.config/fish/conf.d/linuxbrew.fish"
