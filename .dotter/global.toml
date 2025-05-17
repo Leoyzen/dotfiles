@@ -22,6 +22,7 @@ depends = []
 "pip" = "~/.pip/pip.conf"
 "bspm" = "~/.config/blindspot/bspm.yaml"
 "pier.toml" = "~/.config/pier/pier.toml"
+"starship" = "~/.config/starship.toml"
 
 [rust.files]
 "cargo" = "~/.cargo/config"
