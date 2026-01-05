@@ -1,3 +1,6 @@
+[settings]
+default_target_type = "symbolic"
+
 [helpers]
 
 [default]
@@ -20,6 +23,7 @@ depends = []
 "flake8" = "~/.config/flake8"
 "git" = "~/.gitconfig"
 "pip" = "~/.pip/pip.conf"
+"uv.toml" = "~/.config/uv/uv.toml"
 "bspm" = "~/.config/blindspot/bspm.yaml"
 "pier.toml" = "~/.config/pier/pier.toml"
 "starship.toml" = "~/.config/starship.toml"
@@ -35,6 +39,9 @@ depends = []
 
 [linuxbrew.files]
 "fish/linuxbrew.fish" = "~/.config/fish/conf.d/linuxbrew.fish"
+
+[kitty.files]
+"kitty.conf" = "~/.config/kitty/kitty.conf"
 
 [conda.files]
 "condarc" = "~/.condarc"
