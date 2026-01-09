@@ -1,0 +1,191 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    "claude": {
+      "default_model": "svc/glm-4.7",
+      "favorite_models": [],
+      "default_config_options": {},
+      "favorite_config_option_values": {},
+    },
+  },
+  "git_panel": {
+    "collapse_untracked_diff": true,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim_mode": true,
+  "icon_theme": "Zed (Default)",
+  "features": {
+    "edit_prediction_provider": "copilot",
+  },
+  "ssh_connections": [
+    {
+      "host": "ack-h20",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/yuchen.liu/src/iroot-llm"],
+        },
+      ],
+    },
+  ],
+  "agent": {
+    "default_profile": "write",
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "Wolf-Ack",
+      "model": "svc/kimi-k2",
+    },
+    "model_parameters": [],
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "enable_all_context_servers": true,
+        "tools": {
+          "thinking": false, // 👈 改为 false 即可禁用
+          "web_search": true,
+        },
+      },
+      "ask": {
+        "name": "Ask",
+        "enable_all_context_servers": true,
+        "tools": {
+          "thinking": false, // 👈 也可以禁用 ask profile 的 thinking
+        },
+      },
+    },
+  },
+  "language_models": {
+    "anthropic": {
+      "api_url": "http://localhost:4000",
+      "available_models": [
+        {
+          "name": "svc/glm-4.7",
+          "display_name": "GLM 4.7",
+          "max_tokens": 200000,
+          "max_output_tokens": 32000,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 10000,
+          },
+        },
+        {
+          "name": "svc/kimi-k2",
+          "display_name": "GLM 4.7 Dev",
+          "max_tokens": 200000,
+          "max_output_tokens": 32000,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 10000,
+          },
+        },
+      ],
+    },
+    "openai_compatible": {
+      "Wolf-Ack-Dev": {
+        "api_url": "http://localhost:4000/v1",
+        "available_models": [
+          {
+            "name": "svc/glm-4.7-dev",
+            "max_tokens": 202752,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "thinking_mode": "preserved",
+            },
+          },
+        ],
+      },
+      "Wolf-Ack": {
+        "api_url": "http://api.ai.rootcloud.info/v1",
+        "available_models": [
+          {
+            "name": "svc/glm-4.7",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "thinking_mode": "preserved",
+            },
+          },
+          {
+            "name": "svc/kimi-k2",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "thinking_mode": "preserved",
+            },
+          },
+        ],
+      },
+    },
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "terminal": {
+    "shell": {
+      "program": "fish",
+    },
+    "font_family": "CaskaydiaCove Nerd Font",
+    "font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New", "monospace"],
+  },
+  "proxy": "http://127.0.0.1:6152",
+  "base_keymap": "VSCode",
+  "minimap": {
+    "show": "never",
+  },
+  "autosave": "on_focus_change",
+  "buffer_font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New", "monospace"],
+  "buffer_font_family": "CaskaydiaCove Nerd Font",
+  "file_types": {
+    "cython": ["*.pyx", "*.pyd", "*.pyx.in", "*.pyx", "*.pyd", "*.pyx.in"],
+  },
+  "preferred_line_length": 160,
+  "soft_wrap": "prefer_line",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Material Dark Hard",
+  },
+  "languages": {
+    "Python": {
+      "preferred_line_length": 160,
+      "soft_wrap": "prefer_line",
+      "language_servers": [
+        // Disable basedpyright and enable ty, and otherwise
+        // use the default configuration.
+        "ty",
+        "!basedpyright",
+        "...",
+      ],
+    },
+  },
+}

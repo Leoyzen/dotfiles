@@ -1,2 +1,3 @@
 # set -gx GOROOT $HOME/.local/go/root
-set -gx GOPATH $HOME/.local/go/path
+set -gx GOPROXY https://mirrors.aliyun.com/goproxy/
+set -gx GOPATH $HOME/.local/share/go

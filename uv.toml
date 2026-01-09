@@ -1,3 +1,7 @@
-[pip]
-# index-url = "https://test.pypi.org/simple"
+prerelease = "allow"
+index-strategy = "unsafe-best-match"
+
 index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+extra-index-url = [" https://mirrors.aliyun.com/simple"]
+find-links = ["https://mirrors.aliyun.com/pytorch-wheels/cpu"]
+# python-install-mirror = "https://mirror.nju.edu.cn/github-release/indygreg/python-build-standalone/"

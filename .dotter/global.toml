@@ -30,7 +30,7 @@ depends = []
 "uv.toml" = "~/.config/uv/uv.toml"
 
 [rust.files]
-"cargo" = "~/.cargo/config"
+"cargo" = "~/.cargo/config.toml"
 "rustfmt.toml" = "~/.config/rustfmt/rustfmt.toml"
 "fish/rust.fish" = "~/.config/fish/conf.d/rust.fish"
 
@@ -55,3 +55,7 @@ depends = []
 [flake8.files]
 
 [git.files]
+
+[zed.files]
+"zed/keymap.json" = "~/.config/zed/keymap.json"
+"zed/settings.json" = "~/.config/zed/settings.json"

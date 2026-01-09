@@ -12,7 +12,7 @@ registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"
 registry = "git://crates.rustcc.cn/crates.io-index"
 
 [source.rsproxy]
-registry = "https://rsproxy.cn/crates.io-index"
+registry = "sparse+https://rsproxy.cn/index/"
 
 [target.x86_64-apple-darwin]
 rustflags = ["-C", "target-cpu=native"]
@@ -24,3 +24,7 @@ linker = "musl-gcc"
 [target.mips64-unknown-linux-muslabi64]
 
 linker = "/home/leoyzen/.local/share/cross/mips64-linux-musl-cross/bin/mips64-linux-musl-gcc"
+
+[net]
+git-fetch-with-cli = true
+
