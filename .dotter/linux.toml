@@ -1,0 +1,2 @@
+# Linux 配置
+packages = ["default", "alacritty", "helix", "conda", "rust", "python", "linuxbrew", "rye", "wezterm"]

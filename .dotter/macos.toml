@@ -1,0 +1,2 @@
+# macOS 配置
+packages = ["default", "alacritty", "kitty", "helix", "zed", "conda", "rust", "python", "bspm", "pier", "rye"]

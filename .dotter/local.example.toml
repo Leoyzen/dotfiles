@@ -1,0 +1,16 @@
+# 通用本地配置模板
+# 根据你的系统复制 macos.toml 或 linux.toml 到 local.toml
+
+[variables]
+# 根据你的系统选择：
+# macOS: homebrew_prefix = "/opt/homebrew", os_type = "darwin"
+# Linux: linuxbrew_prefix = "/home/linuxbrew/.linuxbrew", os_type = "linux"
+homebrew_prefix = ""
+linuxbrew_prefix = ""
+os_type = ""
+username = "{{env.USER}}"
+
+[packages]
+# 选择要启用的包
+default = true
+# 添加其他包...
