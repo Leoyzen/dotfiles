@@ -14,6 +14,9 @@ registry = "git://crates.rustcc.cn/crates.io-index"
 [source.rsproxy]
 registry = "sparse+https://rsproxy.cn/index/"
 
+[target.aarch64-apple-darwin]
+# rustflags = ["-C", "link-arg=-fuse-ld=/opt/homebrew/bin/mold"]
+
 [target.x86_64-apple-darwin]
 rustflags = ["-C", "target-cpu=native"]
 

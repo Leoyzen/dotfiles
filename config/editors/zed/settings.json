@@ -7,6 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "tabs": {
+    "git_status": true,
+  },
+  "relative_line_numbers": "disabled",
   "agent_servers": {
     "claude": {
       "default_model": "svc/glm-4.7",
@@ -14,8 +18,27 @@
       "default_config_options": {},
       "favorite_config_option_values": {},
     },
+    "gemini": {
+      "ignore_system_version": false,
+    },
+    "OpenCode": {
+      "favorite_models": [
+        "wolf-ai/svc/glm-4.7",
+        "wolf-ai/svc/kimi-k2",
+        "wolf-ai/glm-4.7",
+        "wolf-ai/ack-dev",
+        "google/antigravity-gemini-3-pro-high",
+        "google/antigravity-gemini-3-pro-low",
+        "google/antigravity-gemini-3-flash",
+      ],
+      "type": "custom",
+      "command": "opencode",
+      "args": ["acp"],
+      "env": { "HTTPS_PROXY": "http://127.0.0.1:6152", "OPENCODE_EXPERIMENTAL_LSP_TY": "1" },
+    },
   },
   "git_panel": {
+    "tree_view": true,
     "collapse_untracked_diff": true,
   },
   "session": {
@@ -34,15 +57,31 @@
         {
           "paths": ["/home/yuchen.liu/src/iroot-llm"],
         },
+        {
+          "paths": ["/home/yuchen.liu/src/sglang"],
+        },
+        {
+          "paths": ["/home/yuchen.liu/src/zed"],
+        },
       ],
     },
   ],
+  "context_servers": {
+    "local-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "@mcp_router/cli@latest", "connect"],
+      "env": { "MCPR_TOKEN": "mcpr_5NEN_XhnOaZ3dUmq28RgjvguA07yK6AH" },
+    },
+  },
   "agent": {
+    "message_editor_min_lines": 5,
+    "show_turn_stats": true,
+    "use_modifier_to_send": true,
     "default_profile": "write",
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "Wolf-Ack",
-      "model": "svc/kimi-k2",
+      "model": "svc/glm-4.7",
     },
     "model_parameters": [],
     "profiles": {
@@ -94,8 +133,27 @@
         "api_url": "http://localhost:4000/v1",
         "available_models": [
           {
-            "name": "svc/glm-4.7-dev",
+            "name": "local_gpt_proxy",
             "max_tokens": 202752,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "thinking_mode": "preserved",
+            },
+          },
+        ],
+      },
+      "Wolf-Dev": {
+        "api_url": "http://arena-serve-sglang-l20x-gpt-oss-120b.yilab-lmt.ai.rootcloud.info/v1",
+        "available_models": [
+          {
+            "name": "gpt-oss-120b-direct",
+            "max_tokens": 128000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 32000,
             "capabilities": {
@@ -140,6 +198,20 @@
               "thinking_mode": "preserved",
             },
           },
+          {
+            "name": "svc/gpt-oss-120b",
+            "max_tokens": 120000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": false,
+              "thinking_mode": "preserved",
+            },
+          },
         ],
       },
     },
@@ -149,11 +221,17 @@
     "metrics": false,
   },
   "terminal": {
+    "detect_venv": {
+      "on": {
+        "directories": [".env", "env", ".venv", "venv"],
+        "activate_script": "default",
+      },
+    },
     "shell": {
       "program": "fish",
     },
     "font_family": "CaskaydiaCove Nerd Font",
-    "font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New", "monospace"],
+    "font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New"],
   },
   "proxy": "http://127.0.0.1:6152",
   "base_keymap": "VSCode",
@@ -161,19 +239,19 @@
     "show": "never",
   },
   "autosave": "on_focus_change",
-  "buffer_font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New", "monospace"],
+  "buffer_font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New"],
   "buffer_font_family": "CaskaydiaCove Nerd Font",
   "file_types": {
     "cython": ["*.pyx", "*.pyd", "*.pyx.in", "*.pyx", "*.pyd", "*.pyx.in"],
   },
   "preferred_line_length": 160,
-  "soft_wrap": "prefer_line",
+  "soft_wrap": "editor_width",
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Material Dark Hard",
+    "dark": "Gruvbox ish Dark Hard",
   },
   "languages": {
     "Python": {

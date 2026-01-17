@@ -46,9 +46,9 @@
 [interactive]
     diffFilter = delta --color-only
 [https]
-	proxy = 
+	proxy = socks5h://127.0.0.1:6153
 [http]
-	proxy = 
+	proxy = socks5h://127.0.0.1:6153
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

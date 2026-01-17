@@ -8,54 +8,53 @@ depends = []
 
 
 [default.files]
-"fish/bobthefish.fish" = "~/.config/fish/conf.d/bobthefish.fish"
-"fish/keybindings.fish" = "~/.config/fish/conf.d/keybindings.fish"
-"fish/env.fish" = "~/.config/fish/conf.d/env.fish"
-"fish/go.fish" = "~/.config/fish/conf.d/go.fish"
-"fish/rvim.fish" = "~/.config/fish/conf.d/rvim.fish"
-"fish/bobthefish_colors.fish" = "~/.config/fish/functions/bobthefish_colors.fish"
-"fish/fish_plugins" = "~/.config/fish/fish_plugins"
-"fish/fzf.fish" = "~/.config/fish/conf.d/fzf.fish"
-"fish/uv.fish" = "~/.config/fish/conf.d/uv.fish"
-"spacevim.vim" = "~/.spacevim"
-"tmux.conf" = "~/.tmux.conf"
-"yapf" = "~/.config/yapf/style"
-"flake8" = "~/.config/flake8"
-"git" = "~/.gitconfig"
-"pip" = "~/.pip/pip.conf"
-"uv.toml" = "~/.config/uv/uv.toml"
-"bspm" = "~/.config/blindspot/bspm.yaml"
-"pier.toml" = "~/.config/pier/pier.toml"
-"starship.toml" = "~/.config/starship.toml"
-"uv.toml" = "~/.config/uv/uv.toml"
+"config/shell/fish" = "~/.config/fish"
+"config/tools/git" = "~/.config/git"
+"config/tools/starship.toml" = "~/.config/starship.toml"
+"config/tools/tmux.conf" = "~/.tmux.conf"
+"config/package-managers/uv.toml" = "~/.config/uv/uv.toml"
 
 [rust.files]
-"cargo" = "~/.cargo/config.toml"
-"rustfmt.toml" = "~/.config/rustfmt/rustfmt.toml"
-"fish/rust.fish" = "~/.config/fish/conf.d/rust.fish"
+"config/package-managers/cargo" = "~/.cargo/config.toml"
+"config/linters-formatters/rustfmt.toml" = "~/.config/rustfmt/rustfmt.toml"
+
+[python.files]
+"config/package-managers/pip" = "~/.pip/pip.conf"
+"config/linters-formatters/flake8" = "~/.config/flake8"
+"config/linters-formatters/ruff.toml" = "~/.config/ruff/ruff.toml"
+"config/linters-formatters/yapf" = "~/.config/yapf/style"
+
+[bspm.files]
+"config/package-managers/bspm" = "~/.config/blindspot/bspm.yaml"
+
+[pier.files]
+"config/package-managers/pier.toml" = "~/.config/pier/pier.toml"
+
+[rye.files]
+"config/package-managers/rye.toml" = "~/.config/rye/config.toml"
 
 [alacritty.files]
-"alacritty.toml" = "~/.config/alacritty/alacritty.toml"
+"config/editors/terminals/alacritty.toml" = "~/.config/alacritty/alacritty.toml"
+
+[wezterm.files]
+"config/editors/terminals/wezterm.lua" = "~/.wezterm.lua"
 
 [linuxbrew.files]
-"fish/linuxbrew.fish" = "~/.config/fish/conf.d/linuxbrew.fish"
+"config/shell/fish/linuxbrew.fish" = "~/.config/fish/conf.d/linuxbrew.fish"
 
 [kitty.files]
-"kitty.conf" = "~/.config/kitty/kitty.conf"
+"config/editors/terminals/kitty.conf" = "~/.config/kitty/kitty.conf"
 
 [conda.files]
-"condarc" = "~/.condarc"
+"config/package-managers/condarc" = "~/.condarc"
 
-[cargo.files]
-
-[tmux.files]
-
-[yapf.files]
-
-[flake8.files]
-
-[git.files]
+[helix.files]
+"config/editors/helix/config.toml" = "~/.config/helix/config.toml"
+"config/editors/helix/languages.toml" = "~/.config/helix/languages.toml"
 
 [zed.files]
-"zed/keymap.json" = "~/.config/zed/keymap.json"
-"zed/settings.json" = "~/.config/zed/settings.json"
+"config/editors/zed/keymap.json" = "~/.config/zed/keymap.json"
+"config/editors/zed/settings.json" = "~/.config/zed/settings.json"
+
+[vim.files]
+"config/editors/vim/spacevim.vim" = "~/.SpaceVim.d/init.vim"

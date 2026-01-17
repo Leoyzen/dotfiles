@@ -1,0 +1,66 @@
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
+[language-server.marksman]
+command = "marksman"
+args = ["server"]
+
+[language-server.vscode-json-language-server]
+command = "vscode-json-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "python"
+language-servers = ["ruff", "ty"]
+auto-format = true
+formatter = { command = "ruff", args = ["format", "--stdin-filename", "$FILE", "-"] }
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+auto-format = true
+formatter = { command = "rustfmt", args = ["--emit=stdout"] }
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman"]
+soft-wrap.enable = true
+soft-wrap.max-wrap = 25
+
+[[language]]
+name = "json"
+language-servers = ["vscode-json-language-server"]
+formatter = { command = "prettier", args = ["--parser", "json"] }
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "toml"] }
+
+[[language]]
+name = "yaml"
+indent = { tab-width = 2, unit = "  " }
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
+
+[[language]]
+name = "go"
+
+[[language]]
+name = "d2"
+scope = ""
+file-types = ["d2"]
+comment-token = "#"
+roots = [""]
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "d2"
+source = { git = "https://git.pleshevski.ru/pleshevskiy/tree-sitter-d2", rev = "eb6910126fa392b60832d834fe6640635cd35ba8" }

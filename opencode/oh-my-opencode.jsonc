@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "google_auth": true,
+  "agents": {
+    "Planner-Sisyphus": {
+      "enabled": true,
+      "model": "google/antigravity-gemini-3-pro-low",
+      "replace_plan": true,
+    },
+    "oracle": {
+      "model": "google/antigravity-gemini-3-pro-high",
+    },
+    "librarian": {
+      "model": "wolf-ai/glm-4.7",
+    },
+    "explore": {
+      "model": "wolf-ai/glm-4.7",
+    },
+    "frontend-ui-ux-engineer": {
+      "model": "google/antigravity-gemini-3-flash",
+    },
+    "document-writer": {
+      "model": "wolf-ai/glm-4.7",
+    },
+    "multimodal-looker": {
+      "model": "google/antigravity-gemini-3-flash",
+    },
+  },
+  "background_task": {
+    "defaultConcurrency": 5,
+    "providerConcurrency": {
+      "google": 5,
+      "wolf-ai": 20,
+    },
+  },
+  "disabled_hooks": ["comment-checker", "agent-usage-reminder"],
+  "disabled_agents": ["frontend-ui-ux-engineer"],
+  "sisyphus_agent": {
+    "disabled": true,
+    "default_builder_enabled": false,
+    "planner_enabled": true,
+    "replace_plan": false,
+  },
+}
