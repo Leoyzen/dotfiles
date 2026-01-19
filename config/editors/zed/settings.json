@@ -81,7 +81,7 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "Wolf-Ack",
-      "model": "svc/glm-4.7",
+      "model": "svc/gpt-oss-120b",
     },
     "model_parameters": [],
     "profiles": {

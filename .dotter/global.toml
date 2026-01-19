@@ -57,4 +57,11 @@ depends = []
 "config/editors/zed/settings.json" = "~/.config/zed/settings.json"
 
 [vim.files]
-"config/editors/vim/spacevim.vim" = "~/.SpaceVim.d/init.vim"
+"config/editors/vim/spacevim.vim" = "~/.spacevim"
+
+[opencode.files]
+"opencode/skill" = "~/.config/opencode/skill"
+"opencode/command" = "~/.config/opencode/command"
+"opencode/antigravity.json" = "~/.config/opencode/antigravity.json"
+"opencode/oh-my-opencode.jsonc" = "~/.config/opencode/oh-my-opencode.jsonc"
+"opencode/opencode.jsonc" = "~/.config/opencode/opencode.jsonc"

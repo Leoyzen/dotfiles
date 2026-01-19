@@ -17,6 +17,10 @@ args = ["server"]
 command = "vscode-json-language-server"
 args = ["--stdio"]
 
+[language-server.mdpls]
+command = "mdpls"
+config = { markdown.preview.auto = true }
+
 [[language]]
 name = "python"
 language-servers = ["ruff", "ty"]
@@ -31,7 +35,7 @@ formatter = { command = "rustfmt", args = ["--emit=stdout"] }
 
 [[language]]
 name = "markdown"
-language-servers = ["marksman"]
+language-servers = ["marksman", "mdpls"]
 soft-wrap.enable = true
 soft-wrap.max-wrap = 25
 
