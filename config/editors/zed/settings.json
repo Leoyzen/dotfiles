@@ -31,7 +31,7 @@
         "google/antigravity-gemini-3-pro-low",
         "google/antigravity-gemini-3-flash",
         "google/antigravity-gemini-3-pro",
-        "google/antigravity-claude-sonnet-4-5-thinking"
+        "google/antigravity-claude-sonnet-4-5-thinking",
       ],
       "type": "custom",
       "command": "opencode",
@@ -223,6 +223,7 @@
     "metrics": false,
   },
   "terminal": {
+    "copy_on_select": true,
     "detect_venv": {
       "on": {
         "directories": [".env", "env", ".venv", "venv"],

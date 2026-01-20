@@ -3,16 +3,22 @@
   "google_auth": false,
   "agents": {
     "Sisyphus": {
+      "model": "google/antigravity-claude-sonnet-4-5-thinking",
+      "variant": "low",
+    },
+    "Planner-Sisyphus": {
       "enabled": true,
-      "model": "google/antigravity-gemini-3-pro",
+      "model": "google/antigravity-claude-sonnet-4-5-thinking",
       "variant": "low",
       "replace_plan": true,
     },
-    "Planner-Sisyphus": {
-      "enabled": false,
-      "model": "google/antigravity-gemini-3-pro",
-      "variant": "low",
-      "replace_plan": false,
+    "sisyphus_agent": {
+      "model": "google/antigravity-claude-sonnet-4-5-thinking",
+      "variant": "high",
+      "disabled": false,
+      "default_builder_enabled": true,
+      "planner_enabled": true,
+      "replace_plan": true,
     },
     "oracle": {
       "model": "google/antigravity-gemini-3-pro",

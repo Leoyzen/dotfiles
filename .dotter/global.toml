@@ -9,7 +9,7 @@ depends = []
 
 [default.files]
 "config/shell/fish" = "~/.config/fish"
-"config/tools/git" = "~/.config/git"
+"config/tools/git" = "~/.gitconfig"
 "config/tools/starship.toml" = "~/.config/starship.toml"
 "config/tools/tmux.conf" = "~/.tmux.conf"
 "config/package-managers/uv.toml" = "~/.config/uv/uv.toml"
