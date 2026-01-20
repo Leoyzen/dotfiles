@@ -30,6 +30,8 @@
         "google/antigravity-gemini-3-pro-high",
         "google/antigravity-gemini-3-pro-low",
         "google/antigravity-gemini-3-flash",
+        "google/antigravity-gemini-3-pro",
+        "google/antigravity-claude-sonnet-4-5-thinking"
       ],
       "type": "custom",
       "command": "opencode",
