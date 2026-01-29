@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Docset name (without spaces, for display in Dash) -->
+	<!-- This name will be used for the .docsetconfig filename: {docset_name}.docsetconfig -->
+	<key>docsetName</key>
+	<string>{docset_name}</string>
+
+	<!-- Base URL for the documentation website -->
+	<key>websiteURL</key>
+	<string>{website_url}</string>
+
+	<!-- Pattern for pages to include in docset -->
+	<key>allowFilters</key>
+	<string>{download_patterns}</string>
+
+	<!-- Pattern for pages to exclude (search, 404, etc.) -->
+	<key>denyFilters</key>
+	<string>{ignore_patterns}</string>
+
+	<!-- Keyword for quick searching (e.g., "pdai" for Pydantic AI) -->
+	<key>docsetKeyword</key>
+	<string>{keyword}</string>
+
+	<!-- Enable JavaScript-based indexing (recommended for modern sites) -->
+	<key>javaScriptIndexEnabled</key>
+	<true/>
+
+	<!-- Disable basic regex-based indexing when JavaScript is enabled -->
+	<key>basicIndexEnabled</key>
+	<false/>
+
+	<!-- Custom CSS to inject for clean Dash UI -->
+	<key>cssToInject</key>
+	<string>
+/* Hide all navigation, search, footer, and GitHub links */
+{css_selectors_for_noise} {
+    display: none !important;
+}
+
+/* Layout optimization: fill window and adjust spacing */
+.md-main__inner {
+    max-width: none !important;
+    margin-top: 0 !important;
+}
+.md-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.md-content__inner {
+    padding: 1.5rem 2rem !important;
+}
+
+/* Remove anchor symbols (¶) next to headings */
+.headerlink {
+    display: none !important;
+}
+
+/* Optimize API code block backgrounds for better Dash visibility */
+.doc-object {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+</string>
+
+	<!-- JavaScript for indexing with hierarchical naming and semantic types -->
+	<key>javaScriptUsedToIndex</key>
+	<string>
+/**
+ * Hierarchical path construction for {docset_name}
+ */
+function buildHierarchicalPath() {{
+    let crumbs = [];
+
+    // 1. Try to find explicit breadcrumb elements
+    let $explicitCrumbs = $(".md-path__item, .md-breadcrumbs__item");
+    if ($explicitCrumbs.length > 0) {{
+        $explicitCrumbs.each(function() {{
+            let text = $(this).text().trim();
+            if (text && text !== "»") crumbs.push(text);
+        }});
+    }}
+    // 2. If breadcrumbs not enabled, extract from active sidebar path
+    else {{
+        // MkDocs Material adds --active class to all parent levels of current path
+        $(".md-nav__item--active > .md-nav__link").each(function() {{
+            // Filter out icon-only elements, take text
+            let text = $(this).find(".md-ellipsis").contents().filter(function() {{
+                return this.nodeType === 3; // Text node only
+            }}).text().trim() || $(this).contents().filter(function() {{
+                return this.nodeType === 3;
+            }}).text().trim();
+            if (text && !crumbs.includes(text)) crumbs.push(text);
+        }});
+    }}
+
+    // Remove last level (usually current page's H1), since Guide index already includes page name
+    // This results in "Folder / Subfolder / PageName" display in Dash sidebar
+    return crumbs.length > 0 ? crumbs.join(" / ") : null;
+}}
+
+// --- Index generation ---
+
+// 1. Guide: Use breadcrumbs to build folder hierarchy
+let breadcrumbPath = buildHierarchicalPath();
+let pageTitle = $("h1").first().text().trim() || $("title").text().split(" - ")[0].trim();
+
+// If breadcrumbs exist, combine "A / B / PageTitle", Dash auto-recognizes "/" and collapses
+let fullGuideName = breadcrumbPath ? (breadcrumbPath + " / " + pageTitle) : pageTitle;
+dashDoc.addEntry({{name: fullGuideName, type: "Guide"}});
+
+// 2. Section: Page subsections (H2/H3) - excluded from global search
+$("h2, h3").each(function() {{
+    const $el = $(this);
+    // Skip if inside API documentation objects
+    if ($el.closest(".doc-object, .class, .function, .method").length > 0) return;
+
+    const name = $el.text().replace(/¶\s*$/, "").trim();
+    if (name) {{
+        dashDoc.addEntry({{name: name, type: "Section", hash: $el.attr("id")}});
+    }}
+}});
+
+// 3. API mapping - adapt selectors based on documentation structure
+{api_selector_pattern}
+
+// Note: See references/entry_types.md for complete list of 79 supported entry types
+// Common types to use: Class, Function, Method, Property, Field, Attribute,
+// Parameter, Type, Enum, Interface, Component, Service, Setting, Option, etc.
+</string>
+
+	<!-- Optional local folder path (set if generating from local files) -->
+	<key>localFolderPath</key>
+	<string></string>
+
+	<!-- Specify if docset is from website -->
+	<key>isFromWebsite</key>
+	<true/>
+
+	<!-- Specify if docset is from local folder -->
+	<key>isFromLocalFolder</key>
+	<false/>
+
+	<!-- Additional plist info if needed -->
+	<key>extraInfoPlist</key>
+	<string></string>
+</dict>
+</plist>

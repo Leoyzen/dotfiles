@@ -3,7 +3,7 @@
     email = leoyzen@gmail.com
 [core]
     quotepath = false
-    editor = vim
+    editor = hx
 [alias]
     showtool = "!f() { git difftool $1^ $1; }; f"
     added = difftool --cached

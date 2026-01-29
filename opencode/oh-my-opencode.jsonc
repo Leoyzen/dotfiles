@@ -2,23 +2,34 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
   "agents": {
-    "Sisyphus": {
-      "model": "google/antigravity-claude-sonnet-4-5-thinking",
-      "variant": "low",
-    },
-    "Planner-Sisyphus": {
-      "enabled": true,
-      "model": "google/antigravity-claude-sonnet-4-5-thinking",
-      "variant": "low",
-      "replace_plan": true,
-    },
     "sisyphus_agent": {
-      "model": "google/antigravity-claude-sonnet-4-5-thinking",
-      "variant": "high",
       "disabled": false,
       "default_builder_enabled": true,
-      "planner_enabled": true,
+      "planner_enabled": false,
       "replace_plan": true,
+    },
+    "prometheus": {
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high",
+    },
+    "sisyphus": {
+      "model": "wolf-ai/glm-4.7",
+      "variant": "low",
+    },
+    "sisyphus-junior": {
+      "model": "wolf-ai/glm-4.7",
+    },
+    "momus": {
+      "model": "google/antigravity-claude-opus-4-5-thinking",
+      "variant": "max",
+    },
+    "metis": {
+      "model": "google/antigravity-claude-sonnet-4-5-thinking",
+      "variant": "max",
+    },
+    "atlas": {
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "medium",
     },
     "oracle": {
       "model": "google/antigravity-gemini-3-pro",
@@ -30,31 +41,48 @@
     "explore": {
       "model": "wolf-ai/glm-4.7",
     },
-    "frontend-ui-ux-engineer": {
-      "model": "google/antigravity-gemini-3-flash",
-      "variant": "medium",
-    },
     "document-writer": {
       "model": "wolf-ai/glm-4.7",
     },
     "multimodal-looker": {
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high",
+    },
+  },
+  "categories": {
+    "quick": {
+      "model": "wolf-ai/glm-4.7",
+    },
+    "unspecified-low": {
+      "model": "wolf-ai/glm-4.7",
+    },
+    "unspecified-high": {
       "model": "google/antigravity-gemini-3-flash",
-      "variant": "medium",
+      // "model": "wolf-ai/glm-4.7",
+      "variant": "high",
+    },
+    "writing": {
+      "model": "wolf-ai/glm-4.7",
+    },
+    "ultrabrain": {
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high",
     },
   },
   "background_task": {
-    "defaultConcurrency": 5,
+    "defaultConcurrency": 3,
     "providerConcurrency": {
-      "google": 5,
+      "google": 3,
       "wolf-ai": 20,
     },
   },
-  "disabled_hooks": ["comment-checker", "agent-usage-reminder"],
-  "disabled_agents": ["frontend-ui-ux-engineer"],
-  "sisyphus_agent": {
-    "disabled": true,
-    "default_builder_enabled": false,
-    "planner_enabled": true,
-    "replace_plan": false,
+  "disabled_hooks": ["comment-checker", "agent-usage-reminder", "keyword-detector"],
+  "disabled_agents": [],
+  "tmux": {
+    "enabled": true,
+    "layout": "main-vertical",
+    "main_pane_size": 60,
+    "main_pane_min_width": 120,
+    "agent_pane_min_width": 40,
   },
 }

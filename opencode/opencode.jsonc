@@ -71,9 +71,10 @@
   "permission": {
     "bash": {
       "*": "allow",
-      "git rm *": "deny",
+      "git rm *": "ask",
       "git checkout *": "ask",
-      "rm *": "deny",
+      "git restore *": "ask",
+      "rm *": "ask",
     },
     "edit": {
       "*": "ask",
@@ -108,6 +109,20 @@
         },
         "antigravity-claude-sonnet-4-5-thinking": {
           "name": "Claude Sonnet 4.5 Thinking",
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] },
+          "variants": {
+            "low": { "thinkingConfig": { "thinkingBudget": 8192 } },
+            "max": { "thinkingConfig": { "thinkingBudget": 32768 } },
+          },
+        },
+        "antigravity-claude-sonnet-4-5": {
+          "name": "Claude Sonnet 4.5 (Antigravity)",
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] },
+        },
+        "antigravity-claude-opus-4-5-thinking": {
+          "name": "Claude Opus 4.5 Thinking (Antigravity)",
           "limit": { "context": 200000, "output": 64000 },
           "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] },
           "variants": {
@@ -163,11 +178,9 @@
     "scroll_acceleration": {
       "enabled": true, // 启用 macOS 风格加速滚动时，scroll_speed 无效
     },
-    "scroll_speed": 3, // 滚动速度
+    "scroll_speed": 5, // 滚动速度
   },
   "lsp": {
-    "pyright": {
-      "disabled": true,
-    },
+    "marksman-lsp": { "command": ["marksman", "server"], "extensions": [".md", ".mdc"] },
   },
 }
