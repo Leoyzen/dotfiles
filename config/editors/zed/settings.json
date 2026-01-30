@@ -144,8 +144,8 @@
     "default_profile": "write",
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "anthropic",
-      "model": "gemini-3-pro-high",
+      "provider": "Wolf-Ack",
+      "model": "svc/glm-4.7",
     },
     "model_parameters": [],
     "profiles": {

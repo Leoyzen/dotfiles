@@ -60,8 +60,11 @@ depends = []
 "config/editors/vim/spacevim.vim" = "~/.spacevim"
 
 [opencode.files]
-"opencode/skill" = "~/.config/opencode/skill"
 "opencode/command" = "~/.config/opencode/command"
 "opencode/antigravity.json" = "~/.config/opencode/antigravity.json"
 "opencode/oh-my-opencode.jsonc" = "~/.config/opencode/oh-my-opencode.jsonc"
 "opencode/opencode.jsonc" = "~/.config/opencode/opencode.jsonc"
+
+[skills.files]
+"skills" = "~/.config/opencode/skill"
+".claude/skills" = "~/.claude/skills"

@@ -224,7 +224,7 @@ When the CTO Architect agent creates technical specifications:
 ## Directory Structure
 
 ```
-rfcs/
+docs/rfcs/
 ├── draft/           # Work in progress
 ├── review/          # Under stakeholder review
 ├── approved/        # Approved, awaiting or in implementation
