@@ -24,7 +24,7 @@
       "enabled": false,
     },
   },
-  "enabled_providers": ["wolf-ai", "google"],
+  "enabled_providers": ["wolf-ai", "google", "kimi-code"],
   "tools": {
     "write": true,
     "bash": true,
@@ -173,6 +173,45 @@
         },
       },
     },
+    "kimi-code": {
+      "name": "Kimi For Coding",
+      "npm": "@ai-sdk/anthropic",
+      "options": {
+        "baseURL": "https://api.kimi.com/coding/v1",
+      },
+      "models": {
+        "k2p5": {
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "attachment": false,
+          "limit": {
+            "context": 262144,
+            "output": 32768,
+          },
+          "modalities": {
+            "input": ["text", "image", "video"],
+            "output": ["text"],
+          },
+          "options": {
+            "interleaved": {
+              "field": "reasoning_content",
+            },
+          },
+        },
+      },
+    },
+    // "kimi-code": {
+    //   "name": "Kimi Code",
+    //   "npm": "@ai-sdk/openai-compatible",
+    //   "options": {
+    //     "baseURL": "https://api.kimi.com/coding/v1",
+    //   },
+    //   "models": {
+    //     "Kimi K2.5": {
+    //       "id": "kimi-for-coding",
+    //     },
+    //   },
+    // },
   },
   "tui": {
     "scroll_acceleration": {

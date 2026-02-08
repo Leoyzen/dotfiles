@@ -12,6 +12,8 @@ line-number = "relative"
 mouse = true
 rulers = [79]
 true-color = true
+# 让 Helix 使用终端定义的光标形状，这有助于同步协议状态
+# use-terminal-cursor = true
 
 [editor.whitespace.render]
 space = "none"
@@ -63,6 +65,8 @@ display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
+normal = "block"
+select = "underline"
 
 [editor.indent-guides]
 render = true
@@ -75,8 +79,8 @@ max-wrap = 10 # increase value to reduce forced mid-word wrapping
 max-indent-retain = 40
 
 [keys.normal]
-";" = { w = ":w", q = ":q" }
-"C-/" = "toggle_comments"
+# ";" = { w = ":w", q = ":q" }
+# "C-/" = "toggle_comments"
 # esc is remapped to capslock locally
 # esc = ["collapse_selection", "keep_primary_selection", ":w"]
 # C-v = "vsplit"

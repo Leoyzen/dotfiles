@@ -28,8 +28,9 @@
       "variant": "max",
     },
     "atlas": {
-      "model": "google/antigravity-gemini-3-flash",
-      "variant": "medium",
+      // "model": "google/antigravity-gemini-3-flash",
+      // "variant": "medium",
+      "model": "kimi-code/k2p5",
     },
     "oracle": {
       "model": "google/antigravity-gemini-3-pro",
@@ -80,7 +81,7 @@
   "disabled_agents": [],
   "tmux": {
     "enabled": true,
-    "layout": "main-vertical",
+    "layout": "even-vertical",
     "main_pane_size": 60,
     "main_pane_min_width": 120,
     "agent_pane_min_width": 40,

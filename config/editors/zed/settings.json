@@ -55,19 +55,30 @@
     "Agent-Pool": {
       "type": "custom",
       "command": "uv",
-      "env": { "UV_PROJECT": "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent", "LOG_LEVEL": "DEBUG", "LOGFIRE_IGNORE_NO_CONFIG": "1" },
+      "env": {
+        "UV_PROJECT": "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent",
+        "LOG_LEVEL": "DEBUG",
+        "LOGFIRE_IGNORE_NO_CONFIG": "1",
+        "OPENAI_API_BASE": "http://127.0.0.1:4000/v1",
+        "OPENAI_API_KEY": "sk-81tG2fae63ORELlKPYbzBw",
+        "OPENAI_MODEL_NAME": "svc/glm-4.7",
+      },
       "args": [
         "run",
         "agentpool",
         "serve-acp",
         "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent/config/diag-agent.yaml",
+        "--agent",
+        "fault_expert",
+        "--subagent-display-mode",
+        "inline",
         "--show-messages",
         "--debug-commands",
         "--debug-messages",
+        "--debug-file",
+        "/tmp/agentpool.log",
         // "--log-level",
         // "DEBUG",
-        "--debug-file",
-        "/tmp/agent-pool.log",
       ],
     },
     "Xeno-Agent": {
@@ -168,8 +179,17 @@
   },
   "language_models": {
     "anthropic": {
-      "api_url": "http://127.0.0.1:8045",
+      "api_url": "https://api.kimi.com/coding/v1",
       "available_models": [
+        {
+          "name": "kimi-for-coding",
+          "max_tokens": 262144,
+          "max_output_tokens": 32000,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 10000,
+          },
+        },
         {
           "name": "gemini-3-flash",
           "display_name": "Gemini 3 Flash(AG)",
@@ -232,6 +252,24 @@
       ],
     },
     "openai_compatible": {
+      "Kimi-Code": {
+        "api_url": "https://api.kimi.com/coding/v1",
+        "available_models": [
+          {
+            "name": "kimi-for-coding",
+            "max_tokens": 202752,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+        ],
+      },
       "Wolf-Ack-Dev": {
         "api_url": "http://localhost:4000/v1",
         "available_models": [
@@ -327,7 +365,7 @@
     "detect_venv": {
       "on": {
         "directories": [".env", "env", ".venv", "venv"],
-        "activate_script": "default",
+        "activate_script": "fish",
       },
     },
     "shell": {
@@ -354,7 +392,7 @@
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox ish Dark Hard",
+    "dark": "Gruvbox Crisp Highest Contrast",
   },
   "languages": {
     "Python": {
@@ -363,10 +401,11 @@
       "language_servers": [
         // Disable basedpyright and enable ty, and otherwise
         // use the default configuration.
-        "!ty",
-        "basedpyright",
+        "ty",
+        "!basedpyright",
         "...",
       ],
     },
   },
+  "lsp": { "ruff": { "binary": { "ignore_system_version": false } } },
 }
