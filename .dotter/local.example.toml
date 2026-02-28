@@ -10,7 +10,20 @@ linuxbrew_prefix = ""
 os_type = ""
 username = "{{env.USER}}"
 
+# Git 配置（覆盖 global.toml 中的默认值）
+# git_user_name = "Your Name"
+# git_user_email = "your.email@example.com"
+
+# Git 代理配置（仅在需要代理的机器上启用）
+# git_proxy = "socks5h://127.0.0.1:6153"  # 启用代理
+# git_proxy = ""  # 禁用代理（默认）
+
 [packages]
 # 选择要启用的包
 default = true
 # 添加其他包...
+# alacritty = true
+# helix = true
+# zed = true
+# rust = true
+# python = true
