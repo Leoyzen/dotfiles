@@ -1,6 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "agentOverrides": {
+    "hephaestus": {
+      "model": "wolf-ai/ack-dev",
+    },
+  },
   "agents": {
     "sisyphus_agent": {
       "disabled": false,
@@ -9,65 +14,82 @@
       "replace_plan": true,
     },
     "prometheus": {
-      "model": "google/antigravity-gemini-3-pro",
-      "variant": "high",
+      "model": "wolf-ai/ack-dev",
+      // "variant": "high",
     },
     "sisyphus": {
-      "model": "wolf-ai/glm-4.7",
-      "variant": "low",
+      "model": "wolf-ai/ack-dev",
+      // "variant": "low",
     },
     "sisyphus-junior": {
-      "model": "wolf-ai/glm-4.7",
+      "model": "wolf-ai/ack-dev",
     },
     "momus": {
-      "model": "google/antigravity-claude-opus-4-5-thinking",
+      "model": "google/antigravity-gemini-3-flash",
       "variant": "max",
+      // "model": "wolf-ai/ack-dev",
     },
     "metis": {
-      "model": "google/antigravity-claude-sonnet-4-5-thinking",
+      // "model": "wolf-ai/ack-dev",
+      "model": "antigravity-claude-opus-4-6-thinking",
       "variant": "max",
     },
     "atlas": {
       // "model": "google/antigravity-gemini-3-flash",
       // "variant": "medium",
-      "model": "kimi-code/k2p5",
+      // "model": "wolf-ai/k2p5",
+      "model": "wolf-ai/ack-dev",
     },
     "oracle": {
-      "model": "google/antigravity-gemini-3-pro",
-      "variant": "high",
+      "model": "wolf-ai/ack-dev",
+      // "variant": "high",
     },
     "librarian": {
-      "model": "wolf-ai/glm-4.7",
+      "model": "wolf-ai/ack-dev",
     },
     "explore": {
-      "model": "wolf-ai/glm-4.7",
+      "model": "wolf-ai/ack-dev",
     },
     "document-writer": {
-      "model": "wolf-ai/glm-4.7",
+      "model": "wolf-ai/ack-dev",
     },
     "multimodal-looker": {
-      "model": "google/antigravity-gemini-3-pro",
-      "variant": "high",
+      "model": "wolf-ai/ack-dev",
+      // "variant": "high",
     },
   },
   "categories": {
     "quick": {
-      "model": "wolf-ai/glm-4.7",
+      "model": "wolf-ai/ack-dev",
     },
     "unspecified-low": {
-      "model": "wolf-ai/glm-4.7",
+      "model": "wolf-ai/ack-dev",
     },
     "unspecified-high": {
-      "model": "google/antigravity-gemini-3-flash",
-      // "model": "wolf-ai/glm-4.7",
-      "variant": "high",
+      "model": "wolf-ai/ack-dev",
+      // "model": "wolf-ai/ack-dev",
+      // "variant": "high",
     },
     "writing": {
-      "model": "wolf-ai/glm-4.7",
+      "model": "wolf-ai/ack-dev",
     },
     "ultrabrain": {
-      "model": "google/antigravity-gemini-3-pro",
-      "variant": "high",
+      // "model": "google/antigravity-gemini-3-pro",
+      "model": "wolf-ai/ack-dev",
+      // "variant": "high",
+    },
+    "visual-engineering": {
+      "model": "wolf-ai/ack-dev",
+      // "variant": "high",
+    },
+    "deep": {
+      "model": "wolf-ai/ack-dev",
+      // "model": "google/antigravity-gemini-3-pro",
+      // "variant": "high",
+    },
+    "artistry": {
+      "model": "wolf-ai/ack-dev",
+      // "variant": "high",
     },
   },
   "background_task": {

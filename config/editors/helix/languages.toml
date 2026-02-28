@@ -19,7 +19,11 @@ args = ["--stdio"]
 
 [language-server.mdpls]
 command = "mdpls"
-config = { markdown.preview.auto = true }
+config = { markdown.preview.auto = false }
+
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
 
 [[language]]
 name = "python"
@@ -51,6 +55,7 @@ formatter = { command = "prettier", args = ["--parser", "toml"] }
 
 [[language]]
 name = "yaml"
+language-servers = ["yaml-language-server"]
 indent = { tab-width = 2, unit = "  " }
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 

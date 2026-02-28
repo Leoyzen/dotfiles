@@ -1,6 +1,7 @@
 ---
 name: dash-doc-generation-config
 description: Generates a complete Dash Docset configuration for a given website URL. This includes website filters, download patterns, indexing JavaScript (supporting hierarchical naming and semantic entry types), and custom CSS for a clean native-app feel. Use when a user asks to "generate dash config", "build dash docset", or provides a documentation URL to be converted for Dash.
+disable-model-invocation: true
 ---
 
 # Dash Docset Generation Config

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "timeout": 120,
+      "disabled": false,
+      "disabled_tools": ["create_issue", "create_pull_request"],
+      "headers": {
+        "Authorization": "Bearer $GITHUB_TOKEN"
+      }
+    }
+  },
+  "options": {
+    "skills_paths": ["~/.claude/skills"]
+  },
+  "providers": {
+    "wolf-ai": {
+      "type": "openai-compat",
+      "base_url": "http://api.ai.rootcloud.info/v1",
+      "api_key": "$OPENAI_API_KEY",
+      "models": [
+        {
+          "id": "svc/glm-4.7",
+          "name": "GLM4.7",
+          "context_window": 202752,
+          "can_reason": true,
+          "cost_per_1m_in": 0.27,
+          "cost_per_1m_out": 1.1,
+          "cost_per_1m_in_cached": 0.07,
+          "cost_per_1m_out_cached": 1.1,
+          "default_max_tokens": 65536
+        },
+        {
+          "id": "svc/kimi-k2",
+          "name": "Ack Dev",
+          "context_window": 202752,
+          "can_reason": true,
+          "cost_per_1m_in": 0.27,
+          "cost_per_1m_out": 1.1,
+          "cost_per_1m_in_cached": 0.07,
+          "cost_per_1m_out_cached": 1.1,
+          "default_max_tokens": 65536
+        },
+        {
+          "id": "svc/kimi-k2.5",
+          "name": "Kimi K2.5",
+          "can_reason": true,
+          "cost_per_1m_in": 0.27,
+          "cost_per_1m_out": 1.1,
+          "cost_per_1m_in_cached": 0.07,
+          "cost_per_1m_out_cached": 1.1,
+          "context_window": 256000,
+          "default_max_tokens": 65536
+        }
+      ]
+    }
+  }
+}

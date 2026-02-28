@@ -1,6 +1,7 @@
 ---
 name: dotter-manager
 description: Manage dotfiles using Dotter. Use for deploying configurations, adding new packages, debugging templates, and managing global/local configs.
+disable-model-invocation: true
 ---
 
 # Dotter Manager

@@ -20,6 +20,9 @@ This repository contains personal dotfiles managed by [Dotter](https://github.co
 # Deploy all configurations
 dotter deploy
 
+# Skip brew hooks (fast deployment, skip package installation)
+dotter deploy --pre-deploy "" --post-deploy ""
+
 # Dry-run (preview changes without applying)
 dotter deploy --dry-run
 
@@ -185,9 +188,26 @@ toml validate .dotter/global.toml
 
 - **Local config** should NEVER be committed - it's in `.gitignore`
 - **Pre-deployment hooks** in `.dotter/pre_deploy.sh` run before every deployment
+- **Post-deployment hooks** in `.dotter/post_deploy.sh` run after deployment and install Homebrew packages
+- **Skip hooks**: Use `--pre-deploy ""` or `--post-deploy ""` to skip hooks (useful for quick config updates)
 - **Symlinks**: Dotter creates symlinks automatically for files
 - **Templates**: Use `{{variable}}` syntax in files for variable substitution
 - **Cache**: Dotter caches deployments; use `-f` to force updates
+
+## Skipping Brew Hooks
+
+The pre/post deployment hooks automatically handle Homebrew installation and package management. To skip these for faster configuration-only deployment:
+
+```bash
+# Skip both brew checks and package installation
+dotter deploy --pre-deploy "" --post-deploy ""
+
+# Skip only package installation (keep brew check)
+dotter deploy --post-deploy ""
+
+# Use empty hook script (noop.sh provided in .dotter/)
+dotter deploy --pre-deploy .dotter/noop.sh --post-deploy .dotter/noop.sh
+```
 
 ## Common Patterns
 

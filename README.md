@@ -35,7 +35,9 @@ dotter deploy -f
 ├── .dotter/              # Dotter 配置
 │   ├── global.toml      # 全局配置（所有机器共享）
 │   ├── local.toml       # 本地配置（机器特定，在 .gitignore 中）
-│   └── pre_deploy.sh    # 部署前钩子
+│   ├── pre_deploy.sh    # 部署前钩子（检查/安装 Homebrew）
+│   ├── post_deploy.sh   # 部署后钩子（安装 Homebrew 包）
+│   └── noop.sh          # 空脚本（用于跳过 hooks）
 ├── config/              # 配置文件目录（按工具分类）
 │   ├── editors/         # 编辑器配置
 │   │   ├── terminals/   # 终端配置
@@ -121,6 +123,30 @@ dotter undeploy
 
 # 监控模式（自动部署变更）
 dotter watch
+```
+
+### 跳过 Brew 处理（可选）
+
+本仓库包含自动执行 Homebrew 检查和包安装的 hooks。如需**快速部署配置**而不执行 brew 相关操作：
+
+```bash
+# 跳过所有 hooks（不检查/安装 Homebrew，不安装包）
+dotter deploy --pre-deploy "" --post-deploy ""
+
+# 仅跳过包安装（保留 Homebrew 检查）
+dotter deploy --post-deploy ""
+
+# 使用空脚本替代
+dotter deploy --pre-deploy .dotter/noop.sh --post-deploy .dotter/noop.sh
+```
+
+添加 alias 到 shell 配置以便快速使用：
+```bash
+# Fish
+alias dotter-fast='dotter deploy --pre-deploy "" --post-deploy ""'
+
+# Bash/Zsh
+alias dotter-fast="dotter deploy --pre-deploy '' --post-deploy ''"
 ```
 
 ### 配置文件结构

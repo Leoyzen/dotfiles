@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "provider": "copilot",
+  },
   "inlay_hints": {
     "enabled": true,
   },
@@ -14,7 +17,7 @@
   "tabs": {
     "git_status": true,
   },
-  "relative_line_numbers": "disabled",
+  "relative_line_numbers": "enabled",
   "agent_servers": {
     "claude": {
       "default_model": "svc/glm-4.7",
@@ -35,12 +38,13 @@
         "google/antigravity-gemini-3-pro-low",
         "google/antigravity-gemini-3-flash",
         "google/antigravity-gemini-3-pro",
-        "google/antigravity-claude-sonnet-4-5-thinking",
-        "google/antigravity-claude-opus-4-5-thinking",
-        "google/antigravity-claude-sonnet-4-5",
+        "google/antigravity-claude-sonnet-4-6-thinking",
+        "google/antigravity-claude-opus-4-6-thinking",
+        "google/antigravity-claude-sonnet-4-6",
       ],
       "type": "custom",
-      "command": "opencode",
+      // "command": "opencode",
+      "command": "~/.local/bin/opencode-dev",
       "args": ["acp"],
       "env": {
         "HTTPS_PROXY": "http://127.0.0.1:6152",
@@ -49,7 +53,34 @@
         "OPENCODE_MODEL": "svc/glm-4.7",
         "OPENCODE_GEMINI_PRO_MODEL": "google/antigravity-gemini-3-pro",
         "OPENCODE_GEMINI_FLASH_MODEL": "google/antigravity-gemini-3-flash",
-        "OPENCODE_CLAUDE_MODEL": "google/antigravity-claude-sonnet-4-5-thinking",
+        "OPENCODE_CLAUDE_MODEL": "google/antigravity-claude-sonnet-4-6-thinking",
+      },
+    },
+    "OpenCode-Dev": {
+      "favorite_models": [
+        "wolf-ai/svc/glm-4.7",
+        "wolf-ai/svc/kimi-k2",
+        "wolf-ai/glm-4.7",
+        "wolf-ai/ack-dev",
+        "google/antigravity-gemini-3-pro-high",
+        "google/antigravity-gemini-3-pro-low",
+        "google/antigravity-gemini-3-flash",
+        "google/antigravity-gemini-3-pro",
+        "google/antigravity-claude-sonnet-4-6-thinking",
+        "google/antigravity-claude-opus-4-6-thinking",
+        "google/antigravity-claude-sonnet-4-6",
+      ],
+      "type": "custom",
+      "command": "~/.local/bin/opencode-dev",
+      "args": ["acp"],
+      "env": {
+        "HTTPS_PROXY": "http://127.0.0.1:6152",
+        "OPENCODE_EXPERIMENTAL_LSP_TY": "1",
+        "OPENCODE_CLIENT": "acp",
+        "OPENCODE_MODEL": "svc/glm-4.7",
+        "OPENCODE_GEMINI_PRO_MODEL": "google/antigravity-gemini-3-pro",
+        "OPENCODE_GEMINI_FLASH_MODEL": "google/antigravity-gemini-3-flash",
+        "OPENCODE_CLAUDE_MODEL": "google/antigravity-claude-sonnet-4-6-thinking",
       },
     },
     "Agent-Pool": {
@@ -107,9 +138,6 @@
   },
   "vim_mode": true,
   "icon_theme": "Zed (Default)",
-  "features": {
-    "edit_prediction_provider": "copilot",
-  },
   "ssh_connections": [
     {
       "host": "ack-h20",
@@ -135,6 +163,9 @@
     },
   },
   "agent": {
+    "tool_permissions": {
+      "default": "allow",
+    },
     "favorite_models": [
       {
         "provider": "anthropic",
@@ -153,10 +184,9 @@
     "show_turn_stats": true,
     "use_modifier_to_send": true,
     "default_profile": "write",
-    "always_allow_tool_actions": true,
     "default_model": {
       "provider": "Wolf-Ack",
-      "model": "svc/glm-4.7",
+      "model": "svc/kimi-k2",
     },
     "model_parameters": [],
     "profiles": {
@@ -178,79 +208,6 @@
     },
   },
   "language_models": {
-    "anthropic": {
-      "api_url": "https://api.kimi.com/coding/v1",
-      "available_models": [
-        {
-          "name": "kimi-for-coding",
-          "max_tokens": 262144,
-          "max_output_tokens": 32000,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 10000,
-          },
-        },
-        {
-          "name": "gemini-3-flash",
-          "display_name": "Gemini 3 Flash(AG)",
-          "max_tokens": 1000000,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 10000,
-          },
-        },
-        {
-          "name": "gemini-3-pro-high",
-          "display_name": "Gemini 3 Pro(High, AG)",
-          "max_tokens": 1000000,
-          "max_output_tokens": 64000,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 10000,
-          },
-        },
-        {
-          "name": "claude-sonnet-4-5",
-          "display_name": "Claude Sonnet 4.5(AG)",
-          "max_tokens": 2000000,
-          "max_output_tokens": 64000,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 10000,
-          },
-        },
-        {
-          "name": "claude-opus-4-5-thinking",
-          "display_name": "Claude Opus 4.5(Think, AG)",
-          "max_tokens": 2000000,
-          "max_output_tokens": 64000,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 10000,
-          },
-        },
-        {
-          "name": "claude-sonnet-4-5-thinking",
-          "display_name": "Claude Sonnet 4.5(Think, AG)",
-          "max_tokens": 2000000,
-          "max_output_tokens": 64000,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 10000,
-          },
-        },
-        {
-          "name": "claude-opus-4-5-thinking",
-          "display_name": "Claude Opus 4.5(Think, AG)",
-          "max_tokens": 2000000,
-          "max_output_tokens": 64000,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 10000,
-          },
-        },
-      ],
-    },
     "openai_compatible": {
       "Kimi-Code": {
         "api_url": "https://api.kimi.com/coding/v1",
