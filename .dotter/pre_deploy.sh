@@ -2,6 +2,14 @@
 
 # pre_deploy.sh - Dotter 部署前脚本
 # 功能：检测并安装 Homebrew/Linuxbrew（使用清华镜像）
+#
+# 环境变量:
+#   DOTTER_SKIP_BREW=1  - 跳过 Homebrew 检查和安装
+
+if [ "${DOTTER_SKIP_BREW}" = "1" ] || [ "${DOTTER_SKIP_BREW}" = "true" ]; then
+    echo "⏭️  Pre-deployment: 跳过 Homebrew 检查 (DOTTER_SKIP_BREW=${DOTTER_SKIP_BREW})"
+    exit 0
+fi
 
 OS=$(uname)
 
@@ -123,7 +131,7 @@ fi
 if check_brew; then
     echo ""
     echo "🔧 Configuring Tsinghua mirror for Homebrew..."
-    
+
     if [ "$OS" == "Darwin" ]; then
         # macOS 的配置文件
         if [ -f ~/.zprofile ]; then

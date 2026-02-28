@@ -2,6 +2,14 @@
 
 # post_deploy.sh - 配置文件部署后安装常用 Homebrew/Linuxbrew 包
 # 用法：在 dotter deploy 后执行此脚本
+#
+# 环境变量:
+#   DOTTER_SKIP_BREW=1  - 跳过 Homebrew 包安装
+
+if [ "${DOTTER_SKIP_BREW}" = "1" ] || [ "${DOTTER_SKIP_BREW}" = "true" ]; then
+    echo "⏭️  Post-deployment: 跳过 Homebrew 包安装 (DOTTER_SKIP_BREW=${DOTTER_SKIP_BREW})"
+    exit 0
+fi
 
 set -e
 

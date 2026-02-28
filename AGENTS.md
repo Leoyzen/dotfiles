@@ -20,8 +20,8 @@ This repository contains personal dotfiles managed by [Dotter](https://github.co
 # Deploy all configurations
 dotter deploy
 
-# Skip brew hooks (fast deployment, skip package installation)
-dotter deploy --pre-deploy "" --post-deploy ""
+# Deploy without brew operations (fast)
+DOTTER_SKIP_BREW=1 dotter deploy
 
 # Dry-run (preview changes without applying)
 dotter deploy --dry-run
@@ -187,26 +187,63 @@ toml validate .dotter/global.toml
 ## Important Notes
 
 - **Local config** should NEVER be committed - it's in `.gitignore`
-- **Pre-deployment hooks** in `.dotter/pre_deploy.sh` run before every deployment
-- **Post-deployment hooks** in `.dotter/post_deploy.sh` run after deployment and install Homebrew packages
-- **Skip hooks**: Use `--pre-deploy ""` or `--post-deploy ""` to skip hooks (useful for quick config updates)
+- **Pre-deployment script** `.dotter/pre_deploy.sh` checks and installs Homebrew (run manually before deploy)
+- **Post-deployment script** `.dotter/post_deploy.sh` installs Homebrew packages (run manually after deploy)
+- **Skip hooks**: Simply don't run the scripts if you want to skip Homebrew operations
 - **Symlinks**: Dotter creates symlinks automatically for files
 - **Templates**: Use `{{variable}}` syntax in files for variable substitution
 - **Cache**: Dotter caches deployments; use `-f` to force updates
 
-## Skipping Brew Hooks
+## Hook Scripts (Manual Execution)
 
-The pre/post deployment hooks automatically handle Homebrew installation and package management. To skip these for faster configuration-only deployment:
+The pre/post deployment scripts (`pre_deploy.sh` and `post_deploy.sh`) are not automatically executed by dotter. They must be run manually:
 
 ```bash
-# Skip both brew checks and package installation
-dotter deploy --pre-deploy "" --post-deploy ""
+# Run pre-deployment (Homebrew check/install)
+.dotter/pre_deploy.sh
 
-# Skip only package installation (keep brew check)
-dotter deploy --post-deploy ""
+# Deploy configurations
+dotter deploy
 
-# Use empty hook script (noop.sh provided in .dotter/)
-dotter deploy --pre-deploy .dotter/noop.sh --post-deploy .dotter/noop.sh
+# Run post-deployment (package installation) - optional
+.dotter/post_deploy.sh
+```
+
+### Skip Brew with Environment Variable
+
+You can skip brew operations by setting the `DOTTER_SKIP_BREW` environment variable:
+
+```bash
+# Skip brew operations during deployment
+DOTTER_SKIP_BREW=1 dotter deploy
+
+# Or export it for the current session
+export DOTTER_SKIP_BREW=1
+dotter deploy
+```
+
+This works because:
+1. `pre_deploy.sh` checks `DOTTER_SKIP_BREW` and exits early if set
+2. `post_deploy.sh` checks `DOTTER_SKIP_BREW` and exits early if set
+3. This allows you to deploy configurations quickly without brew operations
+
+### Fish Shell Alias (Recommended)
+
+Add to `config/shell/fish/fish/config.fish`:
+
+```fish
+# Quick dotter deploy without brew operations
+alias dotter-quick 'env DOTTER_SKIP_BREW=1 /opt/homebrew/bin/dotter deploy'
+
+# Full dotter deploy with brew
+alias dotter-full '/opt/homebrew/bin/dotter deploy; and .dotter/post_deploy.sh'
+```
+
+Or use abbreviations for even faster typing:
+
+```fish
+abbr -a dqr 'env DOTTER_SKIP_BREW=1 dotter deploy'
+abbr -a dfr 'dotter deploy; and .dotter/post_deploy.sh'
 ```
 
 ## Common Patterns

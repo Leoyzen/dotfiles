@@ -1,6 +1,6 @@
 dotfiles/.dotter/noop.sh
 #!/usr/bin/env bash
-# 空脚本 - 用于跳过 brew 处理
-# 用法: dotter deploy --pre-deploy .dotter/noop.sh --post-deploy .dotter/noop.sh
+# 空脚本 - 用于占位或不执行任何操作
+# 用法: 当需要禁用某个操作时，可以用此脚本替换
 
 exit 0
