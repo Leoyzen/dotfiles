@@ -12,7 +12,8 @@ git_user_email = "leoyzen@gmail.com"
 # git_proxy = "socks5h://127.0.0.1:6153"  # 取消注释以启用代理
 
 [default.files]
-"config/shell/fish" = "~/.config/fish"
+"config/shell/fish/fish_plugins" = "~/.config/fish/fish_plugins"
+"config/shell/fish/conf.d" = "~/.config/fish/conf.d"
 "config/tools/git" = { target = "~/.gitconfig", type = "template" }
 "config/tools/starship.toml" = "~/.config/starship.toml"
 "config/tools/tmux.conf" = "~/.tmux.conf"
