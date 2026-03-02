@@ -65,11 +65,10 @@ git_user_email = "leoyzen@gmail.com"
 "config/editors/vim/spacevim.vim" = "~/.spacevim"
 
 [opencode.files]
-"opencode/command" = "~/.config/opencode/command"
 "opencode/antigravity.json" = "~/.config/opencode/antigravity.json"
 "opencode/oh-my-opencode.jsonc" = "~/.config/opencode/oh-my-opencode.jsonc"
 "opencode/opencode.jsonc" = "~/.config/opencode/opencode.jsonc"
 
 [skills.files]
 "skills" = "~/.config/opencode/skill"
-".claude/skills" = "~/.claude/skills"
+"skills" = "~/.claude/skills"
