@@ -4,3 +4,6 @@
 
 *DS_Store
 *__pycache__
+
+# Oh-my-openagent runtime data
+.omo/
