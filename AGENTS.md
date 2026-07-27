@@ -1,16 +1,16 @@
 # AGENTS.md
 
-This repository contains personal dotfiles managed by [Dotter](https://github.com/SuperCuber/dotter). This guide is for AI agents working in this codebase.
+This repository contains personal dotfiles managed by [Dotter](https://github.com/SuperCuber/dotter) and optionally [Nix Home Manager](https://github.com/nix-community/home-manager). This guide is for AI agents working in this codebase.
 
 ## Project Overview
 
 - **Purpose**: Personal configuration file repository
-- **Manager**: Dotter (Rust-based dotfile manager with template engine)
+- **Manager**: Dotter (Rust-based dotfile manager with template engine) / Nix Home Manager (experimental)
 - **Key Components**:
   - Shell configurations (Fish)
   - Editor configs (Helix, Alacritty, Kitty, Zed)
   - Development tools (Git, Tmux, Starship)
-  - Package managers (Homebrew, UV, Rye, Conda)
+  - Package managers (Homebrew, UV, Rye, Conda / Nix)
 
 ## Commands
 
@@ -92,6 +92,16 @@ toml validate .dotter/global.toml
 ├── scripts/             # Executable scripts
 │   └── entrypoint.sh    # Docker entrypoint
 ├── docs/                # Documentation
+├── nix/                 # Nix Home Manager configuration (optional)
+│   ├── flake.nix        # Flake configuration
+│   ├── home-manager/    # Home Manager modules
+│   │   ├── home.nix     # Main entry
+│   │   └── modules/     # Modular configs
+│   │       ├── shell.nix
+│   │       ├── editors.nix
+│   │       ├── tools.nix
+│   │       └── dev-tools.nix
+│   └── README.md        # Nix usage documentation
 └── Dockerfile           # Container definition
 ```
 
@@ -130,6 +140,21 @@ toml validate .dotter/global.toml
   "source" = "~/.config/destination"
   ```
 - **Variables**: Define in `[packagename.variables]` section
+
+### Nix Files (Home Manager)
+
+- **Structure**: Nix expressions use `{ config, pkgs, ... }:`
+- **Modules**: Each tool has a dedicated module in `nix/home-manager/modules/`
+- **Type Safety**: Leverages Home Manager's typed options
+- **Programs Config**: Use `programs.<name>.enable = true;` with native Nix options
+- **File Config**: Use `home.file` or `xdg.configFile` for raw file deployment
+- **Packages**: Install via `home.packages = with pkgs; [ package1 package2 ];`
+- **Conditionals**: Use `lib.mkIf` for platform-specific configs:
+  ```nix
+  config = lib.mkIf pkgs.stdenv.isDarwin {
+    # macOS specific
+  };
+  ```
 
 ### Configuration Files
 
@@ -270,11 +295,76 @@ command2 || exit
 
 ## Testing Changes
 
+### Dotter Workflow
 Always test changes in this order:
 1. `dotter deploy --dry-run` - verify syntax and file mappings
 2. `dotter deploy -v` - apply changes with verbose output
 3. Test actual tool functionality (e.g., open Helix to test config, run fish to verify shell setup)
 4. Commit only after successful testing
+
+### Nix Home Manager Workflow
+1. `home-manager switch --flake .#leoyzen --dry-run` - preview changes
+2. `home-manager switch --flake .#leoyzen` - apply configuration
+3. `home-manager generations` - verify generation created
+4. Test tool functionality
+5. If issues: `home-manager switch --rollback`
+
+## Nix Home Manager (Optional)
+
+The repository now includes experimental Nix Home Manager support in the `nix/` directory.
+
+### Architecture
+
+- **Parallel Systems**: Dotter and Nix can coexist; choose based on preference
+- **Native Configs**: Nix modules use `programs.*` options for type safety
+- **Shared Source**: Both can reference files from `config/` directory
+
+### Key Commands
+
+```bash
+# Apply Nix configuration
+home-manager switch --flake .#leoyzen
+
+# Update all packages
+home-manager switch --flake .#leoyzen --upgrade
+
+# View generations
+home-manager generations
+
+# Rollback
+home-manager switch --rollback
+
+# Enter development shell
+nix develop
+```
+
+### Adding New Nix Configuration
+
+1. For supported tools: Add to appropriate module in `nix/home-manager/modules/`
+   ```nix
+   programs.toolname = {
+     enable = true;
+     settings = {
+       # typed configuration
+     };
+   };
+   ```
+
+2. For custom files: Add to module or `home.nix`
+   ```nix
+   xdg.configFile."app/config.toml".source = ../../config/app/config.toml;
+   ```
+
+3. For new packages: Add to `home.packages` in `home.nix`
+   ```nix
+   home.packages = with pkgs; [
+     newpackage
+   ];
+   ```
+
+### Migration Notes
+
+See `docs/nix-migration-guide.md` for detailed comparison between Dotter and Nix approaches.
 
 ## Directory Organization Philosophy
 
@@ -293,6 +383,15 @@ This structure makes the repository:
 
 ## Resources
 
+### Dotter
 - [Dotter Documentation](https://github.com/SuperCuber/dotter)
 - [Dotter Wiki](https://github.com/SuperCuber/dotter/wiki)
+
+### Nix/Home Manager
+- [Home Manager Options](https://nix-community.github.io/home-manager/options.xhtml)
+- [Home Manager Manual](https://nix-community.github.io/home-manager/)
+- [Nix Pills](https://nixos.org/guides/nix-pills/)
+- [Nixpkgs Manual](https://nixos.org/manual/nixpkgs/stable/)
+
+### Shell
 - [Fish Shell Documentation](https://fishshell.com/docs/current/)
