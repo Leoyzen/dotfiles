@@ -66,9 +66,8 @@ git_user_email = "leoyzen@gmail.com"
 
 [opencode.files]
 "opencode/antigravity.json" = "~/.config/opencode/antigravity.json"
-"opencode/oh-my-opencode.jsonc" = "~/.config/opencode/oh-my-opencode.jsonc"
+"opencode/oh-my-openagent.jsonc" = "~/.config/opencode/oh-my-openagent.jsonc"
 "opencode/opencode.jsonc" = "~/.config/opencode/opencode.jsonc"
 
 [skills.files]
-"skills" = "~/.config/opencode/skill"
-"skills" = "~/.claude/skills"
+"skills" = "~/.agents/skills"
