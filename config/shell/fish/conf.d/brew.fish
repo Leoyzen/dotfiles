@@ -1,5 +1,5 @@
 # 根据平台设置 Homebrew 路径
-if test (uname) = "Darwin"
+if test (uname) = Darwin
     set -x HOMEBREW_PREFIX /opt/homebrew
     set -x HOMEBREW_CELLAR /opt/homebrew/Cellar
     set -x HOMEBREW_REPOSITORY /opt/homebrew
@@ -13,8 +13,5 @@ set -x MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
 set -x INFOPATH $HOMEBREW_PREFIX/share/info $INFOPATH
 
 # 镜像源
-if test (uname) = "Darwin"
-    set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
-else
-    set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/linuxbrew-bottles
-end
+set -x HOMEBREW_API_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api
+set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
