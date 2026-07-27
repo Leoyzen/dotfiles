@@ -7,6 +7,24 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "markdown_preview_font_size": 16.0,
+  "markdown_preview_code_font_family": "Hack Nerd Font Mono",
+  "markdown_preview_font_family": "Sarasa Mono SC Nerd Font",
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left",
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Crisp Highest Contrast",
+    "dark": "Gruvbox Crisp Highest Contrast",
+  },
   "edit_predictions": {
     "provider": "copilot",
   },
@@ -18,15 +36,27 @@
     "git_status": true,
   },
   "relative_line_numbers": "enabled",
+  "vim_mode": true,
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+  "base_keymap": "VSCode",
+  "autosave": "on_focus_change",
+  "proxy": "http://127.0.0.1:7890",
+
   "agent_servers": {
-    "claude": {
-      "default_model": "svc/glm-4.7",
-      "favorite_models": [],
-      "default_config_options": {},
-      "favorite_config_option_values": {},
+    "qoder": {
+      "type": "registry",
     },
-    "gemini": {
-      "ignore_system_version": false,
+    "claude-acp": {
+      "type": "registry",
+      "default_model": "svc/glm-4.7",
+    },
+    "gemini-custom": {
+      "type": "custom",
+      "command": "gemini",
     },
     "OpenCode": {
       "favorite_models": [
@@ -43,17 +73,13 @@
         "google/antigravity-claude-sonnet-4-6",
       ],
       "type": "custom",
-      // "command": "opencode",
-      "command": "~/.local/bin/opencode-dev",
+      "command": "/Users/yuchen.liu/.opencode/bin/opencode",
       "args": ["acp"],
       "env": {
-        "HTTPS_PROXY": "http://127.0.0.1:6152",
+        "HTTPS_PROXY": "http://127.0.0.1:7890",
         "OPENCODE_EXPERIMENTAL_LSP_TY": "1",
         "OPENCODE_CLIENT": "acp",
         "OPENCODE_MODEL": "svc/glm-4.7",
-        "OPENCODE_GEMINI_PRO_MODEL": "google/antigravity-gemini-3-pro",
-        "OPENCODE_GEMINI_FLASH_MODEL": "google/antigravity-gemini-3-flash",
-        "OPENCODE_CLAUDE_MODEL": "google/antigravity-claude-sonnet-4-6-thinking",
       },
     },
     "OpenCode-Dev": {
@@ -74,7 +100,7 @@
       "command": "~/.local/bin/opencode-dev",
       "args": ["acp"],
       "env": {
-        "HTTPS_PROXY": "http://127.0.0.1:6152",
+        "HTTPS_PROXY": "http://127.0.0.1:7890",
         "OPENCODE_EXPERIMENTAL_LSP_TY": "1",
         "OPENCODE_CLIENT": "acp",
         "OPENCODE_MODEL": "svc/glm-4.7",
@@ -88,61 +114,42 @@
       "command": "uv",
       "env": {
         "UV_PROJECT": "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent",
+        "UV_PROJECT_ENVIRONMENT": "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent/.venv",
         "LOG_LEVEL": "DEBUG",
         "LOGFIRE_IGNORE_NO_CONFIG": "1",
-        "OPENAI_API_BASE": "http://127.0.0.1:4000/v1",
+        "OPENAI_BASE_URL": "http://api.ai.rootcloud.info/v1",
         "OPENAI_API_KEY": "sk-81tG2fae63ORELlKPYbzBw",
-        "OPENAI_MODEL_NAME": "svc/glm-4.7",
+        "OPENAI_MODEL_NAME": "openai-chat:svc/kimi-k2",
       },
       "args": [
         "run",
+        // "--frozen",
         "agentpool",
         "serve-acp",
-        "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent/config/diag-agent.yaml",
-        "--agent",
-        "fault_expert",
-        "--subagent-display-mode",
-        "inline",
-        "--show-messages",
-        "--debug-commands",
-        "--debug-messages",
-        "--debug-file",
-        "/tmp/agentpool.log",
-        // "--log-level",
-        // "DEBUG",
+        "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent/config/diag-agent-ng.yaml",
       ],
-    },
-    "Xeno-Agent": {
-      "type": "custom",
-      "command": "uv",
-      "args": [
-        "run",
-        "xeno-agent",
-        "serve",
-        "--config-path",
-        "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent/config/diag-agent.yaml",
-        // "--config-path",
-        // "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent/config",
-        // "--log-file",
-        // "/tmp/xeno-agent.log",
-      ],
-      "env": { "UV_PROJECT": "/Users/yuchen.liu/src/yilab/iroot-llm/packages/xeno-agent" },
     },
   },
+
   "git_panel": {
+    "dock": "left",
+    "file_icons": true,
     "tree_view": true,
     "collapse_untracked_diff": true,
   },
+
   "session": {
     "trust_all_worktrees": true,
   },
-  "vim_mode": true,
-  "icon_theme": "Zed (Default)",
+
   "ssh_connections": [
     {
       "host": "ack-h20",
       "args": [],
       "projects": [
+        {
+          "paths": ["/home/yuchen.liu/src/arena"],
+        },
         {
           "paths": ["/home/yuchen.liu/src/iroot-llm"],
         },
@@ -155,14 +162,24 @@
       ],
     },
   ],
+
   "context_servers": {
     "local-mcp-server": {
       "command": "npx",
       "args": ["-y", "@mcp_router/cli@latest", "connect"],
-      "env": { "MCPR_TOKEN": "mcpr_5NEN_XhnOaZ3dUmq28RgjvguA07yK6AH" },
+      "env": {
+        "MCPR_TOKEN": "mcpr_5NEN_XhnOaZ3dUmq28RgjvguA07yK6AH",
+      },
     },
   },
+
   "agent": {
+    "sandbox_permissions": {
+      "network_hosts": [
+        "huggingface.co"
+      ]
+    },
+    "dock": "right",
     "tool_permissions": {
       "default": "allow",
     },
@@ -185,6 +202,7 @@
     "use_modifier_to_send": true,
     "default_profile": "write",
     "default_model": {
+      "enable_thinking": false,
       "provider": "Wolf-Ack",
       "model": "svc/kimi-k2",
     },
@@ -194,19 +212,20 @@
         "name": "Write",
         "enable_all_context_servers": true,
         "tools": {
-          "thinking": false, // 👈 改为 false 即可禁用
-          "web_search": true,
+          "search_web": true,
+          "thinking": false,
         },
       },
       "ask": {
         "name": "Ask",
         "enable_all_context_servers": true,
         "tools": {
-          "thinking": false, // 👈 也可以禁用 ask profile 的 thinking
+          "thinking": false,
         },
       },
     },
   },
+
   "language_models": {
     "openai_compatible": {
       "Kimi-Code": {
@@ -259,7 +278,6 @@
               "parallel_tool_calls": true,
               "prompt_cache_key": false,
               "chat_completions": true,
-              "thinking_mode": "preserved",
             },
           },
         ],
@@ -278,7 +296,6 @@
               "parallel_tool_calls": true,
               "prompt_cache_key": false,
               "chat_completions": true,
-              "thinking_mode": "preserved",
             },
           },
           {
@@ -288,11 +305,10 @@
             "max_completion_tokens": 32000,
             "capabilities": {
               "tools": true,
-              "images": false,
+              "images": true,
               "parallel_tool_calls": true,
               "prompt_cache_key": false,
               "chat_completions": true,
-              "thinking_mode": "preserved",
             },
           },
           {
@@ -306,17 +322,44 @@
               "parallel_tool_calls": true,
               "prompt_cache_key": false,
               "chat_completions": false,
-              "thinking_mode": "preserved",
+            },
+          },
+          {
+            "name": "dashscope/qwen36-plus",
+            "max_tokens": 262144,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "openrouter/anthropic/claude-sonnet-4.6",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
             },
           },
         ],
       },
     },
   },
+
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
   },
+
   "terminal": {
     "copy_on_select": true,
     "detect_venv": {
@@ -328,41 +371,39 @@
     "shell": {
       "program": "fish",
     },
-    "font_family": "CaskaydiaCove Nerd Font",
+    "font_family": "Hack Nerd Font Mono",
     "font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New"],
   },
-  "proxy": "http://127.0.0.1:6152",
-  "base_keymap": "VSCode",
+
   "minimap": {
     "show": "auto",
   },
-  "autosave": "on_focus_change",
-  "buffer_font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New"],
-  "buffer_font_family": "CaskaydiaCove Nerd Font",
-  "file_types": {
-    "cython": ["*.pyx", "*.pyd", "*.pyx.in", "*.pyx", "*.pyd", "*.pyx.in"],
-  },
-  "preferred_line_length": 160,
-  "soft_wrap": "editor_width",
+
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "theme": {
-    "mode": "dark",
-    "light": "Gruvbox Light",
-    "dark": "Gruvbox Crisp Highest Contrast",
+  "buffer_font_family": "CaskaydiaCove Nerd Font",
+  "buffer_font_fallbacks": ["Sarasa Mono SC Nerd Font", "Symbols Nerd Font", "Menlo", "Monaco", "Courier New"],
+
+  "preferred_line_length": 160,
+  "soft_wrap": "editor_width",
+
+  "file_types": {
+    "cython": ["*.pyx", "*.pyd", "*.pyx.in"],
   },
+
   "languages": {
     "Python": {
       "preferred_line_length": 160,
       "soft_wrap": "prefer_line",
-      "language_servers": [
-        // Disable basedpyright and enable ty, and otherwise
-        // use the default configuration.
-        "ty",
-        "!basedpyright",
-        "...",
-      ],
+      "language_servers": ["ty", "!basedpyright", "..."],
     },
   },
-  "lsp": { "ruff": { "binary": { "ignore_system_version": false } } },
+
+  "lsp": {
+    "ruff": {
+      "binary": {
+        "ignore_system_version": false,
+      },
+    },
+  },
 }
