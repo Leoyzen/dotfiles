@@ -1,0 +1,364 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "team_mode": {
+    "enabled": true,
+    "max_parallel_members": 6,
+    "tmux_visualization": true
+  },
+  "agents": {
+    "sisyphus": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "max",
+      "fallback_models": [
+        {
+          "model": "deepseek/deepseek-v4-pro",
+          "variant": "high"
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "sisyphus-junior": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "max",
+      "fallback_models": [
+        {
+          "model": "deepseek/deepseek-v4-pro",
+          "variant": "high"
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "hephaestus": {
+      "model": "openai/gpt-5.5",
+      "variant": "medium",
+      "fallback_models": [],
+    },
+    "oracle": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "high",
+      "fallback_models": [
+        {
+          "model": "deepseek/deepseek-v4-pro",
+          "variant": "high",
+        },
+        {
+          "model": "wolf-ai/deepseek-v4-flash",
+          "variant": "high",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "librarian": {
+      "model": "wolf-ai/deepseek-v4-flash",
+      "fallback_models": [
+        {
+          "model": "deepseek/deepseek-v4-flash",
+          "variant": "high",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "explore": {
+      "model": "wolf-ai/deepseek-v4-flash",
+      "fallback_models": [
+        {
+          "model": "openai/gpt-5.4-nano",
+        },
+        {
+          "model": "deepseek/deepseek-v4-flash",
+          "variant": "high",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "multimodal-looker": {
+      "model": "wolf-ai/qwen35",
+      "variant": "medium",
+      "fallback_models": [
+        {
+          "model": "openai/gpt-5-nano",
+        },
+        {
+          "model": "opencode/gpt-5-nano",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "prometheus": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "max",
+      "fallback_models": [
+        {
+          "model": "openai/gpt-5.5",
+          "variant": "high",
+        },
+        {
+          "model": "wolf-ai/ack-dev",
+          "variant": "high",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "metis": {
+      "model": "wolf-ai/ack-dev",
+      "fallback_models": [
+        {
+          "model": "openai/gpt-5.5",
+          "variant": "high",
+        },
+        {
+          "model": "wolf-ai/deepseek-v4-flash",
+          "variant": "high",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "momus": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "xhigh",
+      "fallback_models": [
+        {
+          "model": "wolf-ai/ack-dev",
+          "variant": "high",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "atlas": {
+      "model": "wolf-ai/ack-dev",
+      "fallback_models": [
+        {
+          "model": "openai/gpt-5.5",
+          "variant": "medium",
+        },
+        {
+          "model": "wolf-ai/ack-dev",
+          "variant": "high",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "sisyphus-junior": {
+      "model": "wolf-ai/deepseek-v4-flash",
+      "fallback_models": [
+        {
+          "model": "wolf-ai/glm-4.7",
+          "variant": "default",
+        },
+      ],
+      "permission": {
+        "edit": "allow",
+      },
+    },
+    "sisyphus_agent": {
+      "disabled": false,
+      "default_builder_enabled": true,
+      "planner_enabled": false,
+      "replace_plan": true,
+    },
+    "document-writer": {
+      "model": "wolf-ai/deepseek-v4-flash",
+      "permission": {
+        "edit": "allow",
+      },
+    },
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "high",
+      "fallback_models": [
+        {
+          "model": "opencode/gemini-3.1-pro",
+          "variant": "high",
+        },
+        {
+          "model": "opencode/glm-5",
+        },
+        {
+          "model": "opencode/claude-opus-4-7",
+          "variant": "max",
+        },
+      ],
+    },
+    "ultrabrain": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "xhigh",
+      "fallback_models": [
+        {
+          "model": "opencode/gpt-5.5",
+          "variant": "xhigh",
+        },
+        {
+          "model": "google/gemini-3.1-pro-preview",
+          "variant": "high",
+        },
+        {
+          "model": "opencode/gemini-3.1-pro",
+          "variant": "high",
+        },
+        {
+          "model": "opencode/claude-opus-4-7",
+          "variant": "max",
+        },
+      ],
+    },
+    "deep": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "medium",
+      "fallback_models": [
+        {
+          "model": "opencode/gpt-5.5",
+          "variant": "medium",
+        },
+        {
+          "model": "opencode/claude-opus-4-7",
+          "variant": "max",
+        },
+        {
+          "model": "google/gemini-3.1-pro-preview",
+          "variant": "high",
+        },
+        {
+          "model": "opencode/gemini-3.1-pro",
+          "variant": "high",
+        },
+      ],
+    },
+    "artistry": {
+      "model": "wolf-ai/ack-dev",
+      "variant": "high",
+      "fallback_models": [
+        {
+          "model": "opencode/gemini-3.1-pro",
+          "variant": "high",
+        },
+        {
+          "model": "opencode/claude-opus-4-7",
+          "variant": "max",
+        },
+        {
+          "model": "openai/gpt-5.5",
+        },
+        {
+          "model": "opencode/gpt-5.5",
+        },
+      ],
+    },
+    "quick": {
+      "model": "wolf-ai/deepseek-v4-flash",
+      "fallback_models": [
+        {
+          "model": "opencode/gpt-5.4-mini",
+        },
+        {
+          "model": "google/gemini-3-flash-preview",
+        },
+        {
+          "model": "opencode/gemini-3-flash",
+        },
+        {
+          "model": "opencode/gpt-5-nano",
+        },
+      ],
+    },
+    "unspecified-low": {
+      "model": "wolf-ai/deepseek-v4-flash",
+      "fallback_models": [
+        {
+          "model": "openai/gpt-5.5",
+          "variant": "medium",
+        },
+        {
+          "model": "opencode/gpt-5.5",
+          "variant": "medium",
+        },
+        {
+          "model": "google/gemini-3-flash-preview",
+        },
+        {
+          "model": "opencode/gemini-3-flash",
+        },
+      ],
+    },
+    "unspecified-high": {
+      "model": "wolf-ai/ack-dev",
+      "fallback_models": [
+        {
+          "model": "openai/gpt-5.5",
+          "variant": "medium",
+        },
+        {
+          "model": "opencode/gpt-5.5",
+          "variant": "medium",
+        },
+        {
+          "model": "google/gemini-3-flash-preview",
+        },
+        {
+          "model": "opencode/gemini-3-flash",
+        },
+      ],
+    },
+    "writing": {
+      "model": "wolf-ai/deepseek-v4-flash",
+      "fallback_models": [
+        {
+          "model": "opencode/gemini-3-flash",
+        },
+        {
+          "model": "opencode/claude-sonnet-4-6",
+        },
+      ],
+    },
+  },
+  "google_auth": false,
+  "agentOverrides": {
+    "hephaestus": {
+      "model": "wolf-ai/ack-dev",
+      "permission": {
+        "edit": "allow",
+      },
+    },
+  },
+  "background_task": {
+    "defaultConcurrency": 10,
+    "providerConcurrency": {
+      "google": 3,
+      "wolf-ai": 20,
+    },
+  },
+  "disabled_hooks": [
+    "comment-checker",
+    "agent-usage-reminder",
+    "keyword-detector"
+  ],
+  "disabled_agents": [],
+  "tmux": {
+    "enabled": true,
+    "layout": "main-vertical",
+    "main_pane_size": 60,
+    "main_pane_min_width": 120,
+    "agent_pane_min_width": 40,
+  },
+}

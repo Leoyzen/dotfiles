@@ -1,11 +1,22 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["oh-my-opencode", "opencode-antigravity-auth@beta", "@tarquinen/opencode-dcp@latest"],
+  "plugin": [
+    "@tarquinen/opencode-dcp",
+    "oh-my-openagent@latest",
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    // "file:///Users/yuchen.liu/.config/opencode/node_modules/oh-my-openagent/dist/index.js"
+  ],
+  "autoupdate": true,
   "model": "wolf-ai/ack-dev",
   "mcp": {
     "mcp-router": {
       "type": "local",
-      "command": ["npx", "-y", "@mcp_router/cli@latest", "connect"],
+      "command": [
+        "npx",
+        "-y",
+        "@mcp_router/cli@latest",
+        "connect"
+      ],
       "environment": {
         "MCPR_TOKEN": "{env:MCPR_TOKEN}",
       },
@@ -24,7 +35,11 @@
       "enabled": false,
     },
   },
-  "enabled_providers": ["wolf-ai", "google"],
+  "enabled_providers": [
+    "wolf-ai",
+    "deepseek"
+    // "openai"
+  ],
   "tools": {
     "write": true,
     "bash": true,
@@ -40,7 +55,7 @@
     },
     "build": {
       "mode": "primary",
-      "model": "wolf-ai/glm-4.7",
+      "model": "wolf-ai/deepseek-v4-flash",
       "tools": {
         "write": true,
         "edit": true,
@@ -49,7 +64,7 @@
     },
     "plan": {
       "mode": "primary",
-      "model": "google/antigravity-gemini-3-pro",
+      "model": "wolf-ai/ack-dev",
       "variant": "high",
       "tools": {
         "write": false,
@@ -72,124 +87,18 @@
     "bash": {
       "*": "allow",
       "git rm *": "ask",
-      "git checkout *": "ask",
+      "git checkout *": "allow",
       "git restore *": "ask",
-      "rm *": "ask",
+      "rm *": "allow",
     },
     "edit": {
-      "*": "ask",
+      "*": "allow",
       "*.md": "allow",
     },
     "webfetch": "allow",
     "skill": "allow",
   },
   "provider": {
-    "google": {
-      "name": "Google",
-      "models": {
-        "antigravity-gemini-3-pro": {
-          "name": "Gemini 3 Pro (Antigravity)",
-          "limit": {
-            "context": 1048576,
-            "output": 65535,
-          },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
-          "variants": {
-            "low": {
-              "thinkingLevel": "low",
-            },
-            "high": {
-              "thinkingLevel": "high",
-            },
-          },
-        },
-        "antigravity-gemini-3-flash": {
-          "name": "Gemini 3 Flash (Antigravity)",
-          "limit": {
-            "context": 1048576,
-            "output": 65536,
-          },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
-          "variants": {
-            "minimal": {
-              "thinkingLevel": "minimal",
-            },
-            "low": {
-              "thinkingLevel": "low",
-            },
-            "medium": {
-              "thinkingLevel": "medium",
-            },
-            "high": {
-              "thinkingLevel": "high",
-            },
-          },
-        },
-        "antigravity-claude-sonnet-4-6-thinking": {
-          "name": "Claude Sonnet 4.6 Thinking",
-          "limit": {
-            "context": 200000,
-            "output": 64000,
-          },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
-          "variants": {
-            "low": {
-              "thinkingConfig": {
-                "thinking": 8192,
-              },
-            },
-            "max": {
-              "thinkingConfig": {
-                "thinkingBudget": 32768,
-              },
-            },
-          },
-        },
-        "antigravity-claude-sonnet-4-6": {
-          "name": "Claude Sonnet 4.6 (Antigravity)",
-          "limit": {
-            "context": 200000,
-            "output": 64000,
-          },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
-        },
-        "antigravity-claude-opus-4-6-thinking": {
-          "name": "Claude Opus 4.6 Thinking (Antigravity)",
-          "limit": {
-            "context": 200000,
-            "output": 64000,
-          },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
-          "variants": {
-            "low": {
-              "thinkingConfig": {
-                "thinkingBudget": 8192,
-              },
-            },
-            "max": {
-              "thinkingConfig": {
-                "thinkingBudget": 32768,
-              },
-            },
-          },
-        },
-      },
-    },
     "wolf-ai": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Wolf AI",
@@ -198,21 +107,30 @@
         "litellmProxy": true,
       },
       "models": {
-        "glm-4.7": {
-          "name": "GLM 4.7",
-          "id": "svc/glm-4.7",
+        "deepseek-v4-flash": {
+          "name": "Deepseek V4 Flash",
+          "id": "svc/deepseek-v4-flash",
           "attachment": false,
           "reasoning": true,
           "interleaved": {
             "field": "reasoning_content",
           },
+          "options": {
+            "thinking": true
+          },
           "limit": {
-            "context": 202752,
+            // "context": 202752,
+            "context": 1048576,
             "output": 65535,
           },
           "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"],
+            "input": [
+              "text",
+              // "image"
+            ],
+            "output": [
+              "text"
+            ],
           },
         },
         "k2p5": {
@@ -221,12 +139,19 @@
           "reasoning": true,
           "attachment": true,
           "limit": {
-            "context": 262144,
+            // "context": 262144,
+            "context": 202752,
             "output": 32768,
           },
           "modalities": {
-            "input": ["text", "image", "video"],
-            "output": ["text"],
+            "input": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output": [
+              "text"
+            ],
           },
           "interleaved": {
             "field": "reasoning_content",
@@ -241,53 +166,74 @@
             "field": "reasoning_content",
           },
           "limit": {
-            "context": 252144,
-            "output": 65535,
+            // "context": 252144,
+            // "context": 262144,
+            "context": 512000,
+            // "context": 524288,
+            // "context": 202752,
+            "output": 16384,
           },
           "modalities": {
-            "input": ["text", "image", "video"],
-            "output": ["text"],
+            "input": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output": [
+              "text"
+            ],
           },
         },
-      },
-    },
-    "kimi-code": {
-      "name": "Kimi For Coding",
-      // "npm": "@ai-sdk/openai-compatible",
-      "npm": "@ai-sdk/anthropic",
-      "options": {
-        "baseURL": "http://localhost:4000/v1",
-        // "baseURL": "https://api.kimi.com/coding/v1",
-        "litellmProxy": true,
-      },
-      "models": {
-        "k2p5": {
-          "name": "Kimi K2.5",
-          "reasoning": true,
+        "qwen35": {
+          "name": "Qwen 3.5",
+          "id": "svc/qwen35",
+          "reasoning": false,
           "attachment": false,
           "limit": {
             "context": 262144,
             "output": 32768,
           },
           "modalities": {
-            "input": ["text", "image", "video"],
-            "output": ["text"],
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ],
           },
-          "interleaved": true,
+        },
+        "claude-sonnet": {
+          "id": "openrouter/anthropic/claude-sonnet-4.6",
+          "name": "Claude Sonnet 4.6",
+          "limit": {
+            "context": 200000,
+            "output": 64000,
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ],
+          },
         },
       },
     },
   },
-  "tui": {
-    "scroll_acceleration": {
-      "enabled": true, // 启用 macOS 风格加速滚动时，scroll_speed 无效
-    },
-    "scroll_speed": 5, // 滚动速度
-  },
   "lsp": {
     "marksman-lsp": {
-      "command": ["marksman", "server"],
-      "extensions": [".md", ".mdc"],
+      "command": [
+        "marksman",
+        "server"
+      ],
+      "extensions": [
+        ".md",
+        ".mdc"
+      ],
     },
   },
 }
