@@ -5,6 +5,10 @@
 //
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
+//
+// Terminal context: mirrors ~/.config/alacritty/alacritty.toml keyboard.bindings
+// so that Cmd+key combos send tmux prefix (Ctrl+A = \u0001) + key to the
+// terminal, exactly like Alacritty does when running standalone.
 [
   {
     "context": "Workspace",
@@ -16,6 +20,62 @@
     "context": "Editor && vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Terminal",
+    "use_key_equivalents": true,
+    "bindings": {
+      // --- Window switching (Cmd+1~9 → prefix + number) ---
+      "cmd-1": ["terminal::SendText", "\u00011"],
+      "cmd-2": ["terminal::SendText", "\u00012"],
+      "cmd-3": ["terminal::SendText", "\u00013"],
+      "cmd-4": ["terminal::SendText", "\u00014"],
+      "cmd-5": ["terminal::SendText", "\u00015"],
+      "cmd-6": ["terminal::SendText", "\u00016"],
+      "cmd-7": ["terminal::SendText", "\u00017"],
+      "cmd-8": ["terminal::SendText", "\u00018"],
+      "cmd-9": ["terminal::SendText", "\u00019"],
+
+      // --- Window navigation ---
+      "cmd-[": ["terminal::SendText", "\u0001["],   // previous window
+      "cmd-]": ["terminal::SendText", "\u0001]"],   // next window
+
+      // --- Pane splitting ---
+      "cmd-s": ["terminal::SendText", "\u0001%"],   // split horizontal (overrides workspace::Save)
+      "cmd-ctrl-\\": ["terminal::SendText", "\u0001|"], // split vertical
+      "cmd-ctrl--": ["terminal::SendText", "\u0001_"],  // split horizontal (alt)
+
+      // --- Pane navigation ---
+      "cmd-j": ["terminal::SendText", "\u0001j"],   // down (overrides workspace::ToggleBottomDock)
+      "cmd-k": ["terminal::SendText", "\u0001k"],   // up (overrides terminal::Clear)
+      "cmd-h": ["terminal::SendText", "\u0001h"],   // left (may conflict with macOS Hide App)
+      "cmd-l": ["terminal::SendText", "\u0001l"],   // right
+
+      // --- Pane resizing ---
+      "cmd-shift-j": ["terminal::SendText", "\u0001J"],  // resize down
+      "cmd-shift-k": ["terminal::SendText", "\u0001K"],  // resize up
+      "cmd-shift-h": ["terminal::SendText", "\u0001H"],  // resize left
+      "cmd-shift-l": ["terminal::SendText", "\u0001L"],  // resize right
+
+      // --- Window management ---
+      "cmd-t": ["terminal::SendText", "\u0001c"],   // new window
+      "cmd-n": ["terminal::SendText", "\u0001c"],   // new tmux window (overrides workspace::NewTerminal)
+      "cmd-w": ["terminal::SendText", "\u0001x"],   // kill pane (overrides pane::CloseActiveItem)
+      "cmd-d": ["terminal::SendText", "\u0001d"],   // detach (overrides pane::SplitRight)
+      "cmd-r": ["terminal::SendText", "\u0001r"],   // rename window (overrides workspace::ToggleRightDock)
+      "cmd-f": ["terminal::SendText", "\u0001?"],   // find window (overrides buffer_search::Deploy)
+      "cmd-/": ["terminal::SendText", "\u0001F"],   // tmux-thumbs
+
+      // --- Command mode ---
+      "cmd-shift-;": ["terminal::SendText", "\u0001:"],  // tmux command prompt
+
+      // --- Zoom ---
+      "cmd-ctrl-=": ["terminal::SendText", "\u0001+"],  // toggle zoom
+
+      // --- Function keys (passthrough to tmux) ---
+      "f10": ["terminal::SendKeystroke", "f10"],
+      "f12": ["terminal::SendKeystroke", "f12"]
     }
   }
 ]
