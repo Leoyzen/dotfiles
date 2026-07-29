@@ -4,10 +4,11 @@
     "@tarquinen/opencode-dcp",
     "oh-my-openagent@latest",
     "superpowers@git+https://github.com/obra/superpowers.git",
+    "@openviking/opencode-plugin",
     // "file:///Users/yuchen.liu/.config/opencode/node_modules/oh-my-openagent/dist/index.js"
   ],
   "autoupdate": true,
-  "model": "wolf-ai/ack-dev",
+  "model": "wolf-ai/glm-5.2",
   "mcp": {
     "mcp-router": {
       "type": "local",
@@ -34,6 +35,15 @@
       "url": "https://mcp.grep.app",
       "enabled": false,
     },
+    "codegraph": {
+      "type": "local",
+      "command": [
+        "codegraph",
+        "serve",
+        "--mcp"
+      ],
+      "enabled": true
+    },
   },
   "enabled_providers": [
     "wolf-ai",
@@ -50,7 +60,7 @@
   },
   "agent": {
     "compaction": {
-      "model": "wolf-ai/ack-dev",
+      "model": "wolf-ai/glm-5.2",
       "variant": "medium",
     },
     "build": {
@@ -64,7 +74,7 @@
     },
     "plan": {
       "mode": "primary",
-      "model": "wolf-ai/ack-dev",
+      "model": "wolf-ai/glm-5.2",
       "variant": "high",
       "tools": {
         "write": false,
@@ -75,7 +85,7 @@
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
       "mode": "subagent",
-      "model": "wolf-ai/ack-dev",
+      "model": "wolf-ai/glm-5.2",
       "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
       "tools": {
         "write": false,
@@ -157,8 +167,8 @@
             "field": "reasoning_content",
           },
         },
-        "ack-dev": {
-          "name": "Ack Dev",
+        "glm-5.2": {
+          "name": "GLM 5.2",
           "id": "svc/kimi-k2",
           "reasoning": true,
           "attachment": false,

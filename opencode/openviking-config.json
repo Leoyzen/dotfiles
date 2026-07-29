@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "timeoutMs": 30000,
+  "repoContext": { "enabled": true, "cacheTtlMs": 60000 },
+  "autoRecall": {
+    "enabled": true,
+    "limit": 6,
+    "scoreThreshold": 0.35,
+    "maxContentChars": 500,
+    "preferAbstract": true,
+    "tokenBudget": 2000,
+    "minQueryLength": 3
+  },
+  "commitTokenThreshold": 20000,
+  "commitKeepRecentCount": 10,
+  "profileTokenBudget": 10000,
+  "resumeContextBudget": 32000
+}

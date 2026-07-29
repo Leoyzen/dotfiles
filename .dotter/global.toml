@@ -65,9 +65,11 @@ git_user_email = "leoyzen@gmail.com"
 "config/editors/vim/spacevim.vim" = "~/.spacevim"
 
 [opencode.files]
-"opencode/antigravity.json" = "~/.config/opencode/antigravity.json"
-"opencode/oh-my-openagent.jsonc" = "~/.config/opencode/oh-my-openagent.jsonc"
 "opencode/opencode.jsonc" = "~/.config/opencode/opencode.jsonc"
+"opencode/tui.json" = "~/.config/opencode/tui.json"
+"opencode/dcp.jsonc" = "~/.config/opencode/dcp.jsonc"
+"opencode/openviking-config.json" = "~/.config/opencode/openviking-config.json"
+"opencode/omo.jsonc" = "~/.omo/omo.jsonc"
 
 [skills.files]
 "skills" = "~/.agents/skills"
