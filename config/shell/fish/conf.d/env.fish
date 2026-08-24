@@ -16,7 +16,8 @@ set -gx OPENCODE_GEMINI_FLASH_MODEL google/antigravity-gemini-3-flash
 set -gx OPENCODE_CLAUDE_MODEL google/antigravity-claude-sonnet-4-6-thinking
 set -gx RUSTUP_DIST_SERVER https://rsproxy.cn
 set -gx RUSTUP_UPDATE_ROOT https://rsproxy.cn/rustup
-set -gx OPENCODE_PORT 4096
+set -gx OPENCODE_EXPERIMENTAL true
+# set -gx OPENCODE_PORT 4096
 
 # Oh-my-openagent
 set -gx OMO_SEND_ANONYMOUS_TELEMETRY 0

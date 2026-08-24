@@ -47,8 +47,8 @@
       "cmd-ctrl--": ["terminal::SendText", "\u0001_"],  // split horizontal (alt)
 
       // --- Pane navigation ---
-      "cmd-j": ["terminal::SendText", "\u0001j"],   // down (overrides workspace::ToggleBottomDock)
-      "cmd-k": ["terminal::SendText", "\u0001k"],   // up (overrides terminal::Clear)
+      // cmd-j: kept as Zed default (workspace::ToggleBottomDock) to hide/show terminal
+      // cmd-k: kept as Zed default (terminal::Clear) to clear terminal
       "cmd-h": ["terminal::SendText", "\u0001h"],   // left (may conflict with macOS Hide App)
       "cmd-l": ["terminal::SendText", "\u0001l"],   // right
 
@@ -73,9 +73,15 @@
       // --- Zoom ---
       "cmd-ctrl-=": ["terminal::SendText", "\u0001+"],  // toggle zoom
 
-      // --- Function keys (passthrough to tmux) ---
-      "f10": ["terminal::SendKeystroke", "f10"],
-      "f12": ["terminal::SendKeystroke", "f12"]
+      // --- Function keys (send tmux prefix commands) ---
+      "f3": ["terminal::SendKeystroke", "f3"],   // passthrough
+      "f4": ["terminal::SendKeystroke", "f4"],   // passthrough
+      "f7": ["terminal::SendKeystroke", "f7"],   // passthrough → herdr: previous agent
+      "f8": ["terminal::SendKeystroke", "f8"],   // passthrough → herdr: next agent
+      "f9": ["terminal::SendKeystroke", "f9"],   // passthrough → herdr: previous workspace
+      "f10": ["terminal::SendKeystroke", "f10"], // passthrough → herdr: next workspace
+      "f11": ["terminal::SendText", "\u0001+"],  // zoom (prefix + +)
+      "f12": ["terminal::SendKeystroke", "f12"]  // passthrough (tmux: toggle key-table)
     }
   }
 ]

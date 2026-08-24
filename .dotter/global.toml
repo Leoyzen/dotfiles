@@ -71,5 +71,8 @@ git_user_email = "leoyzen@gmail.com"
 "opencode/openviking-config.json" = "~/.config/opencode/openviking-config.json"
 "opencode/omo.jsonc" = "~/.omo/omo.jsonc"
 
+[herdr.files]
+"config/tools/herdr/config.toml" = "~/.config/herdr/config.toml"
+
 [skills.files]
 "skills" = "~/.agents/skills"

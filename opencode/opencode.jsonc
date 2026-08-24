@@ -2,12 +2,14 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
     "@tarquinen/opencode-dcp",
-    "oh-my-openagent@latest",
-    "superpowers@git+https://github.com/obra/superpowers.git",
+    "oh-my-opencode-slim@latest",
+    // "oh-my-openagent@latest",
+    // "/Users/yuchen.liu/.config/herdr/plugins/github/gavintomlins.herdr-oh-my-agent-d4df23d2318b/packages/herdr-subagent-panes",
+    // "superpowers@git+https://github.com/obra/superpowers.git",
     "@openviking/opencode-plugin",
-    // "file:///Users/yuchen.liu/.config/opencode/node_modules/oh-my-openagent/dist/index.js"
   ],
   "autoupdate": true,
+  "snapshot": false,
   "model": "wolf-ai/glm-5.2",
   "mcp": {
     "mcp-router": {
@@ -42,13 +44,14 @@
         "serve",
         "--mcp"
       ],
-      "enabled": true
+      "enabled": false
     },
   },
   "enabled_providers": [
     "wolf-ai",
-    "deepseek"
-    // "openai"
+    "wolf-ack",
+    "deepseek",
+    "openai"
   ],
   "tools": {
     "write": true,
@@ -106,9 +109,65 @@
       "*.md": "allow",
     },
     "webfetch": "allow",
-    "skill": "allow",
+    "skill": {
+      "wecomcli-*": "deny",
+      "microsoft-foundry": "deny",
+      "deploy-model": "deny",
+      "capacity": "deny",
+      "customize": "deny",
+      "weekly-report": "deny",
+      "brainstorm-okrs": "deny",
+      "uv-package-manager": "deny",
+      "dash-doc-generation-config": "deny",
+      "dotter-manager": "deny",
+      "prompt-generator": "deny",
+      "constitutional-ai": "deny",
+      "agent-development": "deny",
+      "ponytail-audit": "deny",
+      "ponytail-debt": "deny",
+      "ponytail-gain": "deny",
+      "ponytail-help": "deny",
+      "ponytail-review": "deny",
+      "openspec-archive-change": "deny",
+      "find-skills": "deny",
+      "metaskill": "deny",
+      "darwin-skill": "deny",
+      "skill-creator": "deny",
+      "*": "allow",
+    },
   },
   "provider": {
+    "wolf-ack": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Wolf Ack",
+      "options": {
+        "baseURL": "http://127.0.0.1:4000/v1",
+        "litellmProxy": true,
+      },
+      "models": {
+        "deepseek-v4-flash": {
+          "name": "Deepseek V4 Flash",
+          "id": "svc/ack-dev",
+          "attachment": false,
+          "reasoning": true,
+          "interleaved": {
+            "field": "reasoning_content",
+          },
+          "limit": {
+            "context": 524288,
+            "output": 32768,
+          },
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ],
+          },
+        },
+      },
+    },
     "wolf-ai": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Wolf AI",
@@ -130,7 +189,8 @@
           },
           "limit": {
             // "context": 202752,
-            "context": 1048576,
+            // "context": 1048576,
+            "context": 524288,
             "output": 65535,
           },
           "modalities": {
@@ -143,28 +203,31 @@
             ],
           },
         },
-        "k2p5": {
-          "name": "Kimi K2.5",
-          "id": "svc/kimi-k2.5-coder",
-          "reasoning": true,
+        "qwen-3.8-flash": {
+          "name": "Qwen 3.8 Flash",
+          "id": "svc/qwen38-flash",
           "attachment": true,
+          "reasoning": true,
+          "interleaved": {
+            "field": "reasoning_content",
+          },
+          "options": {
+            "thinking": true
+          },
           "limit": {
-            // "context": 262144,
-            "context": 202752,
-            "output": 32768,
+            // "context": 202752,
+            // "context": 1048576,
+            "context": 262144,
+            "output": 65535,
           },
           "modalities": {
             "input": [
               "text",
-              "image",
-              "video"
+              "image"
             ],
             "output": [
               "text"
             ],
-          },
-          "interleaved": {
-            "field": "reasoning_content",
           },
         },
         "glm-5.2": {
@@ -178,25 +241,26 @@
           "limit": {
             // "context": 252144,
             // "context": 262144,
-            "context": 512000,
-            // "context": 524288,
+            // "context": 512000,
+            // "context": 1048576,
+            "context": 524288,
             // "context": 202752,
             "output": 16384,
           },
           "modalities": {
             "input": [
               "text",
-              "image",
-              "video"
+              // "image",
+              // "video"
             ],
             "output": [
               "text"
             ],
           },
         },
-        "qwen35": {
-          "name": "Qwen 3.5",
-          "id": "svc/qwen35",
+        "qwen38": {
+          "name": "Qwen 3.8",
+          "id": "dashscope/qwen3.8-max",
           "reasoning": false,
           "attachment": false,
           "limit": {
@@ -207,24 +271,6 @@
             "input": [
               "text",
               "image"
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
-        "claude-sonnet": {
-          "id": "openrouter/anthropic/claude-sonnet-4.6",
-          "name": "Claude Sonnet 4.6",
-          "limit": {
-            "context": 200000,
-            "output": 64000,
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
             ],
             "output": [
               "text"

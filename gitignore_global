@@ -1,0 +1,26 @@
+# Global gitignore — applies to all repositories
+# Managed in ~/src/dotfiles, symlinked as global excludesfile
+
+# Python virtual environments
+.venv/
+
+# CodeGraph index
+.codegraph/
+
+# OpenSpec
+openspec/
+
+# Git worktree
+.worktree/
+.worktrees/
+
+# OpenCode/omo working directories
+.omo/
+.sisyphus/
+
+# Editor/agent configs
+.opencode/
+.claude/
+
+# Direnv
+.envrc

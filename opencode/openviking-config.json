@@ -1,18 +1,36 @@
 {
   "enabled": true,
-  "timeoutMs": 30000,
-  "repoContext": { "enabled": true, "cacheTtlMs": 60000 },
+  "mcp": { "enabled": true },
+
+  "timeoutMs": 20000,
+
   "autoRecall": {
     "enabled": true,
-    "limit": 6,
-    "scoreThreshold": 0.35,
-    "maxContentChars": 500,
+    "limit": 5,
+    "scoreThreshold": 0.4,
+    "maxContentChars": 400,
     "preferAbstract": true,
-    "tokenBudget": 2000,
+    "tokenBudget": 1500,
     "minQueryLength": 3
   },
-  "commitTokenThreshold": 20000,
+
+  "recallQueryExpansion": "off",
+  "recallPeerScope": "all",
+
+  "autoCapture": true,
+  "captureMode": "semantic",
+  "captureMaxLength": 24000,
+  "captureAssistantTurns": true,
+  "captureToolMaxChars": 50000,
+
+  "commitTokenThreshold": 100000,
   "commitKeepRecentCount": 10,
-  "profileTokenBudget": 10000,
-  "resumeContextBudget": 32000
+
+  "profileTokenBudget": 5000,
+  "resumeContextBudget": 16000,
+
+  "repoContext": {
+    "enabled": true,
+    "cacheTtlMs": 120000
+  }
 }

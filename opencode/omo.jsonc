@@ -4,7 +4,7 @@
   "[opencode]": {
     "team_mode": {
       "enabled": true,
-      "max_parallel_members": 6,
+      "max_parallel_members": 8,
       "tmux_visualization": true
     },
     "agents": {
@@ -25,7 +25,7 @@
         "model": "wolf-ai/deepseek-v4-flash",
         "fallback_models": [
           {
-            "model": "wolf-ai/glm-4.7",
+            "model": "deepseek/deepseek-v4-flash",
             "variant": "default"
           }
         ],
@@ -73,11 +73,11 @@
         "model": "wolf-ai/deepseek-v4-flash",
         "fallback_models": [
           {
-            "model": "openai/gpt-5.4-nano"
-          },
-          {
             "model": "deepseek/deepseek-v4-flash",
             "variant": "high"
+          },
+          {
+            "model": "openai/gpt-5.4-nano"
           }
         ],
         "permission": {

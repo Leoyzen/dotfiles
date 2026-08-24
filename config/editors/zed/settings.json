@@ -7,9 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "markdown_preview_font_size": 16.0,
+  "agent_ui_font_size": 16.0,
+  "markdown_preview_font_size": 18,
   "markdown_preview_code_font_family": "Hack Nerd Font Mono",
-  "markdown_preview_font_family": "Sarasa Mono SC Nerd Font",
+  "markdown_preview_font_family": "Sarasa UI SC Nerd Font",
+  "markdown_preview": {
+    "limit_content_width": false,
+    "max_width": 1600
+  },
   "outline_panel": {
     "dock": "left",
   },
@@ -23,7 +28,7 @@
   "theme": {
     "mode": "system",
     "light": "Gruvbox Crisp Highest Contrast",
-    "dark": "Gruvbox Crisp Highest Contrast",
+    "dark": "Dark Plum Blossom (Blurred)",
   },
   "edit_predictions": {
     "provider": "copilot",
@@ -47,6 +52,9 @@
   "proxy": "http://127.0.0.1:7890",
 
   "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
     "qoder": {
       "type": "registry",
     },

@@ -1,0 +1,133 @@
+onboarding = false
+# ============================================
+# Herdr Configuration - tmux.conf compatible
+# ============================================
+# Migrated from ~/.tmux.conf
+# Prefix: Ctrl-a (matching tmux)
+#
+# Key differences from tmux:
+#   - No repeat-time; use direct resize keys (prefix+Shift+h/j/k/l)
+#   - No nested-tmux F12 toggle; herdr manages its own sessions
+#   - No copy-mode-vi table; herdr has its own copy mode
+#   - No status bar toggle; herdr has its own UI
+#   - Tab navigation: prefix+p/n instead of Ctrl-[/] (terminal sends ESC for Ctrl-[)
+#   - Pane swap: prefix+,/prefix+. instead of </>  (shift+punctuation matching varies by terminal)
+#
+# Keybindings help: press prefix+? inside herdr
+# ============================================
+
+[keys]
+
+# === Prefix ===
+# tmux: set -g prefix C-a
+prefix = "ctrl+a"
+
+# === Global ===
+# tmux: bind C-r source-file ~/.tmux.conf
+reload_config = "prefix+ctrl+r"
+# tmux: bind d detach
+detach = "prefix+d"
+# tmux: bind C-e edit config
+# Handled as custom command below
+
+# === Pane split ===
+# tmux: bind | split-window -h  (side by side)
+split_vertical = "prefix+backslash"
+# tmux: bind _ split-window -v  (stacked)
+# _ is shift+minus; using prefix+minus (same key, no shift needed)
+split_horizontal = "prefix+minus"
+
+# === Pane navigation ===
+# tmux: bind h/j/k/l select-pane
+# Already herdr defaults: prefix+h/j/k/l -- no need to set
+
+# === Pane resize ===
+# tmux: bind -r H/J/K/L resize-pane
+# NOTE: resize_pane_* fields are not yet in stable 0.8.0.
+# Use prefix+r (resize_mode) then h/j/k/l to resize interactively.
+# Once herdr >0.8.0 ships these fields, uncomment:
+# resize_pane_left = "prefix+shift+h"
+# resize_pane_down = "prefix+shift+j"
+# resize_pane_up = "prefix+shift+k"
+# resize_pane_right = "prefix+shift+l"
+
+# === Pane swap ===
+# tmux: bind > swap-pane -D, < swap-pane -U
+# Using period/comma (same physical key without shift)
+swap_pane_down = "prefix+period"
+swap_pane_up = "prefix+comma"
+
+# === Tab / Window ===
+# tmux: bind c new-window -- already herdr default: prefix+c
+# tmux: bind r rename-window
+rename_tab = "prefix+r"
+# tmux: bind R rename-session
+rename_workspace = "prefix+shift+r"
+# tmux: bind x kill-pane -- already herdr default: prefix+x
+# tmux: bind X kill-window -- already herdr default: prefix+shift+x
+# tmux: bind C-[ / C-] prev/next window
+# Ctrl+[ sends ESC in terminals; keeping herdr defaults prefix+p / prefix+n
+
+# === Zoom ===
+# tmux: bind + resize-pane -Z
+zoom = "prefix+plus"
+
+# === Agent switching ===
+# F7/F8 direct (no prefix needed)
+previous_agent = "f7"
+next_agent = ["f8", "shift+tab"]  # shift+tab: sent as CSI Z by every terminal; herdr consumes it, panes no longer see it
+# cmd+1..9 direct: jump to agent rows 1-9 (needs kitty keyboard protocol, e.g. Ghostty/kitty/WezTerm)
+focus_agent = "cmd+1..9"
+
+# === Workspace switching ===
+# F9/F10 direct (no prefix needed)
+previous_workspace = "f9"
+next_workspace = "f10"
+# ctrl+1..9 direct: jump to workspace 1-9
+switch_workspace = "ctrl+1..9"
+
+# === Copy mode ===
+# tmux: bind Enter copy-mode
+copy_mode = "prefix+enter"
+
+# === Custom commands ===
+# tmux: bind C-e edit config
+[[keys.command]]
+key = "prefix+ctrl+e"
+command = "${EDITOR:-vim} ~/.config/herdr/config.toml"
+type = "pane"
+description = "edit herdr config"
+
+# === Terminal ===
+[terminal]
+default_shell = "fish"
+
+[experimental]
+allow_nested = true
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+# ============================================
+# Micode theme (Xiaomi Mimo style) — orange dark
+# ============================================
+[theme]
+name = "catppuccin"
+
+[theme.custom]
+accent = "#FF6A00"
+panel_bg = "#141414"
+surface0 = "#1e1e1e"
+surface1 = "#282828"
+surface_dim = "#141414"
+overlay0 = "#484848"
+overlay1 = "#606060"
+text = "#eeeeee"
+subtext0 = "#808080"
+mauve = "#818CF8"
+green = "#4fd6be"
+yellow = "#FBBF24"
+red = "#FB7185"
+blue = "#818CF8"
+teal = "#FF8A3C"
+peach = "#e5c07b"
