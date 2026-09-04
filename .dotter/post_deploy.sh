@@ -84,6 +84,8 @@ macos_core=(
     "wget"
     "xh"
     "yq"
+    "pre-commit"
+    "ast-grep"
     "dotter"
     "herdr"
 )
