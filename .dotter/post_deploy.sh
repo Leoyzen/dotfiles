@@ -67,22 +67,58 @@ macos_core=(
     "ripgrep"
     "tree"
     "bottom"
+    "btop"
     "procs"
     "gdu"
+    "ncdu"
     "direnv"
+    "zoxide"
+    "lnav"
     "gh"
+    "git"
+    "git-lfs"
     "git-delta"
     "git-filter-repo"
+    "git-fixup"
     "uv"
+    "wget"
+    "xh"
+    "yq"
+    "dotter"
+    "herdr"
 )
 
 # macOS Cask 包（GUI 应用）
 macos_casks=(
     "alacritty"
     "kitty"
-    "wez/wez/wezterm"
     "visual-studio-code"
-    "iterm2"
+    "zed@preview"
+)
+
+# 语言服务器（配合 Helix/Neovim/Zed）
+macos_lsp=(
+    "basedpyright"
+    "pyright"
+    "bash-language-server"
+    "fish-lsp"
+    "marksman"
+    "taplo"
+    "vscode-langservers-extracted"
+    "yaml-language-server"
+    "sql-language-server"
+    "dockerfile-language-server"
+    "prettier"
+)
+
+# AI 编码工具
+ai_tools=(
+    "anomalyco/tap/opencode"
+    "openspec"
+    "github-mcp-server"
+    "context7-mcp"
+    "playwright-mcp"
+    "mimo-code"
 )
 
 # Linux 通用包
@@ -97,23 +133,35 @@ linux_core=(
     "ripgrep"
     "tree"
     "bottom"
+    "btop"
     "procs"
     "gdu"
+    "ncdu"
     "direnv"
+    "zoxide"
+    "lnav"
     "gh"
+    "git"
+    "git-lfs"
     "git-delta"
     "git-filter-repo"
+    "git-fixup"
     "uv"
-    "wez/wez/wezterm"
+    "wget"
+    "xh"
+    "yq"
+    "pre-commit"
+    "ast-grep"
+    "dotter"
     "neovim"
 )
 
 # 额外的 macOS 专用包
 macos_extras=(
-    "rectangle"
     "obsidian"
     "docker"
-    "docker-compose"
+    "helix"
+    "neovim"
 )
 
 # 额外的 Linux 专用包
@@ -136,6 +184,8 @@ dev_tools=(
 if [ "$OS" == "Darwin" ]; then
     echo "🍎 Detected macOS"
     install_packages "core" "${macos_core[@]}"
+    install_packages "lsp" "${macos_lsp[@]}"
+    install_packages "ai" "${ai_tools[@]}"
 
     # 检查是否安装 cask
     read -p "📱 Install GUI applications (casks)? [y/N]: " -n 1 -r
