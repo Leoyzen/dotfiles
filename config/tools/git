@@ -4,6 +4,7 @@
 [core]
     quotepath = false
     editor = hx
+    excludesfile = ~/src/dotfiles/gitignore_global
 [alias]
     showtool = "!f() { git difftool $1^ $1; }; f"
     added = difftool --cached
@@ -53,4 +54,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
+[submodule]
+    recurse = true

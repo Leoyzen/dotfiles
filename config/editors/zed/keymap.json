@@ -76,10 +76,10 @@
       // --- Function keys (send tmux prefix commands) ---
       "f3": ["terminal::SendKeystroke", "f3"],   // passthrough
       "f4": ["terminal::SendKeystroke", "f4"],   // passthrough
-      "f7": ["terminal::SendKeystroke", "f7"],   // passthrough → herdr: previous agent
-      "f8": ["terminal::SendKeystroke", "f8"],   // passthrough → herdr: next agent
-      "f9": ["terminal::SendKeystroke", "f9"],   // passthrough → herdr: previous workspace
-      "f10": ["terminal::SendKeystroke", "f10"], // passthrough → herdr: next workspace
+      "f7": ["terminal::SendKeystroke", "f7"],   // passthrough → herdr: previous workspace
+      "f8": ["terminal::SendKeystroke", "f8"],   // passthrough → herdr: next workspace
+      "f9": ["terminal::SendKeystroke", "f9"],   // passthrough → herdr: previous agent
+      "f10": ["terminal::SendKeystroke", "f10"], // passthrough → herdr: next agent
       "f11": ["terminal::SendText", "\u0001+"],  // zoom (prefix + +)
       "f12": ["terminal::SendKeystroke", "f12"]  // passthrough (tmux: toggle key-table)
     }

@@ -3,18 +3,18 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/omo.schema.json",
   "[opencode]": {
     "team_mode": {
-      "enabled": true,
+      "enabled": false,
       "max_parallel_members": 8,
       "tmux_visualization": true
     },
     "agents": {
       "sisyphus": {
         "model": "wolf-ai/glm-5.2",
-        "variant": "max",
+        "reasoning": "max",
         "fallback_models": [
           {
             "model": "deepseek/deepseek-v4-pro",
-            "variant": "high"
+            "reasoning": "high"
           }
         ],
         "permission": {
@@ -26,31 +26,36 @@
         "fallback_models": [
           {
             "model": "deepseek/deepseek-v4-flash",
-            "variant": "default"
+            "reasoning": "default"
           }
         ],
         "permission": {
           "edit": "allow"
         }
       },
+      "general": {
+        "model": "wolf-ai/deepseek-v4-flash",
+        "permission": {
+          "edit": "allow"
+        }
+      },
       "hephaestus": {
         "model": "wolf-ai/glm-5.2",
-        "fallback_models": [],
         "permission": {
           "edit": "allow"
         }
       },
       "oracle": {
         "model": "wolf-ai/glm-5.2",
-        "variant": "high",
+        "reasoning": "high",
         "fallback_models": [
           {
             "model": "deepseek/deepseek-v4-pro",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "wolf-ai/deepseek-v4-flash",
-            "variant": "high"
+            "reasoning": "high"
           }
         ],
         "permission": {
@@ -62,7 +67,7 @@
         "fallback_models": [
           {
             "model": "deepseek/deepseek-v4-flash",
-            "variant": "high"
+            "reasoning": "high"
           }
         ],
         "permission": {
@@ -74,7 +79,7 @@
         "fallback_models": [
           {
             "model": "deepseek/deepseek-v4-flash",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "openai/gpt-5.4-nano"
@@ -86,7 +91,7 @@
       },
       "multimodal-looker": {
         "model": "wolf-ai/qwen35",
-        "variant": "medium",
+        "reasoning": "medium",
         "fallback_models": [
           {
             "model": "openai/gpt-5-nano"
@@ -101,15 +106,15 @@
       },
       "prometheus": {
         "model": "wolf-ai/glm-5.2",
-        "variant": "max",
+        "reasoning": "max",
         "fallback_models": [
           {
             "model": "openai/gpt-5.5",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "wolf-ai/glm-5.2",
-            "variant": "high"
+            "reasoning": "high"
           }
         ],
         "permission": {
@@ -121,11 +126,11 @@
         "fallback_models": [
           {
             "model": "openai/gpt-5.5",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "wolf-ai/deepseek-v4-flash",
-            "variant": "high"
+            "reasoning": "high"
           }
         ],
         "permission": {
@@ -134,11 +139,11 @@
       },
       "momus": {
         "model": "wolf-ai/glm-5.2",
-        "variant": "xhigh",
+        "reasoning": "xhigh",
         "fallback_models": [
           {
             "model": "wolf-ai/glm-5.2",
-            "variant": "high"
+            "reasoning": "high"
           }
         ],
         "permission": {
@@ -150,11 +155,11 @@
         "fallback_models": [
           {
             "model": "openai/gpt-5.5",
-            "variant": "medium"
+            "reasoning": "medium"
           },
           {
             "model": "wolf-ai/glm-5.2",
-            "variant": "high"
+            "reasoning": "high"
           }
         ],
         "permission": {
@@ -171,76 +176,80 @@
     "categories": {
       "visual-engineering": {
         "model": "wolf-ai/glm-5.2",
-        "variant": "high",
-        "fallback_models": [
+        "reasoning": "high",
+        "models": [
+          "wolf-ai/glm-5.2",
           {
             "model": "opencode/gemini-3.1-pro",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "opencode/glm-5"
           },
           {
             "model": "opencode/claude-opus-4-7",
-            "variant": "max"
+            "reasoning": "max"
           }
         ]
       },
       "ultrabrain": {
         "model": "wolf-ai/glm-5.2",
-        "variant": "xhigh",
-        "fallback_models": [
+        "reasoning": "xhigh",
+        "models": [
+          "wolf-ai/glm-5.2",
           {
             "model": "opencode/gpt-5.5",
-            "variant": "xhigh"
+            "reasoning": "xhigh"
           },
           {
             "model": "google/gemini-3.1-pro-preview",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "opencode/gemini-3.1-pro",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "opencode/claude-opus-4-7",
-            "variant": "max"
+            "reasoning": "max"
           }
         ]
       },
       "deep": {
         "model": "wolf-ai/glm-5.2",
-        "variant": "medium",
-        "fallback_models": [
+        "reasoning": "medium",
+        "models": [
+          "wolf-ai/glm-5.2",
           {
             "model": "opencode/gpt-5.5",
-            "variant": "medium"
+            "reasoning": "medium"
           },
           {
             "model": "opencode/claude-opus-4-7",
-            "variant": "max"
+            "reasoning": "max"
           },
           {
             "model": "google/gemini-3.1-pro-preview",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "opencode/gemini-3.1-pro",
-            "variant": "high"
+            "reasoning": "high"
           }
         ]
       },
       "artistry": {
         "model": "wolf-ai/glm-5.2",
-        "variant": "high",
-        "fallback_models": [
+        "reasoning": "high",
+        "models": [
+          "wolf-ai/glm-5.2",
           {
             "model": "opencode/gemini-3.1-pro",
-            "variant": "high"
+            "reasoning": "high"
           },
           {
             "model": "opencode/claude-opus-4-7",
-            "variant": "max"
+            "reasoning": "max"
           },
           {
             "model": "openai/gpt-5.5"
@@ -252,7 +261,8 @@
       },
       "quick": {
         "model": "wolf-ai/deepseek-v4-flash",
-        "fallback_models": [
+        "models": [
+          "wolf-ai/deepseek-v4-flash",
           {
             "model": "opencode/gpt-5.4-mini"
           },
@@ -269,14 +279,15 @@
       },
       "unspecified-low": {
         "model": "wolf-ai/deepseek-v4-flash",
-        "fallback_models": [
+        "models": [
+          "wolf-ai/deepseek-v4-flash",
           {
             "model": "openai/gpt-5.5",
-            "variant": "medium"
+            "reasoning": "medium"
           },
           {
             "model": "opencode/gpt-5.5",
-            "variant": "medium"
+            "reasoning": "medium"
           },
           {
             "model": "google/gemini-3-flash-preview"
@@ -288,14 +299,15 @@
       },
       "unspecified-high": {
         "model": "wolf-ai/glm-5.2",
-        "fallback_models": [
+        "models": [
+          "wolf-ai/glm-5.2",
           {
             "model": "openai/gpt-5.5",
-            "variant": "medium"
+            "reasoning": "medium"
           },
           {
             "model": "opencode/gpt-5.5",
-            "variant": "medium"
+            "reasoning": "medium"
           },
           {
             "model": "google/gemini-3-flash-preview"
@@ -307,7 +319,8 @@
       },
       "writing": {
         "model": "wolf-ai/deepseek-v4-flash",
-        "fallback_models": [
+        "models": [
+          "wolf-ai/deepseek-v4-flash",
           {
             "model": "opencode/gemini-3-flash"
           },
@@ -333,7 +346,13 @@
     "disabled_hooks": [
       "comment-checker",
       "agent-usage-reminder",
-      "keyword-detector"
+      "keyword-detector",
+      "preemptive-compaction",
+      "auto-update-checker",
+      "startup-toast",
+      "model-fallback",
+      "codegraph-bootstrap",
+      "ast-grep-sg-provision"
     ],
     "disabled_agents": [],
     "tmux": {

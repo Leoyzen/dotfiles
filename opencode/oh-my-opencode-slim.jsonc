@@ -1,0 +1,210 @@
+// oh-my-opencode-slim configuration
+// Presets: cheap / balanced (default) / powerful / openai-only / hybrid-best
+// Switch at runtime via /preset TUI command, or set "preset" field below.
+{
+  // Active preset (change via /preset or here)
+  "preset": "balanced",
+  // Root agent overrides — permission { "*": "allow" } applies to all tools
+  "agents": {
+    "orchestrator": {
+      "permission": {
+        "*": "allow"
+      }
+    },
+    "oracle": {
+      "permission": {
+        "*": "allow"
+      }
+    },
+    "explorer": {
+      "permission": {
+        "*": "allow"
+      }
+    },
+    "librarian": {
+      "permission": {
+        "*": "allow"
+      }
+    },
+    "fixer": {
+      "permission": {
+        "*": "allow"
+      }
+    },
+    "designer": {
+      "permission": {
+        "*": "allow"
+      }
+    },
+    "observer": {
+      "permission": {
+        "*": "allow"
+      }
+    },
+    "council": {
+      "permission": {
+        "*": "allow"
+      }
+    },
+  },
+  "presets": {
+    // ── cheap: all flash/nano, minimum cost ──
+    "cheap": {
+      "orchestrator": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+      "oracle": {
+        "model": "wolf-ai/deepseek-v4-flash",
+        "variant": "medium"
+      },
+      "explorer": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+      "librarian": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+      "fixer": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+      "designer": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+      "observer": {
+        "model": "wolf-ai/qwen38"
+      },
+      "council": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+    },
+    // ── balanced: key agents on glm-5.2, helpers on flash ──
+    "balanced": {
+      "orchestrator": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "high"
+      },
+      "oracle": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "high"
+      },
+      "explorer": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+      "librarian": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+      "fixer": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "medium"
+      },
+      "designer": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "medium"
+      },
+      "observer": {
+        "model": "wolf-ai/qwen38"
+      },
+      "council": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "high"
+      },
+    },
+    // ── powerful: all glm-5.2, reasoning cranked ──
+    "powerful": {
+      "orchestrator": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "max"
+      },
+      "oracle": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "max"
+      },
+      "explorer": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "medium"
+      },
+      "librarian": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "medium"
+      },
+      "fixer": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "high"
+      },
+      "designer": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "high"
+      },
+      "observer": {
+        "model": "wolf-ai/qwen38"
+      },
+      "council": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "max"
+      },
+    },
+    // ── openai-only: all OpenAI provider ──
+    "openai-only": {
+      "orchestrator": {
+        "model": "openai/gpt-5.5"
+      },
+      "oracle": {
+        "model": "openai/gpt-5.5"
+      },
+      "explorer": {
+        "model": "openai/gpt-5.4-nano"
+      },
+      "librarian": {
+        "model": "openai/gpt-5.4-nano"
+      },
+      "fixer": {
+        "model": "openai/gpt-5.5"
+      },
+      "designer": {
+        "model": "openai/gpt-5.5"
+      },
+      "observer": {
+        "model": "openai/gpt-5.4-nano"
+      },
+      "council": {
+        "model": "openai/gpt-5.5"
+      },
+    },
+    // ── hybrid-best: best model per role across providers ──
+    "hybrid-best": {
+      "orchestrator": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "max"
+      },
+      "oracle": {
+        "model": "openai/gpt-5.5"
+      },
+      "explorer": {
+        "model": "wolf-ai/deepseek-v4-flash"
+      },
+      "librarian": {
+        "model": "openai/gpt-5.4-nano"
+      },
+      "fixer": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "high"
+      },
+      "designer": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "high"
+      },
+      "observer": {
+        "model": "wolf-ai/qwen38"
+      },
+      "council": {
+        "model": "wolf-ai/glm-5.2",
+        "variant": "xhigh"
+      },
+    },
+  },
+  // Multiplexer — match existing tmux setup from omo config
+  "multiplexer": {
+    "type": "auto",
+    "layout": "main-vertical",
+    "main_pane_size": 60,
+  },
+}

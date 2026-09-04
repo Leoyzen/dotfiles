@@ -73,16 +73,16 @@ rename_workspace = "prefix+shift+r"
 zoom = "prefix+plus"
 
 # === Agent switching ===
-# F7/F8 direct (no prefix needed)
-previous_agent = "f7"
-next_agent = ["f8", "shift+tab"]  # shift+tab: sent as CSI Z by every terminal; herdr consumes it, panes no longer see it
+# F9/F10 direct (no prefix needed)
+previous_agent = "f9"
+next_agent = ["f10", "shift+tab"]  # shift+tab: sent as CSI Z by every terminal; herdr consumes it, panes no longer see it
 # cmd+1..9 direct: jump to agent rows 1-9 (needs kitty keyboard protocol, e.g. Ghostty/kitty/WezTerm)
 focus_agent = "cmd+1..9"
 
 # === Workspace switching ===
-# F9/F10 direct (no prefix needed)
-previous_workspace = "f9"
-next_workspace = "f10"
+# F7/F8 direct (no prefix needed)
+previous_workspace = "f7"
+next_workspace = "f8"
 # ctrl+1..9 direct: jump to workspace 1-9
 switch_workspace = "ctrl+1..9"
 
