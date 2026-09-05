@@ -10,7 +10,7 @@
   ],
   "autoupdate": true,
   "snapshot": false,
-  "model": "wolf-ai/glm-5.2",
+  "model": "wolf-ai/glm-5.3",
   "mcp": {
     "mcp-router": {
       "type": "local",
@@ -63,7 +63,7 @@
   },
   "agent": {
     "compaction": {
-      "model": "wolf-ai/glm-5.2",
+      "model": "wolf-ai/glm-5.3",
       "variant": "medium",
     },
     "build": {
@@ -77,7 +77,7 @@
     },
     "plan": {
       "mode": "primary",
-      "model": "wolf-ai/glm-5.2",
+      "model": "wolf-ai/glm-5.3",
       "variant": "high",
       "tools": {
         "write": false,
@@ -88,7 +88,7 @@
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
       "mode": "subagent",
-      "model": "wolf-ai/glm-5.2",
+      "model": "wolf-ai/glm-5.3",
       "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
       "tools": {
         "write": false,
@@ -141,7 +141,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Wolf Ack",
       "options": {
-        "baseURL": "http://127.0.0.1:4000/v1",
+        "baseURL": "http://10.147.254.3:8004/v1",
         "litellmProxy": true,
       },
       "models": {
@@ -187,6 +187,20 @@
           "options": {
             "thinking": true
           },
+          "variants": {
+            "low": {
+              "reasoningEffort": "low"
+            },
+            "medium": {
+              "disabled": true
+            },
+            "high": {
+              "reasoningEffort": "high"
+            },
+            "max": {
+              "reasoningEffort": "max"
+            }
+          },
           "limit": {
             // "context": 202752,
             // "context": 1048576,
@@ -230,20 +244,31 @@
             ],
           },
         },
-        "glm-5.2": {
-          "name": "GLM 5.2",
-          "id": "svc/kimi-k2",
+        "glm-5.3": {
+          "name": "GLM 5.3",
+          "id": "glm-5.3",
           "reasoning": true,
           "attachment": false,
           "interleaved": {
             "field": "reasoning_content",
           },
+          "variants": {
+            "low": {
+              "reasoningEffort": "low"
+            },
+            "high": {
+              "reasoningEffort": "high"
+            },
+            "max": {
+              "reasoningEffort": "max"
+            }
+          },
           "limit": {
             // "context": 252144,
             // "context": 262144,
             // "context": 512000,
-            // "context": 1048576,
-            "context": 524288,
+            "context": 1048576,
+            // "context": 524288,
             // "context": 202752,
             "output": 16384,
           },

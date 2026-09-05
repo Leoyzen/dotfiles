@@ -76,14 +76,13 @@
         "model": "wolf-ai/deepseek-v4-flash"
       },
     },
-    // ── balanced: key agents on glm-5.2, helpers on flash ──
+    // ── balanced: key agents on glm-5.3, helpers on flash ──
     "balanced": {
       "orchestrator": {
-        "model": "wolf-ai/glm-5.2",
         "variant": "high"
       },
       "oracle": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "high"
       },
       "explorer": {
@@ -93,52 +92,52 @@
         "model": "wolf-ai/deepseek-v4-flash"
       },
       "fixer": {
-        "model": "wolf-ai/glm-5.2",
-        "variant": "medium"
+        "model": "wolf-ai/glm-5.3",
+        "variant": "low"
       },
       "designer": {
-        "model": "wolf-ai/glm-5.2",
-        "variant": "medium"
+        "model": "wolf-ai/glm-5.3",
+        "variant": "low"
       },
       "observer": {
         "model": "wolf-ai/qwen38"
       },
       "council": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "high"
       },
     },
-    // ── powerful: all glm-5.2, reasoning cranked ──
+    // ── powerful: all glm-5.3, reasoning cranked ──
     "powerful": {
       "orchestrator": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "max"
       },
       "oracle": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "max"
       },
       "explorer": {
-        "model": "wolf-ai/glm-5.2",
-        "variant": "medium"
+        "model": "wolf-ai/glm-5.3",
+        "variant": "low"
       },
       "librarian": {
-        "model": "wolf-ai/glm-5.2",
-        "variant": "medium"
+        "model": "wolf-ai/glm-5.3",
+        "variant": "low"
       },
       "fixer": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "high"
       },
       "designer": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "high"
       },
       "observer": {
         "model": "wolf-ai/qwen38"
       },
       "council": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "max"
       },
     },
@@ -172,7 +171,7 @@
     // ── hybrid-best: best model per role across providers ──
     "hybrid-best": {
       "orchestrator": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "max"
       },
       "oracle": {
@@ -185,19 +184,19 @@
         "model": "openai/gpt-5.4-nano"
       },
       "fixer": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "high"
       },
       "designer": {
-        "model": "wolf-ai/glm-5.2",
+        "model": "wolf-ai/glm-5.3",
         "variant": "high"
       },
       "observer": {
         "model": "wolf-ai/qwen38"
       },
       "council": {
-        "model": "wolf-ai/glm-5.2",
-        "variant": "xhigh"
+        "model": "wolf-ai/glm-5.3",
+        "variant": "max"
       },
     },
   },
