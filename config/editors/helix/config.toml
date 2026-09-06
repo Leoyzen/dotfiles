@@ -97,6 +97,10 @@ S-tab = "goto_previous_buffer"
 # 方向键左右也切 buffer（normal 模式下左右方向键默认是移动光标，语义重复可安全覆盖）
 left = "goto_previous_buffer"
 right = "goto_next_buffer"
+# X 默认是 extend_to_line_bounds（只对齐行边界，不向上移动）；
+# 改绑 extend_line_up 使 X/x 成对：X 向上选行、x 向下选行（均可带 count，如 3X）
+X = "extend_line_up"
+A-x = "extend_to_line_bounds"
 # Alt+数字 直达：helix 无 ":buffer N" 命令，无法按索引直达（改用 <Space>b picker）
 # ";" = { w = ":w", q = ":q" }
 # "C-/" = "toggle_comments"
