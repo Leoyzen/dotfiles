@@ -1,6 +1,10 @@
 theme = "gruvbox-material-dark-hard"
 
 [editor]
+# y/p 默认使用系统剪贴板寄存器 "+"：
+# helix 25.x 起 y 默认写 '"'（内部寄存器），只有写 '+'/'*' 才会调用 clipboard provider
+# （register.rs: write('+') → set_contents）。设为此项后 y = 复制到系统剪贴板。
+default-yank-register = "+"
 auto-save = true
 auto-format = true
 bufferline = "multiple"
@@ -14,6 +18,13 @@ rulers = [79]
 true-color = true
 # 让 Helix 使用终端定义的光标形状，这有助于同步协议状态
 # use-terminal-cursor = true
+
+# 剪贴板说明（不设置 clipboard-provider，使用默认自动探测）：
+# - macOS 本地: 探测到 pbcopy/pbpaste => pasteboard，y 直接写系统剪贴板
+# - SSH 远程 (无 Wayland/X11): 回落到 termcode (OSC52)，由本地终端写入剪贴板，
+#   要求本地终端支持 OSC52（Alacritty 支持；tmux 内需 `set -g set-clipboard on`）
+# 如需强制指定，可选值: pasteboard, wayland, x-clip, x-sel, win32-yank,
+# tmux, termux, termcode, custom, none
 
 [editor.whitespace.render]
 space = "none"
