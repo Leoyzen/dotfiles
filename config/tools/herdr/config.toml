@@ -61,6 +61,8 @@ swap_pane_up = "prefix+comma"
 # tmux: bind c new-window -- already herdr default: prefix+c
 # tmux: bind r rename-window
 rename_tab = "prefix+r"
+# prefix+1..9: jump to tab 1-9
+switch_tab = "prefix+1..9"
 # tmux: bind R rename-session
 rename_workspace = "prefix+shift+r"
 # tmux: bind x kill-pane -- already herdr default: prefix+x
@@ -98,6 +100,35 @@ command = "${EDITOR:-vim} ~/.config/herdr/config.toml"
 type = "pane"
 description = "edit herdr config"
 
+# === herdr-thumbs (tmux-thumbs style hint picking) ===
+# tmux-thumbs default key: prefix+space
+[[keys.command]]
+key = "prefix+space"
+type = "plugin_action"
+command = "sd2k.thumbs.pick"
+description = "pick text (copy)"
+
+[[keys.command]]
+key = "prefix+alt+space"
+type = "plugin_action"
+command = "sd2k.thumbs.pick-multi"
+description = "pick several (copy space-separated)"
+
+[[keys.command]]
+key = "prefix+ctrl+o"
+type = "plugin_action"
+command = "sd2k.thumbs.pick-open"
+description = "pick text (open url/path/sha)"
+
+# === fzf buffer search ===
+# tmux: bind -n C-f copy-mode \; command-prompt search
+# Fuzzy-search the focused pane's scrollback (incl. history) in an fzf popup
+[[keys.command]]
+key = "prefix+ctrl+f"
+command = "sh -c 'P=$(herdr pane current | jq -r .result.pane.pane_id); herdr pane read \"$P\" --source recent --lines 100000 --format text | fzf --no-sort --layout=reverse --info=inline --prompt=\"buffer> \"'"
+type = "popup"
+description = "fzf search current pane buffer"
+
 # === Terminal ===
 [terminal]
 default_shell = "fish"
@@ -107,6 +138,8 @@ allow_nested = true
 
 [ui]
 show_agent_labels_on_pane_borders = true
+# create tabs directly without the name prompt (rename later with prefix+r)
+prompt_new_tab_name = false
 
 # ============================================
 # Micode theme (Xiaomi Mimo style) — orange dark
