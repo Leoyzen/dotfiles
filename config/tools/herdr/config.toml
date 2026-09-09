@@ -136,6 +136,10 @@ default_shell = "fish"
 [experimental]
 allow_nested = true
 
+[advanced]
+# 50 MB per-pane scrollback (default 10 MB) — deeper history for fzf buffer search
+scrollback_limit_bytes = 52428800
+
 [ui]
 show_agent_labels_on_pane_borders = true
 # create tabs directly without the name prompt (rename later with prefix+r)
@@ -144,9 +148,11 @@ prompt_new_tab_name = false
 # ============================================
 # Micode theme (Xiaomi Mimo style) — orange dark
 # ============================================
+status_indicators = "symbols"
 [theme]
 name = "catppuccin"
 
+auto_switch = false
 [theme.custom]
 accent = "#FF6A00"
 panel_bg = "#141414"
