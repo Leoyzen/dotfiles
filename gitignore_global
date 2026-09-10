@@ -24,3 +24,5 @@ openspec/
 
 # Direnv
 .envrc
+# Astral ty type checker config (per-worktree venv paths)
+ty.toml
