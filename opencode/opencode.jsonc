@@ -44,10 +44,11 @@
         "serve",
         "--mcp"
       ],
-      "enabled": false
+      "enabled": true
     },
   },
   "enabled_providers": [
+    "alibaba-cn",
     "wolf-ai",
     "wolf-ack",
     "deepseek",
@@ -68,7 +69,7 @@
     },
     "build": {
       "mode": "primary",
-      "model": "wolf-ai/deepseek-v4-flash",
+      "model": "wolf-ai/glm-5.3-flash",
       "tools": {
         "write": true,
         "edit": true,
@@ -137,6 +138,12 @@
     },
   },
   "provider": {
+    "alibaba-cn": {
+      "options": {
+        "baseURL": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "{env:ALIYUN_TOKEN_API_KEY}",
+      },
+    },
     "wolf-ack": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Wolf Ack",
@@ -270,13 +277,85 @@
             "context": 1048576,
             // "context": 524288,
             // "context": 202752,
-            "output": 16384,
+            "output": 131072,
           },
           "modalities": {
             "input": [
               "text",
               // "image",
               // "video"
+            ],
+            "output": [
+              "text"
+            ],
+          },
+        },
+        "glm-5.3-flash": {
+          "name": "GLM 5.3 Flash",
+          "id": "svc/glm-5.3-flash",
+          "reasoning": true,
+          "attachment": false,
+          "interleaved": {
+            "field": "reasoning_content",
+          },
+          "variants": {
+            "low": {
+              "reasoningEffort": "low"
+            },
+            "high": {
+              "reasoningEffort": "high"
+            },
+            "max": {
+              "reasoningEffort": "max"
+            }
+          },
+          "limit": {
+            // "context": 252144,
+            // "context": 262144,
+            // "context": 512000,
+            "context": 1048576,
+            // "context": 524288,
+            // "context": 202752,
+            "output": 131072,
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              // "video"
+            ],
+            "output": [
+              "text"
+            ],
+          },
+        },
+        "glm-5.3-flash-dev": {
+          "name": "GLM 5.3 Flash (Dev)",
+          "id": "svc/ack-dev",
+          "reasoning": true,
+          "attachment": false,
+          "interleaved": {
+            "field": "reasoning_content",
+          },
+          "variants": {
+            "low": {
+              "reasoningEffort": "low"
+            },
+            "high": {
+              "reasoningEffort": "high"
+            },
+            "max": {
+              "reasoningEffort": "max"
+            }
+          },
+          "limit": {
+            "context": 1048576,
+            "output": 131072,
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
             ],
             "output": [
               "text"
