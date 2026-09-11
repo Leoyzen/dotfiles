@@ -64,8 +64,8 @@
   },
   "agent": {
     "compaction": {
-      "model": "wolf-ai/glm-5.3",
-      "variant": "medium",
+      "model": "deepseek/deepseek-v4-flash",
+      "variant": "high",
     },
     "build": {
       "mode": "primary",
@@ -271,12 +271,7 @@
             }
           },
           "limit": {
-            // "context": 252144,
-            // "context": 262144,
-            // "context": 512000,
-            "context": 1048576,
-            // "context": 524288,
-            // "context": 202752,
+            "context": 524288,
             "output": 131072,
           },
           "modalities": {
@@ -310,12 +305,7 @@
             }
           },
           "limit": {
-            // "context": 252144,
-            // "context": 262144,
-            // "context": 512000,
-            "context": 1048576,
-            // "context": 524288,
-            // "context": 202752,
+            "context": 524288,
             "output": 131072,
           },
           "modalities": {
@@ -349,7 +339,7 @@
             }
           },
           "limit": {
-            "context": 1048576,
+            "context": 524288,
             "output": 131072,
           },
           "modalities": {
