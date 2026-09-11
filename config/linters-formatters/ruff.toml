@@ -8,6 +8,7 @@ target-version = 'py312'
 
 # Exclude a variety of commonly ignored directories.
 exclude = [
+    "src/sglang/**",
     ".bzr",
     ".direnv",
     ".eggs",
