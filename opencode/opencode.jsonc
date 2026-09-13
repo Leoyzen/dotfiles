@@ -141,7 +141,6 @@
     "alibaba-cn": {
       "options": {
         "baseURL": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
-        "apiKey": "{env:ALIYUN_TOKEN_API_KEY}",
       },
     },
     "wolf-ack": {
