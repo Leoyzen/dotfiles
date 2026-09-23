@@ -4,47 +4,285 @@
 {
   // Active preset (change via /preset or here)
   "preset": "balanced",
+  // Disable foreground model-fallback failover. With fallback enabled, a
+  // subagent that triggers a model switch aborts its own session, which the
+  // native `task` tool sees as "Task cancelled" and the result is lost.
+  "fallback": {
+    "enabled": false
+  },
   // Root agent overrides — permission { "*": "allow" } applies to all tools
   "agents": {
     "orchestrator": {
       "permission": {
-        "*": "allow"
+        // Root-scan guard: deny find/ls/du/tree/fd against the filesystem root.
+        // Must come AFTER "*": "allow" — opencode evaluates the LAST matching rule.
+        "bash": {
+          "*": "allow",
+          "find /": "deny",
+          "find / *": "deny",
+          "find  / *": "deny",
+          "find -* / *": "deny",
+          "sudo find / *": "deny",
+          "nohup find / *": "deny",
+          "time find / *": "deny",
+          "nice find / *": "deny",
+          "command find / *": "deny",
+          "env * find / *": "deny",
+          "*=* find / *": "deny",
+          "*/find / *": "deny",
+          "ls /": "deny",
+          "ls / *": "deny",
+          "ls -* / *": "deny",
+          "du /": "deny",
+          "du / *": "deny",
+          "du -* / *": "deny",
+          "tree /": "deny",
+          "tree / *": "deny",
+          "tree -* / *": "deny",
+          "fd /": "deny",
+          "fd / *": "deny",
+          "fd -* / *": "deny",
+        }
       }
     },
     "oracle": {
       "permission": {
-        "*": "allow"
+        // Root-scan guard: deny find/ls/du/tree/fd against the filesystem root.
+        // Must come AFTER "*": "allow" — opencode evaluates the LAST matching rule.
+        "bash": {
+          "*": "allow",
+          "find /": "deny",
+          "find / *": "deny",
+          "find  / *": "deny",
+          "find -* / *": "deny",
+          "sudo find / *": "deny",
+          "nohup find / *": "deny",
+          "time find / *": "deny",
+          "nice find / *": "deny",
+          "command find / *": "deny",
+          "env * find / *": "deny",
+          "*=* find / *": "deny",
+          "*/find / *": "deny",
+          "ls /": "deny",
+          "ls / *": "deny",
+          "ls -* / *": "deny",
+          "du /": "deny",
+          "du / *": "deny",
+          "du -* / *": "deny",
+          "tree /": "deny",
+          "tree / *": "deny",
+          "tree -* / *": "deny",
+          "fd /": "deny",
+          "fd / *": "deny",
+          "fd -* / *": "deny",
+        }
       }
     },
     "explorer": {
       "permission": {
-        "*": "allow"
+        // Root-scan guard: deny find/ls/du/tree/fd against the filesystem root.
+        // Must come AFTER "*": "allow" — opencode evaluates the LAST matching rule.
+        "bash": {
+          "*": "allow",
+          "find /": "deny",
+          "find / *": "deny",
+          "find  / *": "deny",
+          "find -* / *": "deny",
+          "sudo find / *": "deny",
+          "nohup find / *": "deny",
+          "time find / *": "deny",
+          "nice find / *": "deny",
+          "command find / *": "deny",
+          "env * find / *": "deny",
+          "*=* find / *": "deny",
+          "*/find / *": "deny",
+          "ls /": "deny",
+          "ls / *": "deny",
+          "ls -* / *": "deny",
+          "du /": "deny",
+          "du / *": "deny",
+          "du -* / *": "deny",
+          "tree /": "deny",
+          "tree / *": "deny",
+          "tree -* / *": "deny",
+          "fd /": "deny",
+          "fd / *": "deny",
+          "fd -* / *": "deny",
+        }
       }
     },
     "librarian": {
       "permission": {
-        "*": "allow"
+        // Root-scan guard: deny find/ls/du/tree/fd against the filesystem root.
+        // Must come AFTER "*": "allow" — opencode evaluates the LAST matching rule.
+        "bash": {
+          "*": "allow",
+          "find /": "deny",
+          "find / *": "deny",
+          "find  / *": "deny",
+          "find -* / *": "deny",
+          "sudo find / *": "deny",
+          "nohup find / *": "deny",
+          "time find / *": "deny",
+          "nice find / *": "deny",
+          "command find / *": "deny",
+          "env * find / *": "deny",
+          "*=* find / *": "deny",
+          "*/find / *": "deny",
+          "ls /": "deny",
+          "ls / *": "deny",
+          "ls -* / *": "deny",
+          "du /": "deny",
+          "du / *": "deny",
+          "du -* / *": "deny",
+          "tree /": "deny",
+          "tree / *": "deny",
+          "tree -* / *": "deny",
+          "fd /": "deny",
+          "fd / *": "deny",
+          "fd -* / *": "deny",
+        }
       }
     },
     "fixer": {
       "permission": {
-        "*": "allow"
+        // Root-scan guard: deny find/ls/du/tree/fd against the filesystem root.
+        // Must come AFTER "*": "allow" — opencode evaluates the LAST matching rule.
+        "bash": {
+          "*": "allow",
+          "find /": "deny",
+          "find / *": "deny",
+          "find  / *": "deny",
+          "find -* / *": "deny",
+          "sudo find / *": "deny",
+          "nohup find / *": "deny",
+          "time find / *": "deny",
+          "nice find / *": "deny",
+          "command find / *": "deny",
+          "env * find / *": "deny",
+          "*=* find / *": "deny",
+          "*/find / *": "deny",
+          "ls /": "deny",
+          "ls / *": "deny",
+          "ls -* / *": "deny",
+          "du /": "deny",
+          "du / *": "deny",
+          "du -* / *": "deny",
+          "tree /": "deny",
+          "tree / *": "deny",
+          "tree -* / *": "deny",
+          "fd /": "deny",
+          "fd / *": "deny",
+          "fd -* / *": "deny",
+        }
       }
     },
     "designer": {
       "permission": {
-        "*": "allow"
+        // Root-scan guard: deny find/ls/du/tree/fd against the filesystem root.
+        // Must come AFTER "*": "allow" — opencode evaluates the LAST matching rule.
+        "bash": {
+          "*": "allow",
+          "find /": "deny",
+          "find / *": "deny",
+          "find  / *": "deny",
+          "find -* / *": "deny",
+          "sudo find / *": "deny",
+          "nohup find / *": "deny",
+          "time find / *": "deny",
+          "nice find / *": "deny",
+          "command find / *": "deny",
+          "env * find / *": "deny",
+          "*=* find / *": "deny",
+          "*/find / *": "deny",
+          "ls /": "deny",
+          "ls / *": "deny",
+          "ls -* / *": "deny",
+          "du /": "deny",
+          "du / *": "deny",
+          "du -* / *": "deny",
+          "tree /": "deny",
+          "tree / *": "deny",
+          "tree -* / *": "deny",
+          "fd /": "deny",
+          "fd / *": "deny",
+          "fd -* / *": "deny",
+        }
       }
     },
     "observer": {
       "permission": {
-        "*": "allow"
+        // Root-scan guard: deny find/ls/du/tree/fd against the filesystem root.
+        // Must come AFTER "*": "allow" — opencode evaluates the LAST matching rule.
+        "bash": {
+          "*": "allow",
+          "find /": "deny",
+          "find / *": "deny",
+          "find  / *": "deny",
+          "find -* / *": "deny",
+          "sudo find / *": "deny",
+          "nohup find / *": "deny",
+          "time find / *": "deny",
+          "nice find / *": "deny",
+          "command find / *": "deny",
+          "env * find / *": "deny",
+          "*=* find / *": "deny",
+          "*/find / *": "deny",
+          "ls /": "deny",
+          "ls / *": "deny",
+          "ls -* / *": "deny",
+          "du /": "deny",
+          "du / *": "deny",
+          "du -* / *": "deny",
+          "tree /": "deny",
+          "tree / *": "deny",
+          "tree -* / *": "deny",
+          "fd /": "deny",
+          "fd / *": "deny",
+          "fd -* / *": "deny",
+        }
       }
     },
     "council": {
       "permission": {
-        "*": "allow"
+        // Root-scan guard: deny find/ls/du/tree/fd against the filesystem root.
+        // Must come AFTER "*": "allow" — opencode evaluates the LAST matching rule.
+        "bash": {
+          "*": "allow",
+          "find /": "deny",
+          "find / *": "deny",
+          "find  / *": "deny",
+          "find -* / *": "deny",
+          "sudo find / *": "deny",
+          "nohup find / *": "deny",
+          "time find / *": "deny",
+          "nice find / *": "deny",
+          "command find / *": "deny",
+          "env * find / *": "deny",
+          "*=* find / *": "deny",
+          "*/find / *": "deny",
+          "ls /": "deny",
+          "ls / *": "deny",
+          "ls -* / *": "deny",
+          "du /": "deny",
+          "du / *": "deny",
+          "du -* / *": "deny",
+          "tree /": "deny",
+          "tree / *": "deny",
+          "tree -* / *": "deny",
+          "fd /": "deny",
+          "fd / *": "deny",
+          "fd -* / *": "deny",
+        }
       }
+    },
+    // custom agent: opencode-native code-reviewer, fallback chain via SLIM
+    "code-reviewer": {
+      "model": [
+        { "id": "wolf-ai/glm-5.3" },
+        { "id": "alibaba-cn/glm-5.2" },
+        { "id": "wolf-ai/deepseek-v4.1-flash" },
+      ]
     },
   },
   "presets": {
@@ -53,13 +291,13 @@
       "orchestrator": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
       "oracle": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
           { "id": "openai/gpt-5.6-luna", "variant": "high" },
         ],
         "variant": "medium"
@@ -67,25 +305,25 @@
       "explorer": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
       "librarian": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
       "fixer": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
       "designer": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
       "observer": {
@@ -94,7 +332,7 @@
       "council": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
     },
@@ -104,36 +342,28 @@
         "variant": "high"
       },
       "oracle": {
-        "model": [
-          { "id": "wolf-ai/glm-5.3", "variant": "high" },
-          { "id": "openai/gpt-5.6-luna", "variant": "high" },
-        ]
+        "model": "alibaba-cn/glm-5.3"
       },
       "explorer": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
       "librarian": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
       "fixer": {
         "model": [
+          { "id": "wolf-ai/deepseek-v4.1-flash", "variant": "max" },
           { "id": "wolf-ai/glm-5.3-flash", "variant": "max" },
-          { "id": "wolf-ai/deepseek-v4-flash", "variant": "max" },
-          { "id": "openai/gpt-5.6-luna" },
         ]
       },
       "designer": {
-        "model": [
-          { "id": "openai/gpt-5.6-luna", "variant": "high" },
-          { "id": "alibaba-cn/qwen3.8-max" },
-          { "id": "wolf-ai/glm-5.3-flash" },
-        ]
+        "model": "wolf-ai/glm-5.3-flash"
       },
       "observer": {
         "model": "wolf-ai/qwen38"
@@ -224,7 +454,7 @@
       "explorer": {
         "model": [
           { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4-flash" },
+          { "id": "wolf-ai/deepseek-v4.1-flash" },
         ]
       },
       "librarian": {

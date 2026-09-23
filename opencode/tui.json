@@ -5,7 +5,6 @@
     "enabled": true
   },
   "plugin": [
-    "oh-my-openagent@latest",
     "@mesaleh/opencode-tps"
   ]
 }

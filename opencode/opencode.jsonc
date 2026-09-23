@@ -3,7 +3,6 @@
   "plugin": [
     "@tarquinen/opencode-dcp",
     "oh-my-opencode-slim@latest",
-    // "oh-my-openagent@latest",
     // "/Users/yuchen.liu/.config/herdr/plugins/github/gavintomlins.herdr-oh-my-agent-d4df23d2318b/packages/herdr-subagent-panes",
     // "superpowers@git+https://github.com/obra/superpowers.git",
     "@openviking/opencode-plugin",
@@ -70,11 +69,9 @@
     "build": {
       "mode": "primary",
       "model": "wolf-ai/glm-5.3-flash",
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true,
-      },
+      // NOTE: do not add a deprecated `tools` block here. `tools.bash: true`
+      // compiles to a trailing `bash: allow *` permission rule that overrides
+      // the global bash denies below (opencode evaluates the LAST match).
     },
     "plan": {
       "mode": "primary",
@@ -104,6 +101,35 @@
       "git checkout *": "allow",
       "git restore *": "ask",
       "rm *": "allow",
+      // Root-scan guard: block find/ls/du/tree/fd against the filesystem root.
+      // opencode matches the WHOLE command-node text, so we enumerate the
+      // wrapper forms that actually occur (sudo/env/nohup/... , flags, /usr/bin/
+      // paths, double spaces). Patterns are ordered after "*": "allow" because
+      // the LAST matching rule wins.
+      "find /": "deny",
+      "find / *": "deny",
+      "find  / *": "deny",
+      "find -* / *": "deny",
+      "sudo find / *": "deny",
+      "nohup find / *": "deny",
+      "time find / *": "deny",
+      "nice find / *": "deny",
+      "command find / *": "deny",
+      "env * find / *": "deny",
+      "*=* find / *": "deny",
+      "*/find / *": "deny",
+      "ls /": "deny",
+      "ls / *": "deny",
+      "ls -* / *": "deny",
+      "du /": "deny",
+      "du / *": "deny",
+      "du -* / *": "deny",
+      "tree /": "deny",
+      "tree / *": "deny",
+      "tree -* / *": "deny",
+      "fd /": "deny",
+      "fd / *": "deny",
+      "fd -* / *": "deny",
     },
     "edit": {
       "*": "allow",
@@ -185,6 +211,44 @@
         "deepseek-v4-flash": {
           "name": "Deepseek V4 Flash",
           "id": "svc/deepseek-v4-flash",
+          "attachment": false,
+          "reasoning": true,
+          "interleaved": {
+            "field": "reasoning_content",
+          },
+          "options": {
+            "thinking": true
+          },
+          "variants": {
+            "low": {
+              "reasoningEffort": "low"
+            },
+            "medium": {
+              "disabled": true
+            },
+            "high": {
+              "reasoningEffort": "high"
+            },
+            "max": {
+              "reasoningEffort": "max"
+            }
+          },
+          "limit": {
+            "context": 524288,
+            "output": 65535,
+          },
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ],
+          },
+        },
+        "deepseek-v4.1-flash": {
+          "name": "Deepseek V4.1 Flash",
+          "id": "svc/deepseek-v4.1-flash",
           "attachment": false,
           "reasoning": true,
           "interleaved": {
