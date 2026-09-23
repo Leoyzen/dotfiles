@@ -95,11 +95,34 @@
     },
   },
   "permission": {
+    // Default posture: approve everything so agents never stall on an approval
+    // prompt. Only catastrophic / irreversible commands are hard-denied below
+    // ("deny" fails fast and never waits for input, so nothing hangs).
+    //
+    // Paths outside the worktree (e.g. /tmp, ~/.config, ~/.cache, sibling
+    // repos) were the single biggest source of prompts — allow them by default.
+    "external_directory": {
+      "*": "allow",
+    },
+    // Reading defaults to allow. Secret files (dotenv + direnv) require an
+    // explicit approval instead of being auto-approved — a rare, deliberate
+    // confirmation. Committed templates stay allowed.
+    "read": {
+      "*": "allow",
+      "*.env": "ask",
+      "*.env.*": "ask",
+      "*.envrc": "ask",
+      "*.envrc.*": "ask",
+      "*.env.example": "allow",
+      "*.env.sample": "allow",
+      "*.env.template": "allow",
+      "*.envrc.example": "allow",
+    },
+    // Override the built-in ask when the same tool call repeats (loop guard).
+    "doom_loop": "allow",
     "bash": {
       "*": "allow",
-      "git rm *": "ask",
       "git checkout *": "allow",
-      "git restore *": "ask",
       "rm *": "allow",
       // Root-scan guard: block find/ls/du/tree/fd against the filesystem root.
       // opencode matches the WHOLE command-node text, so we enumerate the
@@ -130,6 +153,54 @@
       "fd /": "deny",
       "fd / *": "deny",
       "fd -* / *": "deny",
+
+      // ── High-risk guards: hard deny (ordered last so they win). ──
+      // "deny" fails immediately instead of prompting, so it never blocks.
+      // Filesystem wipes of root, home, or top-level system dirs. (NB: the
+      // glob "*" spans "/", so each rule names an explicit target instead of a
+      // blanket "rm -rf /*" — otherwise safe calls like `rm -rf /tmp/x` break.)
+      "rm -* /": "deny",
+      "rm -* ~": "deny",
+      "rm -* $HOME": "deny",
+      "rm -* /etc*": "deny",
+      "rm -* /usr*": "deny",
+      "rm -* /var*": "deny",
+      "rm -* /bin*": "deny",
+      "rm -* /sbin*": "deny",
+      "rm -* /lib*": "deny",
+      "rm -* /boot*": "deny",
+      "rm -* /opt*": "deny",
+      "rm -* /System*": "deny",
+      "rm -* /Library*": "deny",
+      "rm -* /Applications*": "deny",
+      "rm -* /private*": "deny",
+      "sudo rm *": "deny",
+      "* rm -* /": "deny",
+      // Raw disk writes / formatting.
+      "dd *of=/dev/*": "deny",
+      "* dd *of=/dev/*": "deny",
+      "mkfs*": "deny",
+      // Irreversible permission / ownership changes at the root.
+      "chmod -R 777 /*": "deny",
+      "chown -R * /*": "deny",
+      // Fork bomb, shell-history wipe, power control.
+      "*:(){*": "deny",
+      "history -c": "deny",
+      "shutdown*": "deny",
+      "sudo shutdown*": "deny",
+      "reboot*": "deny",
+      "sudo reboot*": "deny",
+      // Git history / worktree destruction (safe escapes re-allowed below).
+      "git push --force*": "deny",
+      "git push -f*": "deny",
+      "git reset --hard*": "deny",
+      "git clean -*f*": "deny",
+      "git rm *": "deny",
+      "git restore *": "deny",
+      "git push --force-with-lease*": "allow",
+      "git clean -*n*": "allow",
+      "git rm *--cached*": "allow",
+      "git restore --staged*": "allow",
     },
     "edit": {
       "*": "allow",
@@ -137,6 +208,9 @@
     },
     "webfetch": "allow",
     "skill": {
+      // Broad rule FIRST: opencode keeps the LAST matching rule, so the
+      // specific denies below only take effect after this line.
+      "*": "allow",
       "wecomcli-*": "deny",
       "microsoft-foundry": "deny",
       "deploy-model": "deny",
@@ -160,7 +234,6 @@
       "metaskill": "deny",
       "darwin-skill": "deny",
       "skill-creator": "deny",
-      "*": "allow",
     },
   },
   "provider": {
