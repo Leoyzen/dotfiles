@@ -9,7 +9,7 @@
   ],
   "autoupdate": true,
   "snapshot": false,
-  "model": "wolf-ai/glm-5.3",
+  "model": "alibaba-cn/deepseek-v4.1-flash",
   "mcp": {
     "mcp-router": {
       "type": "local",
@@ -48,7 +48,6 @@
   },
   "enabled_providers": [
     "alibaba-cn",
-    "wolf-ai",
     "wolf-ack",
     "deepseek",
     "openai"
@@ -63,19 +62,19 @@
   },
   "agent": {
     "compaction": {
-      "model": "deepseek/deepseek-v4-flash",
+      "model": "alibaba-cn/deepseek-v4.1-flash",
       "variant": "high",
     },
     "build": {
       "mode": "primary",
-      "model": "wolf-ai/glm-5.3-flash",
+      "model": "alibaba-cn/deepseek-v4.1-flash",
       // NOTE: do not add a deprecated `tools` block here. `tools.bash: true`
       // compiles to a trailing `bash: allow *` permission rule that overrides
       // the global bash denies below (opencode evaluates the LAST match).
     },
     "plan": {
       "mode": "primary",
-      "model": "wolf-ai/glm-5.3",
+      "model": "alibaba-cn/deepseek-v4.1-flash",
       "variant": "high",
       "tools": {
         "write": false,
@@ -86,7 +85,7 @@
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
       "mode": "subagent",
-      "model": "wolf-ai/glm-5.3",
+      "model": "alibaba-cn/deepseek-v4.1-flash",
       "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
       "tools": {
         "write": false,
@@ -265,242 +264,6 @@
           "modalities": {
             "input": [
               "text"
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
-      },
-    },
-    "wolf-ai": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Wolf AI",
-      "options": {
-        "baseURL": "http://api.ai.rootcloud.info/v1",
-        "litellmProxy": true,
-      },
-      "models": {
-        "deepseek-v4-flash": {
-          "name": "Deepseek V4 Flash",
-          "id": "svc/deepseek-v4-flash",
-          "attachment": false,
-          "reasoning": true,
-          "interleaved": {
-            "field": "reasoning_content",
-          },
-          "options": {
-            "thinking": true
-          },
-          "variants": {
-            "low": {
-              "reasoningEffort": "low"
-            },
-            "medium": {
-              "disabled": true
-            },
-            "high": {
-              "reasoningEffort": "high"
-            },
-            "max": {
-              "reasoningEffort": "max"
-            }
-          },
-          "limit": {
-            "context": 524288,
-            "output": 65535,
-          },
-          "modalities": {
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
-        "deepseek-v4.1-flash": {
-          "name": "Deepseek V4.1 Flash",
-          "id": "svc/deepseek-v4.1-flash",
-          "attachment": false,
-          "reasoning": true,
-          "interleaved": {
-            "field": "reasoning_content",
-          },
-          "options": {
-            "thinking": true
-          },
-          "variants": {
-            "low": {
-              "reasoningEffort": "low"
-            },
-            "medium": {
-              "disabled": true
-            },
-            "high": {
-              "reasoningEffort": "high"
-            },
-            "max": {
-              "reasoningEffort": "max"
-            }
-          },
-          "limit": {
-            // "context": 202752,
-            // "context": 1048576,
-            "context": 524288,
-            "output": 65535,
-          },
-          "modalities": {
-            "input": [
-              "text",
-              // "image"
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
-        "qwen-3.8-flash": {
-          "name": "Qwen 3.8 Flash",
-          "id": "svc/qwen38-flash",
-          "attachment": true,
-          "reasoning": true,
-          "interleaved": {
-            "field": "reasoning_content",
-          },
-          "options": {
-            "thinking": true
-          },
-          "limit": {
-            // "context": 202752,
-            // "context": 1048576,
-            "context": 262144,
-            "output": 65535,
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
-        "glm-5.3": {
-          "name": "GLM 5.3",
-          "id": "glm-5.3",
-          "reasoning": true,
-          "attachment": false,
-          "interleaved": {
-            "field": "reasoning_content",
-          },
-          "variants": {
-            "low": {
-              "reasoningEffort": "low"
-            },
-            "high": {
-              "reasoningEffort": "high"
-            },
-            "max": {
-              "reasoningEffort": "max"
-            }
-          },
-          "limit": {
-            "context": 524288,
-            "output": 131072,
-          },
-          "modalities": {
-            "input": [
-              "text",
-              // "image",
-              // "video"
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
-        "glm-5.3-flash": {
-          "name": "GLM 5.3 Flash",
-          "id": "svc/glm-5.3-flash",
-          "reasoning": true,
-          "attachment": false,
-          "interleaved": {
-            "field": "reasoning_content",
-          },
-          "variants": {
-            "low": {
-              "reasoningEffort": "low"
-            },
-            "high": {
-              "reasoningEffort": "high"
-            },
-            "max": {
-              "reasoningEffort": "max"
-            }
-          },
-          "limit": {
-            "context": 524288,
-            "output": 131072,
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              // "video"
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
-        "glm-5.3-flash-dev": {
-          "name": "GLM 5.3 Flash (Dev)",
-          "id": "svc/ack-dev",
-          "reasoning": true,
-          "attachment": false,
-          "interleaved": {
-            "field": "reasoning_content",
-          },
-          "variants": {
-            "low": {
-              "reasoningEffort": "low"
-            },
-            "high": {
-              "reasoningEffort": "high"
-            },
-            "max": {
-              "reasoningEffort": "max"
-            }
-          },
-          "limit": {
-            "context": 524288,
-            "output": 131072,
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
-        "qwen38": {
-          "name": "Qwen 3.8",
-          "id": "dashscope/qwen3.8-max",
-          "reasoning": false,
-          "attachment": false,
-          "limit": {
-            "context": 262144,
-            "output": 32768,
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image"
             ],
             "output": [
               "text"

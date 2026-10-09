@@ -22,9 +22,8 @@
     // custom agent: opencode-native code-reviewer, fallback chain via SLIM
     "code-reviewer": {
       "model": [
-        { "id": "wolf-ai/glm-5.3" },
-        { "id": "alibaba-cn/glm-5.2" },
-        { "id": "wolf-ai/deepseek-v4.1-flash" },
+        { "id": "alibaba-cn/deepseek-v4.1-flash" },
+        { "id": "alibaba-cn/glm-5.3" },
       ]
     },
   },
@@ -33,49 +32,42 @@
     "cheap": {
       "orchestrator": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
       "oracle": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/glm-5.3" },
           { "id": "openai/gpt-5.6-luna", "variant": "high" },
         ],
         "variant": "medium"
       },
       "explorer": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
       "librarian": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
       "fixer": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
       "designer": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
       "observer": {
-        "model": "wolf-ai/qwen38"
+        "model": "alibaba-cn/deepseek-v4.1-flash"
       },
       "council": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
     },
@@ -89,66 +81,63 @@
       },
       "explorer": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
       "librarian": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
       "fixer": {
         "model": [
-          { "id": "wolf-ai/deepseek-v4.1-flash", "variant": "max" },
-          { "id": "wolf-ai/glm-5.3-flash", "variant": "max" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash", "variant": "max" },
         ]
       },
       "designer": {
-        "model": "wolf-ai/glm-5.3-flash"
+        "model": "alibaba-cn/deepseek-v4.1-flash"
       },
       "observer": {
-        "model": "wolf-ai/qwen38"
+        "model": "alibaba-cn/deepseek-v4.1-flash"
       },
       "council": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "high"
       },
     },
     // ── powerful: all glm-5.3, reasoning cranked ──
     "powerful": {
       "orchestrator": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "max"
       },
       "oracle": {
         "model": [
-          { "id": "wolf-ai/glm-5.3", "variant": "max" },
+          { "id": "alibaba-cn/glm-5.3", "variant": "max" },
           { "id": "openai/gpt-5.6-luna", "variant": "high" },
         ]
       },
       "explorer": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "low"
       },
       "librarian": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "low"
       },
       "fixer": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "high"
       },
       "designer": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "high"
       },
       "observer": {
-        "model": "wolf-ai/qwen38"
+        "model": "alibaba-cn/deepseek-v4.1-flash"
       },
       "council": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "max"
       },
     },
@@ -185,7 +174,7 @@
     // ── hybrid-best: best model per role across providers ──
     "hybrid-best": {
       "orchestrator": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "max"
       },
       "oracle": {
@@ -196,26 +185,25 @@
       },
       "explorer": {
         "model": [
-          { "id": "wolf-ai/glm-5.3-flash" },
-          { "id": "wolf-ai/deepseek-v4.1-flash" },
+          { "id": "alibaba-cn/deepseek-v4.1-flash" },
         ]
       },
       "librarian": {
         "model": "openai/gpt-5.4-nano"
       },
       "fixer": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "high"
       },
       "designer": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "high"
       },
       "observer": {
-        "model": "wolf-ai/qwen38"
+        "model": "alibaba-cn/deepseek-v4.1-flash"
       },
       "council": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "variant": "max"
       },
     },

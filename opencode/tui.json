@@ -5,6 +5,8 @@
     "enabled": true
   },
   "plugin": [
-    "@mesaleh/opencode-tps"
+    "@mesaleh/opencode-tps",
+    "@tarquinen/opencode-dcp",
+    "oh-my-opencode-slim@latest"
   ]
 }

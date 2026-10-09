@@ -9,7 +9,7 @@
     },
     "agents": {
       "sisyphus": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "reasoning": "max",
         "fallback_models": [
           {
@@ -22,10 +22,10 @@
         }
       },
       "sisyphus-junior": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "fallback_models": [
           {
-            "model": "wolf-ai/deepseek-v4.1-flash",
+            "model": "alibaba-cn/deepseek-v4.1-flash",
             "reasoning": "default"
           }
         ],
@@ -34,10 +34,10 @@
         }
       },
       "general": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "fallback_models": [
           {
-            "model": "wolf-ai/deepseek-v4.1-flash"
+            "model": "alibaba-cn/deepseek-v4.1-flash"
           }
         ],
         "permission": {
@@ -45,13 +45,13 @@
         }
       },
       "hephaestus": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "permission": {
           "edit": "allow"
         }
       },
       "oracle": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/glm-5.3",
         "reasoning": "high",
         "fallback_models": [
           {
@@ -59,7 +59,7 @@
             "reasoning": "high"
           },
           {
-            "model": "wolf-ai/deepseek-v4.1-flash",
+            "model": "alibaba-cn/deepseek-v4.1-flash",
             "reasoning": "high"
           }
         ],
@@ -68,10 +68,10 @@
         }
       },
       "librarian": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "fallback_models": [
           {
-            "model": "wolf-ai/deepseek-v4.1-flash",
+            "model": "alibaba-cn/deepseek-v4.1-flash",
             "reasoning": "high"
           }
         ],
@@ -80,10 +80,10 @@
         }
       },
       "explore": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "fallback_models": [
           {
-            "model": "wolf-ai/deepseek-v4.1-flash",
+            "model": "alibaba-cn/deepseek-v4.1-flash",
             "reasoning": "high"
           },
           {
@@ -95,7 +95,7 @@
         }
       },
       "multimodal-looker": {
-        "model": "wolf-ai/qwen35",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "reasoning": "medium",
         "fallback_models": [
           {
@@ -110,7 +110,7 @@
         }
       },
       "prometheus": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "reasoning": "max",
         "fallback_models": [
           {
@@ -118,7 +118,7 @@
             "reasoning": "high"
           },
           {
-            "model": "wolf-ai/glm-5.3",
+            "model": "alibaba-cn/deepseek-v4.1-flash",
             "reasoning": "high"
           }
         ],
@@ -127,14 +127,14 @@
         }
       },
       "metis": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "fallback_models": [
           {
             "model": "openai/gpt-5.5",
             "reasoning": "high"
           },
           {
-            "model": "wolf-ai/deepseek-v4.1-flash",
+            "model": "alibaba-cn/deepseek-v4.1-flash",
             "reasoning": "high"
           }
         ],
@@ -143,11 +143,11 @@
         }
       },
       "momus": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "reasoning": "xhigh",
         "fallback_models": [
           {
-            "model": "wolf-ai/glm-5.3",
+            "model": "alibaba-cn/deepseek-v4.1-flash",
             "reasoning": "high"
           }
         ],
@@ -156,14 +156,14 @@
         }
       },
       "atlas": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "fallback_models": [
           {
             "model": "openai/gpt-5.5",
             "reasoning": "medium"
           },
           {
-            "model": "wolf-ai/glm-5.3",
+            "model": "alibaba-cn/deepseek-v4.1-flash",
             "reasoning": "high"
           }
         ],
@@ -172,10 +172,10 @@
         }
       },
       "document-writer": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "fallback_models": [
           {
-            "model": "wolf-ai/deepseek-v4.1-flash"
+            "model": "alibaba-cn/deepseek-v4.1-flash"
           }
         ],
         "permission": {
@@ -185,10 +185,10 @@
     },
     "categories": {
       "visual-engineering": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "reasoning": "high",
         "models": [
-          "wolf-ai/glm-5.3",
+          "alibaba-cn/deepseek-v4.1-flash",
           {
             "model": "opencode/gemini-3.1-pro",
             "reasoning": "high"
@@ -203,10 +203,10 @@
         ]
       },
       "ultrabrain": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "reasoning": "xhigh",
         "models": [
-          "wolf-ai/glm-5.3",
+          "alibaba-cn/deepseek-v4.1-flash",
           {
             "model": "opencode/gpt-5.5",
             "reasoning": "xhigh"
@@ -226,10 +226,10 @@
         ]
       },
       "deep": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "reasoning": "medium",
         "models": [
-          "wolf-ai/glm-5.3",
+          "alibaba-cn/deepseek-v4.1-flash",
           {
             "model": "opencode/gpt-5.5",
             "reasoning": "medium"
@@ -249,10 +249,10 @@
         ]
       },
       "artistry": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "reasoning": "high",
         "models": [
-          "wolf-ai/glm-5.3",
+          "alibaba-cn/deepseek-v4.1-flash",
           {
             "model": "opencode/gemini-3.1-pro",
             "reasoning": "high"
@@ -270,12 +270,9 @@
         ]
       },
       "quick": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "models": [
-          "wolf-ai/glm-5.3-flash",
-          {
-            "model": "wolf-ai/deepseek-v4.1-flash"
-          },
+          "alibaba-cn/deepseek-v4.1-flash",
           {
             "model": "opencode/gpt-5.4-mini"
           },
@@ -291,12 +288,9 @@
         ]
       },
       "unspecified-low": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "models": [
-          "wolf-ai/glm-5.3-flash",
-          {
-            "model": "wolf-ai/deepseek-v4.1-flash"
-          },
+          "alibaba-cn/deepseek-v4.1-flash",
           {
             "model": "openai/gpt-5.5",
             "reasoning": "medium"
@@ -314,9 +308,9 @@
         ]
       },
       "unspecified-high": {
-        "model": "wolf-ai/glm-5.3",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "models": [
-          "wolf-ai/glm-5.3",
+          "alibaba-cn/deepseek-v4.1-flash",
           {
             "model": "openai/gpt-5.5",
             "reasoning": "medium"
@@ -334,12 +328,9 @@
         ]
       },
       "writing": {
-        "model": "wolf-ai/glm-5.3-flash",
+        "model": "alibaba-cn/deepseek-v4.1-flash",
         "models": [
-          "wolf-ai/glm-5.3-flash",
-          {
-            "model": "wolf-ai/deepseek-v4.1-flash"
-          },
+          "alibaba-cn/deepseek-v4.1-flash",
           {
             "model": "opencode/gemini-3-flash"
           },
@@ -359,7 +350,7 @@
       "defaultConcurrency": 10,
       "providerConcurrency": {
         "google": 3,
-        "wolf-ai": 20
+        "alibaba-cn": 20
       }
     },
     "disabled_hooks": [
