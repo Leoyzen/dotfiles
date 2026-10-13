@@ -10,4 +10,5 @@
   "session": {
     "tps": true,
   },
+  "plugins": ["./herdr-opencode"],
 }
