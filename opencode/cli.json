@@ -11,4 +11,7 @@
     "tps": true,
   },
   "plugins": ["./herdr-opencode"],
+  "theme": {
+    "name": "mimocode",
+  },
 }
