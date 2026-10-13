@@ -213,5 +213,8 @@
     "type": "auto",
     "layout": "main-vertical",
     "main_pane_size": 60,
+    // OMO defaults to the lightweight `opencode mini` viewer on OpenCode v2
+    // (v1 defaulted to the full TUI). Force the full interface in subagent panes.
+    "viewer": "tui",
   },
 }
