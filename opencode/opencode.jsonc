@@ -7,7 +7,7 @@
     // "superpowers@git+https://github.com/obra/superpowers.git",
     "@openviking/opencode-plugin",
   ],
-  "autoupdate": true,
+  "update": "notify",
   "snapshot": false,
   "model": "alibaba-cn/deepseek-v4.1-flash",
   "mcp": {

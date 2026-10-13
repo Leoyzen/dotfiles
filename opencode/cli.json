@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  // v2 terminal client config (replaces v1 tui.json).
+  // scroll_* mapped: scroll_speed -> scroll.speed, scroll_acceleration -> scroll.acceleration
+  "scroll": {
+    "speed": 5,
+    "acceleration": true,
+  },
+  // Native replacement for the v1-only @mesaleh/opencode-tps TUI plugin.
+  "session": {
+    "tps": true,
+  },
+}

@@ -66,6 +66,7 @@ git_user_email = "leoyzen@gmail.com"
 
 [opencode.files]
 "opencode/opencode.jsonc" = "~/.config/opencode/opencode.jsonc"
+"opencode/cli.json" = "~/.config/opencode/cli.json"
 "opencode/tui.json" = "~/.config/opencode/tui.json"
 "opencode/dcp.jsonc" = "~/.config/opencode/dcp.jsonc"
 "opencode/openviking-config.json" = "~/.config/opencode/openviking-config.json"

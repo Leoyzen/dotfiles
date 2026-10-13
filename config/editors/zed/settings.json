@@ -81,7 +81,7 @@
         "google/antigravity-claude-sonnet-4-6",
       ],
       "type": "custom",
-      "command": "/Users/yuchen.liu/.opencode/bin/opencode",
+      "command": "/opt/homebrew/bin/opencode",
       "args": ["acp"],
       "env": {
         "HTTPS_PROXY": "http://127.0.0.1:7890",

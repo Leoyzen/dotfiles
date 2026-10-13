@@ -115,7 +115,7 @@ macos_lsp=(
 
 # AI 编码工具
 ai_tools=(
-    "anomalyco/tap/opencode"
+    "anomalyco/tap/opencode-v2"
     "openspec"
     "github-mcp-server"
     "context7-mcp"
