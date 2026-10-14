@@ -9,6 +9,9 @@
   // Native replacement for the v1-only @mesaleh/opencode-tps TUI plugin.
   "session": {
     "tps": true,
+    // v2 hides model reasoning by default; show it expanded in the TUI
+    // (and in subagent panes, which now use viewer: "tui").
+    "thinking": "show",
   },
   "plugins": ["./herdr-opencode"],
   "theme": {
