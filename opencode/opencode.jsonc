@@ -9,7 +9,10 @@
   ],
   "update": "notify",
   "snapshot": false,
-  "model": "alibaba-cn/deepseek-v4.1-flash",
+  // Session default / fallback for agents a preset does not cover (e.g. the
+  // built-in `explore`). Keep it on the provider you are actively using; the
+  // real provider switch happens per-agent via /preset (bailian | go).
+  "model": "opencode-go/deepseek-v4.1-flash",
   "mcp": {
     "mcp-router": {
       "type": "local",
@@ -48,7 +51,7 @@
   },
   "enabled_providers": [
     "alibaba-cn",
-    "wolf-ack",
+    "opencode-go",
     "deepseek",
     "openai"
   ],
@@ -61,20 +64,21 @@
     "grep": true,
   },
   "agent": {
+    // NOTE: no `model` pins here on purpose. Models for these native agents come
+    // from the active oh-my-opencode-slim preset (`/preset bailian` | `/preset go`),
+    // which covers build/plan/compaction/code-reviewer/... A `model` pinned here
+    // would WIN over the preset and stay on a dead provider after a profile switch.
     "compaction": {
-      "model": "alibaba-cn/deepseek-v4.1-flash",
       "variant": "high",
     },
     "build": {
       "mode": "primary",
-      "model": "alibaba-cn/deepseek-v4.1-flash",
       // NOTE: do not add a deprecated `tools` block here. `tools.bash: true`
       // compiles to a trailing `bash: allow *` permission rule that overrides
       // the global bash denies below (opencode evaluates the LAST match).
     },
     "plan": {
       "mode": "primary",
-      "model": "alibaba-cn/deepseek-v4.1-flash",
       "variant": "high",
       "tools": {
         "write": false,
@@ -85,7 +89,6 @@
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
       "mode": "subagent",
-      "model": "alibaba-cn/deepseek-v4.1-flash",
       "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
       "tools": {
         "write": false,
@@ -239,37 +242,6 @@
     "alibaba-cn": {
       "options": {
         "baseURL": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
-      },
-    },
-    "wolf-ack": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Wolf Ack",
-      "options": {
-        "baseURL": "http://10.147.254.3:8004/v1",
-        "litellmProxy": true,
-      },
-      "models": {
-        "deepseek-v4-flash": {
-          "name": "Deepseek V4 Flash",
-          "id": "svc/ack-dev",
-          "attachment": false,
-          "reasoning": true,
-          "interleaved": {
-            "field": "reasoning_content",
-          },
-          "limit": {
-            "context": 524288,
-            "output": 32768,
-          },
-          "modalities": {
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ],
-          },
-        },
       },
     },
   },

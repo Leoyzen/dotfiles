@@ -10,7 +10,6 @@ set -gx FZF_DEFAULT_COMMAND "fd --type file --color=always"
 set -gx SSH_AUTH_SOCK "~/.ssh/agent"
 set -gx DEFAULT_MVN_VERSION 3.6.3
 set -gx OPENCODE_EXPERIMENTAL_LSP_TY 1
-set -gx OPENCODE_MODEL wolf-ai/ack-dev
 set -gx OPENCODE_GEMINI_PRO_MODEL google/antigravity-gemini-3-pro
 set -gx OPENCODE_GEMINI_FLASH_MODEL google/antigravity-gemini-3-flash
 set -gx OPENCODE_CLAUDE_MODEL google/antigravity-claude-sonnet-4-6-thinking

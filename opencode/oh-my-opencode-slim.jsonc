@@ -3,7 +3,8 @@
 // Switch at runtime via /preset TUI command, or set "preset" field below.
 {
   // Active preset (change via /preset or here)
-  "preset": "balanced",
+  // Profile presets: "bailian" (百炼 alibaba-cn) | "go" (OpenCode Go opencode-go)
+  "preset": "go",
   // Disable foreground model-fallback failover. With fallback enabled, a
   // subagent that triggers a model switch aborts its own session, which the
   // native `task` tool sees as "Task cancelled" and the result is lost.
@@ -19,15 +20,49 @@
   // (allow-by-default plus the deny guards). `council` stays unset so SLIM's
   // synthesis-only permission (no tools) is preserved.
   "agents": {
-    // custom agent: opencode-native code-reviewer, fallback chain via SLIM
-    "code-reviewer": {
-      "model": [
-        { "id": "alibaba-cn/deepseek-v4.1-flash" },
-        { "id": "alibaba-cn/glm-5.3" },
-      ]
-    },
+    // code-reviewer's model comes from the active profile preset (bailian | go).
+    // A global `agents.<name>.model` override here would WIN over the preset and
+    // stay on a dead provider after a profile switch, so none is set.
   },
   "presets": {
+    // ══ Profiles: switch the whole stack's PROVIDER with /preset ══
+    // `bailian` = 百炼 Token Plan (alibaba-cn); `go` = OpenCode Go (opencode-go).
+    // Both providers expose the same model ids, so the two presets are the same
+    // shape under a different prefix. They intentionally cover EVERY agent that
+    // takes a model (native build/plan/compaction/summary/title included), so a
+    // single /preset switch leaves nothing pointing at a dead provider.
+    "bailian": {
+      "orchestrator": { "model": "alibaba-cn/deepseek-v4.1-flash", "variant": "high" },
+      "oracle": { "model": "alibaba-cn/glm-5.3" },
+      "explorer": { "model": "alibaba-cn/deepseek-v4.1-flash" },
+      "librarian": { "model": "alibaba-cn/deepseek-v4.1-flash" },
+      "fixer": { "model": "alibaba-cn/deepseek-v4.1-flash", "variant": "max" },
+      "designer": { "model": "alibaba-cn/deepseek-v4.1-flash" },
+      "code-reviewer": { "model": [{ "id": "alibaba-cn/deepseek-v4.1-flash" }, { "id": "alibaba-cn/glm-5.3" }] },
+      "build": { "model": "alibaba-cn/deepseek-v4.1-flash" },
+      "plan": { "model": "alibaba-cn/deepseek-v4.1-flash", "variant": "high" },
+      "compaction": { "model": "alibaba-cn/deepseek-v4.1-flash", "variant": "high" },
+      "summary": { "model": "alibaba-cn/deepseek-v4.1-flash" },
+      "title": { "model": "alibaba-cn/deepseek-v4.1-flash" },
+      "explore": { "model": "alibaba-cn/deepseek-v4.1-flash" },
+      "general": { "model": "alibaba-cn/deepseek-v4.1-flash" },
+    },
+    "go": {
+      "orchestrator": { "model": "opencode-go/deepseek-v4.1-flash", "variant": "high" },
+      "oracle": { "model": "opencode-go/glm-5.3" },
+      "explorer": { "model": "opencode-go/deepseek-v4.1-flash" },
+      "librarian": { "model": "opencode-go/deepseek-v4.1-flash" },
+      "fixer": { "model": "opencode-go/deepseek-v4.1-flash", "variant": "max" },
+      "designer": { "model": "opencode-go/deepseek-v4.1-flash" },
+      "code-reviewer": { "model": [{ "id": "opencode-go/deepseek-v4.1-flash" }, { "id": "opencode-go/glm-5.3" }] },
+      "build": { "model": "opencode-go/deepseek-v4.1-flash" },
+      "plan": { "model": "opencode-go/deepseek-v4.1-flash", "variant": "high" },
+      "compaction": { "model": "opencode-go/deepseek-v4.1-flash", "variant": "high" },
+      "summary": { "model": "opencode-go/deepseek-v4.1-flash" },
+      "title": { "model": "opencode-go/deepseek-v4.1-flash" },
+      "explore": { "model": "opencode-go/deepseek-v4.1-flash" },
+      "general": { "model": "opencode-go/deepseek-v4.1-flash" },
+    },
     // ── cheap: all flash/nano, minimum cost ──
     "cheap": {
       "orchestrator": {
