@@ -15,3 +15,4 @@ set -x INFOPATH $HOMEBREW_PREFIX/share/info $INFOPATH
 # 镜像源
 set -x HOMEBREW_API_DOMAIN https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api
 set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
+set -x HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS 1
